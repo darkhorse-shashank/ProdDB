@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://RACAS/ExternalSourceRASTicketCreation.tws"
+	xmlns:impl="http://RACAS/ExternalSourceRASTicketCreation.tws"
+	xmlns:intf="http://RACAS/ExternalSourceRASTicketCreation.tws"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<complexType name="ArrayOf_string">
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="0" name="item"
+				nillable="true" type="xsd:string" />
+		</sequence>
+	</complexType>
+</schema>

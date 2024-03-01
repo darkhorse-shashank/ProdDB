@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://RASAccess-ApplicationDB/RASExcessRefundTicketDraft" xmlns:ns2="http://RASAccess-ApplicationDB/RASIntegrationService" xmlns:ns3="http://TicketDomain-v1.0.0/org/aig/access/RetrieveTicketAccess" xmlns:ns4="http://GCDomain-v1.0.0/org/tataaig/access/RetrieveAccessGC" xmlns:ns5="http://RACAS/ExternalSourceRASTicketCreation.tws" xmlns:ns6="http://RASAccess-ApplicationDB/UpdateDetailsForSource" xmlns:ns7="http://TicketDomain-v1.0.0/org/aig/access/RASExcessRefundTicketFromDraft" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="CreateRASEXcessRefundTicketFromDraft" name="CreateRASEXcessRefundTicketFromDraft">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="async" portType="ns7:RASExcessRefundTicketFromDraft">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="RASIntegrationServicePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:RASIntegrationService"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="RASIntegrationServiceCmpt"/>
+    </reference>
+    <reference name="RetrieveTicketAccessPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:RetrieveTicketAccess"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="RetrieveTicketJavaCmpt"/>
+    </reference>
+    <reference name="RetrieveAccessGCPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns4:RetrieveAccessGC"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="RetrieveAccessGCImport"/>
+    </reference>
+    <reference name="UpdateRASTicketNoPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns6:UpdateRASTicketNoForSource"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="UpdateSourceForRASExcessRefundTicketNumber"/>
+    </reference>
+    <reference name="ExternalRASTicketCreationPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns5:ExternalSourceRASTicketCreationPortType"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="ExternalSourceRASTicketCreationImport"/>
+    </reference>
+  </references>
+  <implementation xsi:type="process:ProcessImplementation">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+    <process bpel="/CreateRASEXcessRefundTicketFromDraft.bpel"/>
+  </implementation>
+</scdl:component>

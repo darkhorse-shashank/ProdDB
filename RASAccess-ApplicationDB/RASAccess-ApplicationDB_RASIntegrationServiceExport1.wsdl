@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="RASIntegrationServiceExport1_RASIntegrationServiceHttp_Service" targetNamespace="http://RASAccess-ApplicationDB/RASIntegrationService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="http://RASAccess-ApplicationDB/RASIntegrationService">
+  <wsdl:import location="RASIntegrationService.wsdl" namespace="http://RASAccess-ApplicationDB/RASIntegrationService"/>
+  <wsdl:binding name="RASIntegrationServiceExport1_RASIntegrationServiceHttpBinding" type="this:RASIntegrationService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createRASExcessRefundDraftTicket">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createRASExcessRefundDraftTicketRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createRASExcessRefundDraftTicketResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findExcessRefundDraftTicketDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findExcessRefundDraftTicketDetailsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findExcessRefundDraftTicketDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="findExcessRefundDraftTicketDetailsFault">
+        <soap:fault name="findExcessRefundDraftTicketDetailsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findExcessRefundDraftDocumentDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findExcessRefundDraftDocumentDetailsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findExcessRefundDraftDocumentDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="findExcessRefundDraftDocumentDetailsFault">
+        <soap:fault name="findExcessRefundDraftDocumentDetailsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="saveExcessRefundReverseFeedDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="saveExcessRefundReverseFeedDetailsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="saveExcessRefundReverseFeedDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="saveExcessRefundReverseFeedDetailsFault">
+        <soap:fault name="saveExcessRefundReverseFeedDetailsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="saveErrorDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="saveErrorDetailsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="updateExcessRefundReverseFeedDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updateExcessRefundReverseFeedDetailsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateExcessRefundReverseFeedDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="updateExcessRefundReverseFeedDetailsFault">
+        <soap:fault name="updateExcessRefundReverseFeedDetailsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateRASTicketStatusToSource">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updateRASTicketStatusToSourceRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateRASTicketStatusToSourceResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="updateRASTicketStatusToSourceFault">
+        <soap:fault name="updateRASTicketStatusToSourceFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="updateExcessRefundDraftGCTransactionCount">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updateExcessRefundDraftGCTransactionCountRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateExcessRefundDraftGCTransactionCountResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RASIntegrationServiceExport1_RASIntegrationServiceHttpService">
+    <wsdl:port binding="this:RASIntegrationServiceExport1_RASIntegrationServiceHttpBinding" name="RASIntegrationServiceExport1_RASIntegrationServiceHttpPort">
+      <soap:address location="http://localhost:9080/RASAccess-ApplicationDBWeb/sca/RASIntegrationServiceExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

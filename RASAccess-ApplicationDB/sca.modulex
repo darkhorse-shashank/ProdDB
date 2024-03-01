@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.wiring.ui.ext.model="http:///com/ibm/wbit/wiring/ui/ext/model.ecore" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions>
+      <extendedObject href="sca.module#//@module"/>
+      <extensionObject xsi:type="sb:StickyDocument">
+        <stickyBoard id="default"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap namespace="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0">
+    <extensions>
+      <extendedObject href="RetrieveDocumentsJavaCpmt.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" unknown="false" visible="true" x="549" y="651"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="DBInterface.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" unknown="false" visible="true" x="2074" y="514"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="MaintainApprovalLevelAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" unknown="false" visible="true" x="30" y="306" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="RetrieveRefundMediationCpmt.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" unknown="false" visible="true" x="549" y="720"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="HandleGeneralAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="30" y="444" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="RetrieveRefundAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" unknown="false" visible="true" x="30" y="720" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="MaintainDocumentsJavaCpmt.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" unknown="false" visible="true" x="549" y="30"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="RetrieveDocumentsAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" unknown="false" visible="true" x="30" y="651" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="RetrieveTicketJavaCmpt.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" unknown="false" visible="true" x="1443" y="869"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="MaintainTicketAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" unknown="false" visible="true" x="30" y="237" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ApprovalLevelMediationCmpt.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" unknown="false" visible="true" x="549" y="306"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="HandleGeneralMediationCpmt.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" unknown="false" visible="true" x="549" y="444"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="MaintainTicketJavaCpmt.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" unknown="false" visible="true" x="549" y="237"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="MaintainDocumentsAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" unknown="false" visible="true" x="30" y="30" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="RetrieveMasters.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="549" y="99"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="RetrieveMastersAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="30" y="99" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="RetrieveTicketAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" unknown="false" visible="true" x="30" y="869" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="RASIntegrationServiceCmpt.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/java/6.0.0}JavaImplementation" unknown="false" visible="true" x="1443" y="938"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="RASIntegrationServiceExport1.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0}JaxWsExportBinding" unknown="false" visible="true" x="30" y="939" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="RetrieveAccessGCImport.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ImportBinding" unknown="false" visible="true" x="1972" y="1041"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="UpdateSourceForRASExcessRefundTicketNumber.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0}ProcessImplementation" unknown="false" visible="true" x="957" y="1108"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="UpdateSourceForRASTicketStatus.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="30" y="1186" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="PaceRefundIntegrationServicesImport.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0}JaxWsImportBinding" unknown="false" visible="true" x="1869" y="1122"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="MaintainGCTransactionCmpt.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/java/6.0.0}JavaImplementation" unknown="false" visible="true" x="549" y="375"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="MaintainGCTransactionAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="30" y="375" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="GCTransactionLogging.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="549" y="513"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="GCTransactionLoggingAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="30" y="513" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="ExternalSourceRASTicketCreationImport.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0}JaxWsImportBinding" unknown="false" visible="true" x="1851" y="972"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="UpdateSourceForRASTicketStatus.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" unknown="false" visible="true" x="957" y="1184"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraftAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="30" y="1043" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CCMTransactionLogging.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/mfc/6.0.0}MediationFlowImplementation" unknown="false" visible="true" x="549" y="582"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CCMTransactionLoggingAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="30" y="582" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="MaintainCCMTransaction.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/java/6.0.0}JavaImplementation" unknown="false" visible="true" x="549" y="168"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="MaintainCCMTransactionAccess.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="30" y="168" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="UpdateSourceForRASExcessRefundTicketNumberExport.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0}ExportBinding" unknown="false" visible="true" x="30" y="1113" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" unknown="false" visible="true" x="549" y="1014"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="createRASNegativeEndorsementDraftTicket.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0}ProcessImplementation" unknown="false" visible="true" x="957" y="775"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="NegativeEndorsementRASDraftTicketCreationImport.import#//@import"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0}JaxWsImportBinding" unknown="false" visible="true" x="1751" y="903"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="RASGCIntegrationJavaCmpt.component#//@Component"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:NodeExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/java/6.0.0}JavaImplementation" unknown="false" visible="true" x="549" y="789"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="RASGCIntegrationServiceExport1.export#//@export"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ExportExtension" type="{http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0}JaxWsExportBinding" unknown="false" visible="true" x="30" y="789" bound="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="sca.module#//@module"/>
+      <extensionObject xsi:type="com.ibm.wbit.wiring.ui.ext.model:ModuleExtension"/>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="createRASNegativeEndorsementDraftTicket" targetNamespace="http://RASAccess-ApplicationDB/createRASNegativeEndorsementDraftTicketArtifacts" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:wsdl0="http://TicketDomain-v1.0.0/org/aig/access/NegativeEndorsementDraftTicket" xmlns:wsdl1="http://TicketDomain-v1.0.0/org/aig/access/RetrieveTicketAccess" xmlns:wsdl2="http://RACAS/ExternalSourceRASTicketCreation.tws" xmlns:wsdl3="http://Access-ApplicationDB/DBInterface" xmlns:wsdl4="http://RASAccess-ApplicationDB/RASGCIntegrationService">
+  <plnk:partnerLinkType name="NegativeEndorsementDraftTicketPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:NegativeEndorsementDraftTicket"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="RetrieveTicketAccessPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl1:RetrieveTicketAccess"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="ExternalSourceRASTicketCreationPortTypePLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl2:ExternalSourceRASTicketCreationPortType"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="DBInterfacePLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl3:DBInterface"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="RASGCIntegrationServicePLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl4:RASGCIntegrationService"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="org/aig/access/NegativeEndorsementDraftTicket.wsdl" namespace="http://TicketDomain-v1.0.0/org/aig/access/NegativeEndorsementDraftTicket"/>
+    <wsdl:import location="org/aig/access/RetrieveTicketAccess.wsdl" namespace="http://TicketDomain-v1.0.0/org/aig/access/RetrieveTicketAccess"/>
+    <wsdl:import location="_141/_195/_33/_10/teamworks/webservices/racas/externalsourcerasticketcreation_tws_wsdl.wsdl" namespace="http://RACAS/ExternalSourceRASTicketCreation.tws"/>
+    <wsdl:import location="DBInterface.wsdl" namespace="http://Access-ApplicationDB/DBInterface"/>
+    <wsdl:import location="RASGCIntegrationService.wsdl" namespace="http://RASAccess-ApplicationDB/RASGCIntegrationService"/>
+</wsdl:definitions>

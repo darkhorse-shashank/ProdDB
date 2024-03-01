@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="RASIntegrationService" targetNamespace="http://RASAccess-ApplicationDB/RASIntegrationService" xmlns:bons1="http://RASAccess-ApplicationDB/RASHealthIntegrationData" xmlns:bons2="http://RACASBO" xmlns:bons3="http://NBHD" xmlns:tns="http://RASAccess-ApplicationDB/RASIntegrationService" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://RASAccess-ApplicationDB/RASIntegrationService">
+            <xsd:import namespace="http://NBHD" schemaLocation="NBHD/Response.xsd"/>
+            <xsd:import namespace="http://NBHD" schemaLocation="NBHD/RefundDetails.xsd"/>
+            <xsd:import namespace="http://RACASBO" schemaLocation="DocumentList.xsd"/>
+            <xsd:import namespace="http://RACASBO" schemaLocation="RASException.xsd"/>
+            <xsd:import namespace="http://RACASBO" schemaLocation="TicketBO.xsd"/>
+            <xsd:import namespace="http://RASAccess-ApplicationDB/RASHealthIntegrationData" schemaLocation="RASHealthIntegrationData/ExcessRefundDraftTicketOutput.xsd"/>
+      <xsd:import namespace="http://RASAccess-ApplicationDB/RASHealthIntegrationData" schemaLocation="RASHealthIntegrationData/ExcessRefundDraftTicketInput.xsd"/>
+      <xsd:element name="createRASExcessRefundDraftTicket">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="rasTicketInput" nillable="true" type="bons1:ExcessRefundDraftTicketInput"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createRASExcessRefundDraftTicketResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="rasTicketOutput" nillable="true" type="bons1:ExcessRefundDraftTicketOutput"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findExcessRefundDraftTicketDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="draftTicketNo" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findExcessRefundDraftTicketDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="rasTicketDetails" nillable="true" type="bons2:TicketBO"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findExcessRefundDraftTicketDetailsFault1_findExcessRefundDraftTicketDetailsFault" nillable="true" type="bons2:RASException"/>
+            <xsd:element name="findExcessRefundDraftDocumentDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="lob" nillable="true" type="xsd:string"/>
+            <xsd:element name="refundType" nillable="true" type="xsd:string"/>
+            <xsd:element name="draftTicketNo" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findExcessRefundDraftDocumentDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="documents" nillable="true" type="bons2:DocumentList"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findExcessRefundDraftDocumentDetailsFault1_findExcessRefundDraftDocumentDetailsFault" nillable="true" type="bons2:RASException"/>
+            <xsd:element name="saveExcessRefundReverseFeedDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="draftTicketNo" nillable="true" type="xsd:string"/>
+            <xsd:element name="rasTicketNo" nillable="true" type="xsd:string"/>
+            <xsd:element name="requestType" nillable="true" type="xsd:string"/>
+            <xsd:element name="source" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="saveExcessRefundReverseFeedDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="excessRefundReverseFeedId" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="saveExcessRefundReverseFeedDetailsFault1_saveExcessRefundReverseFeedDetailsFault" nillable="true" type="bons2:RASException"/>
+            <xsd:element name="saveErrorDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="errorCode" nillable="true" type="xsd:string"/>
+            <xsd:element name="errorDetail" nillable="true" type="xsd:string"/>
+            <xsd:element name="gcError" nillable="true" type="xsd:string"/>
+                        <xsd:element name="draftTicketNo" nillable="true" type="xsd:string"/>
+                        <xsd:element name="sourceUserName" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateExcessRefundReverseFeedDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="reverseFeedId" nillable="true" type="xsd:int"/>
+                        <xsd:element name="reverseFeedInput" nillable="true" type="bons3:RefundDetails"/>
+                        <xsd:element name="reverseFeedOutput" nillable="true" type="bons3:Response"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateExcessRefundReverseFeedDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateStatus" nillable="true" type="xsd:string"/>
+                    </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateExcessRefundReverseFeedDetailsFault1_updateExcessRefundReverseFeedDetailsFault" nillable="true" type="bons2:RASException"/>
+            <xsd:element name="updateRASTicketStatusToSource">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="rasTicketNo" nillable="true" type="xsd:string"/>
+            <xsd:element name="draftTicketNo" nillable="true" type="xsd:string"/>
+            <xsd:element name="source" nillable="true" type="xsd:string"/>
+            <xsd:element name="oldStage" nillable="true" type="xsd:string"/>
+            <xsd:element name="oldStatus" nillable="true" type="xsd:string"/>
+            <xsd:element name="newStage" nillable="true" type="xsd:string"/>
+            <xsd:element name="newStatus" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateRASTicketStatusToSourceResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updateStatus" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateRASTicketStatusToSourceFault1_updateRASTicketStatusToSourceFault" nillable="true" type="bons2:RASException"/>
+            <xsd:element name="updateExcessRefundDraftGCTransactionCount">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="draftTicketNo" nillable="true" type="xsd:string"/>
+            <xsd:element name="gcTransactionCount" nillable="true" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="updateExcessRefundDraftGCTransactionCountResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="updatePACE" nillable="true" type="xsd:boolean"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="createRASExcessRefundDraftTicketRequestMsg">
+    <wsdl:part element="tns:createRASExcessRefundDraftTicket" name="createRASExcessRefundDraftTicketParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createRASExcessRefundDraftTicketResponseMsg">
+    <wsdl:part element="tns:createRASExcessRefundDraftTicketResponse" name="createRASExcessRefundDraftTicketResult"/>
+  </wsdl:message>
+    <wsdl:message name="findExcessRefundDraftTicketDetailsRequestMsg">
+    <wsdl:part element="tns:findExcessRefundDraftTicketDetails" name="findExcessRefundDraftTicketDetailsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="findExcessRefundDraftTicketDetailsResponseMsg">
+    <wsdl:part element="tns:findExcessRefundDraftTicketDetailsResponse" name="findExcessRefundDraftTicketDetailsResult"/>
+  </wsdl:message>
+    <wsdl:message name="findExcessRefundDraftTicketDetails_findExcessRefundDraftTicketDetailsFaultMsg">
+    <wsdl:part element="tns:findExcessRefundDraftTicketDetailsFault1_findExcessRefundDraftTicketDetailsFault" name="findExcessRefundDraftTicketDetailsFault"/>
+  </wsdl:message>
+    <wsdl:message name="findExcessRefundDraftDocumentDetailsRequestMsg">
+    <wsdl:part element="tns:findExcessRefundDraftDocumentDetails" name="findExcessRefundDraftDocumentDetailsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="findExcessRefundDraftDocumentDetailsResponseMsg">
+    <wsdl:part element="tns:findExcessRefundDraftDocumentDetailsResponse" name="findExcessRefundDraftDocumentDetailsResult"/>
+  </wsdl:message>
+    <wsdl:message name="findExcessRefundDraftDocumentDetails_findExcessRefundDraftDocumentDetailsFaultMsg">
+    <wsdl:part element="tns:findExcessRefundDraftDocumentDetailsFault1_findExcessRefundDraftDocumentDetailsFault" name="findExcessRefundDraftDocumentDetailsFault"/>
+  </wsdl:message>
+    <wsdl:message name="saveExcessRefundReverseFeedDetailsRequestMsg">
+    <wsdl:part element="tns:saveExcessRefundReverseFeedDetails" name="saveExcessRefundReverseFeedDetailsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="saveExcessRefundReverseFeedDetailsResponseMsg">
+    <wsdl:part element="tns:saveExcessRefundReverseFeedDetailsResponse" name="saveExcessRefundReverseFeedDetailsResult"/>
+  </wsdl:message>
+    <wsdl:message name="saveExcessRefundReverseFeedDetails_saveExcessRefundReverseFeedDetailsFaultMsg">
+    <wsdl:part element="tns:saveExcessRefundReverseFeedDetailsFault1_saveExcessRefundReverseFeedDetailsFault" name="saveExcessRefundReverseFeedDetailsFault"/>
+  </wsdl:message>
+    <wsdl:message name="saveErrorDetailsRequestMsg">
+    <wsdl:part element="tns:saveErrorDetails" name="saveErrorDetailsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updateExcessRefundReverseFeedDetailsRequestMsg">
+    <wsdl:part element="tns:updateExcessRefundReverseFeedDetails" name="updateExcessRefundReverseFeedDetailsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updateExcessRefundReverseFeedDetailsResponseMsg">
+    <wsdl:part element="tns:updateExcessRefundReverseFeedDetailsResponse" name="updateExcessRefundReverseFeedDetailsResult"/>
+  </wsdl:message>
+    <wsdl:message name="updateExcessRefundReverseFeedDetails_updateExcessRefundReverseFeedDetailsFaultMsg">
+    <wsdl:part element="tns:updateExcessRefundReverseFeedDetailsFault1_updateExcessRefundReverseFeedDetailsFault" name="updateExcessRefundReverseFeedDetailsFault"/>
+  </wsdl:message>
+    <wsdl:message name="updateRASTicketStatusToSourceRequestMsg">
+    <wsdl:part element="tns:updateRASTicketStatusToSource" name="updateRASTicketStatusToSourceParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updateRASTicketStatusToSourceResponseMsg">
+    <wsdl:part element="tns:updateRASTicketStatusToSourceResponse" name="updateRASTicketStatusToSourceResult"/>
+  </wsdl:message>
+    <wsdl:message name="updateRASTicketStatusToSource_updateRASTicketStatusToSourceFaultMsg">
+    <wsdl:part element="tns:updateRASTicketStatusToSourceFault1_updateRASTicketStatusToSourceFault" name="updateRASTicketStatusToSourceFault"/>
+  </wsdl:message>
+    <wsdl:message name="updateExcessRefundDraftGCTransactionCountRequestMsg">
+    <wsdl:part element="tns:updateExcessRefundDraftGCTransactionCount" name="updateExcessRefundDraftGCTransactionCountParameters"/>
+  </wsdl:message>
+    <wsdl:message name="updateExcessRefundDraftGCTransactionCountResponseMsg">
+    <wsdl:part element="tns:updateExcessRefundDraftGCTransactionCountResponse" name="updateExcessRefundDraftGCTransactionCountResult"/>
+  </wsdl:message>
+    <wsdl:portType name="RASIntegrationService">
+    <wsdl:operation name="createRASExcessRefundDraftTicket">
+      <wsdl:input message="tns:createRASExcessRefundDraftTicketRequestMsg" name="createRASExcessRefundDraftTicketRequest"/>
+      <wsdl:output message="tns:createRASExcessRefundDraftTicketResponseMsg" name="createRASExcessRefundDraftTicketResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="findExcessRefundDraftTicketDetails">
+      <wsdl:input message="tns:findExcessRefundDraftTicketDetailsRequestMsg" name="findExcessRefundDraftTicketDetailsRequest"/>
+      <wsdl:output message="tns:findExcessRefundDraftTicketDetailsResponseMsg" name="findExcessRefundDraftTicketDetailsResponse"/>
+            <wsdl:fault message="tns:findExcessRefundDraftTicketDetails_findExcessRefundDraftTicketDetailsFaultMsg" name="findExcessRefundDraftTicketDetailsFault"/>
+        </wsdl:operation>
+        <wsdl:operation name="findExcessRefundDraftDocumentDetails">
+      <wsdl:input message="tns:findExcessRefundDraftDocumentDetailsRequestMsg" name="findExcessRefundDraftDocumentDetailsRequest"/>
+      <wsdl:output message="tns:findExcessRefundDraftDocumentDetailsResponseMsg" name="findExcessRefundDraftDocumentDetailsResponse"/>
+      <wsdl:fault message="tns:findExcessRefundDraftDocumentDetails_findExcessRefundDraftDocumentDetailsFaultMsg" name="findExcessRefundDraftDocumentDetailsFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="saveExcessRefundReverseFeedDetails">
+      <wsdl:input message="tns:saveExcessRefundReverseFeedDetailsRequestMsg" name="saveExcessRefundReverseFeedDetailsRequest"/>
+      <wsdl:output message="tns:saveExcessRefundReverseFeedDetailsResponseMsg" name="saveExcessRefundReverseFeedDetailsResponse"/>
+      <wsdl:fault message="tns:saveExcessRefundReverseFeedDetails_saveExcessRefundReverseFeedDetailsFaultMsg" name="saveExcessRefundReverseFeedDetailsFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="saveErrorDetails">
+            <wsdl:input message="tns:saveErrorDetailsRequestMsg" name="saveErrorDetailsRequest"/>
+        </wsdl:operation>
+        <wsdl:operation name="updateExcessRefundReverseFeedDetails">
+            <wsdl:input message="tns:updateExcessRefundReverseFeedDetailsRequestMsg" name="updateExcessRefundReverseFeedDetailsRequest"/>
+            <wsdl:output message="tns:updateExcessRefundReverseFeedDetailsResponseMsg" name="updateExcessRefundReverseFeedDetailsResponse"/>
+            <wsdl:fault message="tns:updateExcessRefundReverseFeedDetails_updateExcessRefundReverseFeedDetailsFaultMsg" name="updateExcessRefundReverseFeedDetailsFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="updateRASTicketStatusToSource">
+      <wsdl:input message="tns:updateRASTicketStatusToSourceRequestMsg" name="updateRASTicketStatusToSourceRequest"/>
+      <wsdl:output message="tns:updateRASTicketStatusToSourceResponseMsg" name="updateRASTicketStatusToSourceResponse"/>
+      <wsdl:fault message="tns:updateRASTicketStatusToSource_updateRASTicketStatusToSourceFaultMsg" name="updateRASTicketStatusToSourceFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="updateExcessRefundDraftGCTransactionCount">
+      <wsdl:input message="tns:updateExcessRefundDraftGCTransactionCountRequestMsg" name="updateExcessRefundDraftGCTransactionCountRequest"/>
+      <wsdl:output message="tns:updateExcessRefundDraftGCTransactionCountResponseMsg" name="updateExcessRefundDraftGCTransactionCountResponse"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

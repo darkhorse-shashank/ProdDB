@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://RACASBO" xmlns:impl1="http://RACASBO"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<include schemaLocation="InsuredBO.xsd" />
+	<include schemaLocation="AccountBO.xsd" />
+	<include schemaLocation="ReceiptBO.xsd" />
+	<include schemaLocation="Error.xsd" />
+	<complexType name="PolicyBO">
+		<sequence>
+			<element maxOccurs="1" minOccurs="0" name="policyNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="proposalNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="lob"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="product"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="proposerName"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="aadharNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="policyPremium"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="producerCode"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="producerName"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="policyStatus"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="lanNumber"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="applicationDate"
+				nillable="false" type="xsd:dateTime" />
+			<element maxOccurs="1" minOccurs="0" name="policyStartDate"
+				nillable="false" type="xsd:dateTime" />
+			<element maxOccurs="1" minOccurs="0" name="policyEndDate"
+				nillable="false" type="xsd:dateTime" />
+			<element maxOccurs="1" minOccurs="0" name="id"
+				nillable="false" type="xsd:int" />
+			<element maxOccurs="unbounded" minOccurs="0"
+				name="insuredBO" nillable="false" type="impl1:InsuredBO" />
+			<element maxOccurs="1" minOccurs="0" name="actionBy"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="error"
+				nillable="false" type="impl1:Error" />
+			<element maxOccurs="unbounded" minOccurs="0" name="crs"
+				nillable="false" type="impl1:ReceiptBO" />
+			<element maxOccurs="1" minOccurs="0" name="customerAccount"
+				nillable="false" type="impl1:AccountBO" />
+			<element maxOccurs="1" minOccurs="0" name="authCode"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="aggreedPremiumAmount" nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="engineNumber"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="chasisNumber"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="dealerName"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="dealerCode"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="financierName"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="financierCode"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="policyType"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="certificateNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="searchBy"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="policyStartTime"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="registrationNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="customerCode"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="policyCoverType"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="conversionDate"
+				nillable="false" type="xsd:dateTime" />
+			<element maxOccurs="1" minOccurs="0"
+				name="applicationNumber" nillable="false" type="xsd:string" />
+		</sequence>
+	</complexType>
+</schema>

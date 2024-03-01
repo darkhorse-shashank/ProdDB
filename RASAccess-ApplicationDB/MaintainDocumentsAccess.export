@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://TicketDomain-v1.0.0/MaintainDocument" xmlns:ns2="http://TicketDomain-v1.0.0/org/aig/access/MaintainDocumentAccess" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="MaintainDocumentsAccess" name="MaintainDocumentsAccess" target="MaintainDocumentsJavaCpmt">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns2:MaintainDocumentAccess2"/>
+  </interfaces>
+</scdl:export>

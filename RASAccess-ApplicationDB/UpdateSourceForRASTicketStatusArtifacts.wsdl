@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="UpdateSourceForRASTicketStatus" targetNamespace="http://RASAccess-ApplicationDB/UpdateSourceForRASTicketStatusArtifacts" xmlns:ns="http://Access-HealthNbLibrary/PaceRefundIntegrationServices" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:wsdl0="http://TicketDomain-v1.0.0/org/aig/access/UpdateSourceForRASTicketStatus" xmlns:wsdl1="http://RASAccess-ApplicationDB/RASIntegrationService">
+  <plnk:partnerLinkType name="UpdateSourceForRASTicketStatusPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:UpdateSourceForRASTicketStatus"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+  <plnk:partnerLinkType name="RASIntegrationServicePLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl1:RASIntegrationService"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="PaceRefundIntegrationServicePartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns:PaceRefundIntegrationServices"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="org/aig/access/UpdateSourceForRASTicketStatus.wsdl" namespace="http://TicketDomain-v1.0.0/org/aig/access/UpdateSourceForRASTicketStatus"/>
+    <wsdl:import location="RASIntegrationService.wsdl" namespace="http://RASAccess-ApplicationDB/RASIntegrationService"/>
+    <wsdl:import location="_141/_195/_33/_10/access_healthnbweb/sca/pacerefundintegrationservices/web_inf/wsdl/PaceRefundIntegrationServices.wsdl" namespace="http://Access-HealthNbLibrary/PaceRefundIntegrationServices"/>
+</wsdl:definitions>

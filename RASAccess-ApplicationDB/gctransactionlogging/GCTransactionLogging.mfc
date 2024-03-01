@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:UpdateGCTransactionLog="http://GCLibrary/org/aig/access/UpdateGCTransactionLog" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://Access-ApplicationDB/DBInterface" name="GCTransactionLogging" targetNamespace="http://RASAccess-ApplicationDB/gctransactionlogging/GCTransactionLogging">
+  <import location="org/aig/access/UpdateGCTransactionLog.wsdl" namespace="http://GCLibrary/org/aig/access/UpdateGCTransactionLog"/>
+  <import location="DBInterface.wsdl" namespace="http://Access-ApplicationDB/DBInterface"/>
+  <promotedProperty name="ServiceInvoke1.retryOn" group="RASAccess-ApplicationDB.GCTransactionLogging" value="0"/>
+  <promotedProperty name="ServiceInvoke1.retryCount" group="RASAccess-ApplicationDB.GCTransactionLogging" value="0"/>
+  <promotedProperty name="ServiceInvoke1.retryDelay" group="RASAccess-ApplicationDB.GCTransactionLogging" value="0"/>
+  <reference name="DBInterfacePartner" portType="ns2:DBInterface"/>
+  <interface portType="UpdateGCTransactionLog:UpdateGCTransactionLog">
+    <operation name="updateGCTransactionLog">
+      <requestFlow>
+        <node displayName="updateGCTransactionLog : UpdateGCTransactionLog" name="UpdateGCTransactionLog_updateGCTransactionLog_Input" type="Input">
+          <outputTerminal type="UpdateGCTransactionLog:updateGCTransactionLogRequestMsg">
+            <wire targetNode="GCTransactionRequestMap"/>
+          </outputTerminal>
+        </node>
+        <node displayName="updateGCTransactionLog : UpdateGCTransactionLog" name="UpdateGCTransactionLog_updateGCTransactionLog_InputResponse" type="InputResponse">
+          <inputTerminal type="UpdateGCTransactionLog:updateGCTransactionLogResponseMsg"/>
+        </node>
+        <node name="GCTransactionRequestMap" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/GCTransactionRequestMap_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/GCTransactionRequestMap_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="UpdateGCTransactionLog:updateGCTransactionLogRequestMsg"/>
+          <outputTerminal type="ns2:updateDboRas_Gc_TransactionBGRequestMsg">
+            <wire targetNode="GCTransactionLogServiceInvoke"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="GCTransactionLogFail"/>
+          </failTerminal>
+        </node>
+        <node name="GCTransactionLogServiceInvoke" type="ServiceInvoke">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="updateDboRas_Gc_TransactionBG"/>
+          <property name="invocationStyle" value="6"/>
+          <property name="retryOn" promotedPropertyGroup="RASAccess-ApplicationDB.GCTransactionLogging" promotedPropertyName="ServiceInvoke1.retryOn"/>
+          <property name="retryCount" promotedPropertyGroup="RASAccess-ApplicationDB.GCTransactionLogging" promotedPropertyName="ServiceInvoke1.retryCount"/>
+          <property name="retryDelay" promotedPropertyGroup="RASAccess-ApplicationDB.GCTransactionLogging" promotedPropertyName="ServiceInvoke1.retryDelay"/>
+          <inputTerminal type="ns2:updateDboRas_Gc_TransactionBGRequestMsg"/>
+          <outputTerminal type="ns2:updateDboRas_Gc_TransactionBGResponseMsg">
+            <wire targetNode="GCTransactionResponseMap"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns2:updateDboRas_Gc_TransactionBGRequestMsg">
+            <wire targetNode="GCTransactionLogFail"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="updateDboRas_Gc_TransactionBGObjectNotFoundFaultMsg" type="ns2:updateDboRas_Gc_TransactionBGObjectNotFoundFaultMsg">
+            <wire targetNode="GCTransactionLogFail"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="updateDboRas_Gc_TransactionBGUniqueConstraintFaultMsg" type="ns2:updateDboRas_Gc_TransactionBGUniqueConstraintFaultMsg">
+            <wire targetNode="GCTransactionLogFail"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="updateDboRas_Gc_TransactionBGMultipleMatchingRecordsFaultMsg" type="ns2:updateDboRas_Gc_TransactionBGMultipleMatchingRecordsFaultMsg">
+            <wire targetNode="GCTransactionLogFail"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="updateDboRas_Gc_TransactionBGIntegrityConstraintFaultMsg" type="ns2:updateDboRas_Gc_TransactionBGIntegrityConstraintFaultMsg">
+            <wire targetNode="GCTransactionLogFail"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="updateDboRas_Gc_TransactionBGMissingDataFaultMsg" type="ns2:updateDboRas_Gc_TransactionBGMissingDataFaultMsg">
+            <wire targetNode="GCTransactionLogFail"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="updateDboRas_Gc_TransactionBGRecordNotFoundFaultMsg" type="ns2:updateDboRas_Gc_TransactionBGRecordNotFoundFaultMsg">
+            <wire targetNode="GCTransactionLogFail"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="GCTransactionLogFail"/>
+          </failTerminal>
+        </node>
+        <node name="GCTransactionResponseMap" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/GCTransactionResponseMap_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/GCTransactionResponseMap_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:updateDboRas_Gc_TransactionBGResponseMsg"/>
+          <outputTerminal type="UpdateGCTransactionLog:updateGCTransactionLogResponseMsg">
+            <wire targetNode="UpdateGCTransactionLog_updateGCTransactionLog_InputResponse"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="GCTransactionLogFail"/>
+          </failTerminal>
+        </node>
+        <node name="GCTransactionLogFail" type="Fail">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+      </requestFlow>
+      <responseFlow>
+        <node displayName="updateDboRas_Gc_TransactionBG : DBInterfacePartner" name="DBInterfacePartner_updateDboRas_Gc_TransactionBG_CalloutResponse" type="CalloutResponse">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="updateDboRas_Gc_TransactionBG"/>
+          <outputTerminal type="ns2:updateDboRas_Gc_TransactionBGResponseMsg"/>
+          <failTerminal type="ns2:updateDboRas_Gc_TransactionBGRequestMsg"/>
+        </node>
+        <node displayName="updateDboRas_Gc_TransactionBG : DBInterfacePartner" name="DBInterfacePartner_updateDboRas_Gc_TransactionBG_CalloutFault" type="CalloutFault">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="updateDboRas_Gc_TransactionBG"/>
+          <outputTerminal name="updateDboRas_Gc_TransactionBGObjectNotFoundFaultMsg" type="ns2:updateDboRas_Gc_TransactionBGObjectNotFoundFaultMsg"/>
+          <outputTerminal name="updateDboRas_Gc_TransactionBGUniqueConstraintFaultMsg" type="ns2:updateDboRas_Gc_TransactionBGUniqueConstraintFaultMsg"/>
+          <outputTerminal name="updateDboRas_Gc_TransactionBGMultipleMatchingRecordsFaultMsg" type="ns2:updateDboRas_Gc_TransactionBGMultipleMatchingRecordsFaultMsg"/>
+          <outputTerminal name="updateDboRas_Gc_TransactionBGIntegrityConstraintFaultMsg" type="ns2:updateDboRas_Gc_TransactionBGIntegrityConstraintFaultMsg"/>
+          <outputTerminal name="updateDboRas_Gc_TransactionBGMissingDataFaultMsg" type="ns2:updateDboRas_Gc_TransactionBGMissingDataFaultMsg"/>
+          <outputTerminal name="updateDboRas_Gc_TransactionBGRecordNotFoundFaultMsg" type="ns2:updateDboRas_Gc_TransactionBGRecordNotFoundFaultMsg"/>
+        </node>
+        <node displayName="updateGCTransactionLog : UpdateGCTransactionLog" name="UpdateGCTransactionLog_updateGCTransactionLog_InputResponse" type="InputResponse">
+          <inputTerminal type="UpdateGCTransactionLog:updateGCTransactionLogResponseMsg"/>
+        </node>
+      </responseFlow>
+      <errorFlow>
+        <node displayName="updateGCTransactionLog : UpdateGCTransactionLog" name="UpdateGCTransactionLog_updateGCTransactionLog_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType"/>
+        </node>
+        <node displayName="updateGCTransactionLog : UpdateGCTransactionLog" name="UpdateGCTransactionLog_updateGCTransactionLog_InputResponse" type="InputResponse">
+          <inputTerminal type="UpdateGCTransactionLog:updateGCTransactionLogResponseMsg"/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

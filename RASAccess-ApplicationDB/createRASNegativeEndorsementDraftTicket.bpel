@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://RASAccess-ApplicationDB/createRASNegativeEndorsementDraftTicketArtifacts" xmlns:ns0="http://TicketDomain-v1.0.0/org/aig/access/NegativeEndorsementDraftTicket" xmlns:ns1="http://RACASBO" xmlns:ns2="http://RASAccess-ApplicationDB/RASGCIntegrationService" xmlns:ns3="http://TicketDomain-v1.0.0/org/aig/access/RetrieveTicketAccess" xmlns:ns4="http://RACAS/ExternalSourceRASTicketCreation.tws" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="createRASNegativeEndorsementDraftTicket" suppressJoinFailure="yes" targetNamespace="http://RASAccess-ApplicationDB" wpc:continueOnError="no" wpc:displayName="createRASNegativeEndorsementDraftTicket" wpc:executionMode="microflow" wpc:id="1" wpc:validFrom="2022-03-31T05:53:18" wpc:version="IBM_8.5.500">
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="org/aig/access/NegativeEndorsementDraftTicket.wsdl" namespace="http://TicketDomain-v1.0.0/org/aig/access/NegativeEndorsementDraftTicket"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="org/aig/access/RetrieveTicketAccess.wsdl" namespace="http://TicketDomain-v1.0.0/org/aig/access/RetrieveTicketAccess"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="_141/_195/_33/_10/teamworks/webservices/racas/externalsourcerasticketcreation_tws_wsdl.wsdl" namespace="http://RACAS/ExternalSourceRASTicketCreation.tws"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="DBInterface.wsdl" namespace="http://Access-ApplicationDB/DBInterface"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="RASGCIntegrationService.wsdl" namespace="http://RASAccess-ApplicationDB/RASGCIntegrationService"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="createRASNegativeEndorsementDraftTicketArtifacts.wsdl" namespace="http://RASAccess-ApplicationDB/createRASNegativeEndorsementDraftTicketArtifacts"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="RACASBO/TicketBO.xsd" namespace="http://RACASBO"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="RACASBO/AccountBO.xsd" namespace="http://RACASBO"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="RACASBO/TicketDetail.xsd" namespace="http://RACASBO"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="RACASBO/DocumentList.xsd" namespace="http://RACASBO"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="RACASBO/Approver.xsd" namespace="http://RACASBO"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="RACASBO/RASException.xsd" namespace="http://RACASBO"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="NegativeEndorsementDraftTicket" partnerLinkType="ns:NegativeEndorsementDraftTicketPLT" wpc:id="2"/>
+    <bpws:partnerLink name="RetrieveTicketAccessPartner" partnerLinkType="ns:RetrieveTicketAccessPLT" partnerRole="Interface" wpc:id="3"/>
+    <bpws:partnerLink name="ExternalSourceRASTicketCreationPortTypePartner" partnerLinkType="ns:ExternalSourceRASTicketCreationPortTypePLT" partnerRole="Interface" wpc:id="4"/>
+    <bpws:partnerLink name="DBInterfacePartner" partnerLinkType="ns:DBInterfacePLT" partnerRole="Interface" wpc:id="5"/>
+    <bpws:partnerLink name="RASGCIntegrationServicePartner" partnerLinkType="ns:RASGCIntegrationServicePLT" partnerRole="Interface" wpc:id="6"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="draftTicketNo" type="xsd:string" wpc:id="10"/>
+    <bpws:variable name="draftTicketInstanceId" type="xsd:string" wpc:id="11"/>
+    <bpws:variable name="rasTicketDetails" type="ns1:TicketBO" wpc:id="13"/>
+    <bpws:variable name="applicationNo" type="xsd:string" wpc:id="15"/>
+    <bpws:variable name="refundType" type="xsd:string" wpc:id="16"/>
+    <bpws:variable name="searchBy" type="xsd:string" wpc:id="17"/>
+    <bpws:variable name="groupPolicyNo" type="xsd:string" wpc:id="18"/>
+    <bpws:variable name="lob" type="xsd:string" wpc:id="19"/>
+    <bpws:variable name="stage" type="xsd:string" wpc:id="20"/>
+    <bpws:variable name="status" type="xsd:string" wpc:id="21"/>
+    <bpws:variable name="reassign" type="xsd:boolean" wpc:id="22"/>
+    <bpws:variable name="accountDetails" type="ns1:AccountBO" wpc:id="23"/>
+    <bpws:variable name="ticketDetails" type="ns1:TicketDetail" wpc:id="24"/>
+    <bpws:variable name="createDraftTicket" type="xsd:boolean" wpc:id="25"/>
+    <bpws:variable name="documents" type="ns1:DocumentList" wpc:id="27"/>
+    <bpws:variable name="isTicketExist" type="xsd:boolean" wpc:id="29"/>
+    <bpws:variable name="approverLevel" type="ns1:Approver" wpc:id="35"/>
+    <bpws:variable name="RASFault" type="ns1:RASException" wpc:id="36"/>
+    <bpws:variable name="errorCode" type="xsd:string" wpc:id="38"/>
+    <bpws:variable name="errorDetail" type="xsd:string" wpc:id="39"/>
+    <bpws:variable name="gcError" type="xsd:string" wpc:id="40"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741831">
+    <bpws:receive createInstance="yes" name="Receive" operation="createRASNegativeEndorsementDraftTicket" partnerLink="NegativeEndorsementDraftTicket" portType="ns0:NegativeEndorsementDraftTicket" wpc:displayName="Receive" wpc:id="8" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:invoke name="InvokeFindNegativeEndorsementDraftTicketDetails" operation="findNegativeEndorsementDraftTicketDetails" partnerLink="RASGCIntegrationServicePartner" portType="ns2:RASGCIntegrationService" wpc:continueOnError="inherit" wpc:displayName="Invoke Find Negative Endorsement Draft Ticket Details" wpc:id="12">
+      <wpc:input>
+        <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+      </wpc:input>
+      <wpc:output>
+        <wpc:parameter name="rasTicketDetails" variable="rasTicketDetails"/>
+      </wpc:output>
+      <bpws:catch faultMessageType="ns2:findNegativeEndorsementDraftTicketDetails_findNegativeEndorsementDraftTicketDetailsFaultMsg" faultName="ns2:findNegativeEndorsementDraftTicketDetailsFault" faultVariable="findNegativeEndorsementDraftTicketDetailsFaultVariable" wpc:displayName="findNegativeEndorsementDraftTicketDetailsFault" wpc:id="42" wpc:variableId="44">
+        <bpws:sequence name="HiddenSequence2" wpc:id="1073741869">
+          <bpws:assign name="AssignFindNegativeEndorsementDraftTicketDetailsFault" wpc:displayName="Assign Find Negative Endorsement Draft Ticket Details Fault" wpc:id="43">
+            <bpws:copy>
+              <bpws:from part="findNegativeEndorsementDraftTicketDetailsFault" variable="findNegativeEndorsementDraftTicketDetailsFaultVariable"/>
+              <bpws:to variable="RASFault"/>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from><![CDATA[100002]]></bpws:from>
+              <bpws:to variable="errorCode"/>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from part="findNegativeEndorsementDraftTicketDetailsFault" variable="findNegativeEndorsementDraftTicketDetailsFaultVariable">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[error[1]/message]]></bpws:query>
+              </bpws:from>
+              <bpws:to variable="errorDetail"/>
+            </bpws:copy>
+          </bpws:assign>
+          <bpws:invoke name="InvokeSaveFindNegativeEndorsementDraftFault" operation="saveNegativeEndorsementDraftErrorDetails" partnerLink="RASGCIntegrationServicePartner" portType="ns2:RASGCIntegrationService" wpc:continueOnError="inherit" wpc:displayName="Invoke Save Find Negative Endorsement Draft Fault" wpc:id="46">
+            <wpc:input>
+              <wpc:parameter name="errorCode" variable="errorCode"/>
+              <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+              <wpc:parameter name="errorDetail" variable="errorDetail"/>
+              <wpc:parameter name="instanceId" variable="draftTicketInstanceId"/>
+              <wpc:parameter name="gcError" variable="gcError"/>
+            </wpc:input>
+          </bpws:invoke>
+          <bpws:reply faultName="ns0:createRASNegativeEndorsementDraftTicketFault" name="Reply1" operation="createRASNegativeEndorsementDraftTicket" partnerLink="NegativeEndorsementDraftTicket" portType="ns0:NegativeEndorsementDraftTicket" wpc:displayName="Reply Find Negative Endorsement Draft Ticket Details Fault" wpc:id="47">
+            <wpc:input>
+              <wpc:parameter name="createRASNegativeEndorsementDraftTicketFault1_createRASNegativeEndorsementDraftTicketFault" variable="RASFault"/>
+            </wpc:input>
+          </bpws:reply>
+        </bpws:sequence>
+      </bpws:catch>
+      <bpws:catchAll wpc:id="41">
+        <bpws:sequence name="HiddenSequence3" wpc:id="1073741873">
+          <bpws:invoke name="Snippet1" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Extract Find Negative Endorsement Draft Ticket Details Error" wpc:id="48">
+            <wpc:script>
+              <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException bpelexception =getCurrentFaultAsException();
+// Stack Trace
+Throwable rootCause = bpelexception.getRootCause();
+// Error Name -- ex: runTime Exception
+String errorName = bpelexception.getFaultName();
+// Error code -- ex:CW0000BE
+String errorCode = bpelexception.getMessage().substring(0,bpelexception.getMessage().lastIndexOf(":"));
+String errorMessage = rootCause.getMessage();
+com.ibm.websphere.bo.BOFactory boFactory =  (com.ibm.websphere.bo.BOFactory)com.ibm.websphere.sca.ServiceManager.INSTANCE
+			                               .locateService("com/ibm/websphere/bo/BOFactory");
+commonj.sdo.DataObject  RASFault= boFactory.create("http://RACASBO","RASException");
+RASFault.setString("status","FAILED");
+RASFault.setString("error[0]/errorCode",errorCode);
+RASFault.setString("error[0]/message",errorMessage);
+RASFault.setString("error[0]/errorDetail",errorName);
+this.RASFault= RASFault;
+
+errorCode = "100002";
+errorDetail = RASFault.getString("error[0]/message");
+
+
+]]></wpc:javaCode>
+            </wpc:script>
+          </bpws:invoke>
+          <bpws:invoke name="InvokeSaveFindNegativeEndorsementDraftFault1" operation="saveNegativeEndorsementDraftErrorDetails" partnerLink="RASGCIntegrationServicePartner" portType="ns2:RASGCIntegrationService" wpc:continueOnError="inherit" wpc:displayName="Invoke Save Find Negative Endorsement Draft Fault" wpc:id="50">
+            <wpc:input>
+              <wpc:parameter name="errorCode" variable="errorCode"/>
+              <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+              <wpc:parameter name="errorDetail" variable="errorDetail"/>
+              <wpc:parameter name="instanceId" variable="draftTicketInstanceId"/>
+              <wpc:parameter name="gcError" variable="gcError"/>
+            </wpc:input>
+          </bpws:invoke>
+          <bpws:reply faultName="ns0:createRASNegativeEndorsementDraftTicketFault" name="Reply2" operation="createRASNegativeEndorsementDraftTicket" partnerLink="NegativeEndorsementDraftTicket" portType="ns0:NegativeEndorsementDraftTicket" wpc:displayName="Reply Find Negative Endorsement Draft Ticket Details Fault" wpc:id="51">
+            <wpc:input>
+              <wpc:parameter name="createRASNegativeEndorsementDraftTicketFault1_createRASNegativeEndorsementDraftTicketFault" variable="RASFault"/>
+            </wpc:input>
+          </bpws:reply>
+        </bpws:sequence>
+      </bpws:catchAll>
+    </bpws:invoke>
+    <bpws:assign name="AssignNegativeEndorsementIsTicketExistInput" wpc:displayName="Assign Negative Endorsement Is Ticket Exist Input" wpc:id="14">
+      <bpws:copy>
+        <bpws:from variable="rasTicketDetails">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[policyNo]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="applicationNo"/>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="rasTicketDetails">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[refundType]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="refundType"/>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from><![CDATA[null]]></bpws:from>
+        <bpws:to variable="searchBy"/>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from><![CDATA[null]]></bpws:from>
+        <bpws:to variable="groupPolicyNo"/>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="rasTicketDetails">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[lob]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="lob"/>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="rasTicketDetails">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[stage]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="stage"/>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="rasTicketDetails">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[status]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="status"/>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from>false</bpws:from>
+        <bpws:to variable="reassign"/>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="rasTicketDetails">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[accountDetail]]></bpws:query>
+        </bpws:from>
+        <bpws:to variable="accountDetails"/>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from variable="rasTicketDetails"/>
+        <bpws:to variable="ticketDetails">
+          <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[payload]]></bpws:query>
+        </bpws:to>
+      </bpws:copy>
+      <bpws:copy>
+        <bpws:from>true</bpws:from>
+        <bpws:to variable="createDraftTicket"/>
+      </bpws:copy>
+    </bpws:assign>
+    <bpws:invoke name="Invoke" operation="findNegativeEndorsementDraftDocumentDetails" partnerLink="RASGCIntegrationServicePartner" portType="ns2:RASGCIntegrationService" wpc:continueOnError="inherit" wpc:displayName="Invoke Find Negative Endorsement Draft Document Details" wpc:id="26">
+      <wpc:input>
+        <wpc:parameter name="lob" variable="lob"/>
+        <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+        <wpc:parameter name="refundType" variable="refundType"/>
+      </wpc:input>
+      <wpc:output>
+        <wpc:parameter name="documents" variable="documents"/>
+      </wpc:output>
+      <bpws:catch faultMessageType="ns2:findNegativeEndorsementDraftDocumentDetails_findNegativeEndorsementDraftDocumentDetailsFaultMsg" faultName="ns2:findNegativeEndorsementDraftDocumentDetailsFault" faultVariable="findNegativeEndorsementDraftDocumentDetailsFaultVariable" wpc:displayName="findNegativeEndorsementDraftDocumentDetailsFault" wpc:id="53" wpc:variableId="54">
+        <bpws:sequence name="HiddenSequence4" wpc:id="1073741879">
+          <bpws:assign name="Assign" wpc:displayName="Assign Negative Endorsement Draft Document Details Fault" wpc:id="56">
+            <bpws:copy>
+              <bpws:from part="findNegativeEndorsementDraftDocumentDetailsFault" variable="findNegativeEndorsementDraftDocumentDetailsFaultVariable"/>
+              <bpws:to variable="RASFault"/>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from><![CDATA[100002]]></bpws:from>
+              <bpws:to variable="errorCode"/>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from part="findNegativeEndorsementDraftDocumentDetailsFault" variable="findNegativeEndorsementDraftDocumentDetailsFaultVariable">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[error[1]/message]]></bpws:query>
+              </bpws:from>
+              <bpws:to variable="errorDetail"/>
+            </bpws:copy>
+          </bpws:assign>
+          <bpws:invoke name="InvokeSaveNegativeEndorsementDocumentDetailsFault" operation="saveNegativeEndorsementDraftErrorDetails" partnerLink="RASGCIntegrationServicePartner" portType="ns2:RASGCIntegrationService" wpc:continueOnError="inherit" wpc:displayName="Invoke Save Negative Endorsement Document Details Fault" wpc:id="57">
+            <wpc:input>
+              <wpc:parameter name="errorCode" variable="errorCode"/>
+              <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+              <wpc:parameter name="errorDetail" variable="errorDetail"/>
+              <wpc:parameter name="instanceId" variable="draftTicketInstanceId"/>
+              <wpc:parameter name="gcError" variable="gcError"/>
+            </wpc:input>
+          </bpws:invoke>
+          <bpws:reply faultName="ns0:createRASNegativeEndorsementDraftTicketFault" name="Reply3" operation="createRASNegativeEndorsementDraftTicket" partnerLink="NegativeEndorsementDraftTicket" portType="ns0:NegativeEndorsementDraftTicket" wpc:displayName="Reply Negative Endorsement Draft Document Details Fault" wpc:id="58">
+            <wpc:input>
+              <wpc:parameter name="createRASNegativeEndorsementDraftTicketFault1_createRASNegativeEndorsementDraftTicketFault" variable="RASFault"/>
+            </wpc:input>
+          </bpws:reply>
+        </bpws:sequence>
+      </bpws:catch>
+      <bpws:catchAll wpc:id="52">
+        <bpws:sequence name="HiddenSequence5" wpc:id="1073741884">
+          <bpws:invoke name="Snippet2" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Extract Negative Endorsement Draft Document Details Error" wpc:id="59">
+            <wpc:script>
+              <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException bpelexception =getCurrentFaultAsException();
+// Stack Trace
+Throwable rootCause = bpelexception.getRootCause();
+// Error Name -- ex: runTime Exception
+String errorName = bpelexception.getFaultName();
+// Error code -- ex:CW0000BE
+String errorCode = bpelexception.getMessage().substring(0,bpelexception.getMessage().lastIndexOf(":"));
+String errorMessage = rootCause.getMessage();
+com.ibm.websphere.bo.BOFactory boFactory =  (com.ibm.websphere.bo.BOFactory)com.ibm.websphere.sca.ServiceManager.INSTANCE
+			                               .locateService("com/ibm/websphere/bo/BOFactory");
+commonj.sdo.DataObject  RASFault= boFactory.create("http://RACASBO","RASException");
+RASFault.setString("status","FAILED");
+RASFault.setString("error[0]/errorCode",errorCode);
+RASFault.setString("error[0]/message",errorMessage);
+RASFault.setString("error[0]/errorDetail",errorName);
+this.RASFault= RASFault;
+
+errorCode = "100002";
+errorDetail = RASFault.getString("error[0]/message");]]></wpc:javaCode>
+            </wpc:script>
+          </bpws:invoke>
+          <bpws:invoke name="InvokeSaveNegativeEndorsementDocumentDetailsError" operation="saveNegativeEndorsementDraftErrorDetails" partnerLink="RASGCIntegrationServicePartner" portType="ns2:RASGCIntegrationService" wpc:continueOnError="inherit" wpc:displayName="Invoke Save Negative Endorsement Document Details Error" wpc:id="61">
+            <wpc:input>
+              <wpc:parameter name="errorCode" variable="errorCode"/>
+              <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+              <wpc:parameter name="errorDetail" variable="errorDetail"/>
+              <wpc:parameter name="instanceId" variable="draftTicketInstanceId"/>
+              <wpc:parameter name="gcError" variable="gcError"/>
+            </wpc:input>
+          </bpws:invoke>
+          <bpws:reply faultName="ns0:createRASNegativeEndorsementDraftTicketFault" name="Reply4" operation="createRASNegativeEndorsementDraftTicket" partnerLink="NegativeEndorsementDraftTicket" portType="ns0:NegativeEndorsementDraftTicket" wpc:displayName="Reply Negative Endorsement Draft Document Details Error" wpc:id="62">
+            <wpc:input>
+              <wpc:parameter name="createRASNegativeEndorsementDraftTicketFault1_createRASNegativeEndorsementDraftTicketFault" variable="RASFault"/>
+            </wpc:input>
+          </bpws:reply>
+        </bpws:sequence>
+      </bpws:catchAll>
+    </bpws:invoke>
+    <bpws:invoke name="Invoke1" operation="isTicketExist" partnerLink="RetrieveTicketAccessPartner" portType="ns3:RetrieveTicketAccess" wpc:continueOnError="inherit" wpc:displayName="Invoke Negative Endorsement Is Ticket Exist" wpc:id="28">
+      <wpc:input>
+        <wpc:parameter name="applicationNo" variable="applicationNo"/>
+        <wpc:parameter name="searchBy" variable="searchBy"/>
+        <wpc:parameter name="groupPolicyNo" variable="groupPolicyNo"/>
+        <wpc:parameter name="refundType" variable="refundType"/>
+      </wpc:input>
+      <wpc:output>
+        <wpc:parameter name="output" variable="isTicketExist"/>
+      </wpc:output>
+      <bpws:catch faultMessageType="ns3:isTicketExist_isTicketExistFaultMsg" faultName="ns3:isTicketExistFault" faultVariable="isTicketExistFaultVariable" wpc:displayName="isTicketExistFault" wpc:id="64" wpc:variableId="66">
+        <bpws:sequence name="HiddenSequence6" wpc:id="1073741891">
+          <bpws:assign name="Assign1" wpc:displayName="Assign Negative Endorsement Is Ticket Exist Fault" wpc:id="65">
+            <bpws:copy>
+              <bpws:from part="isTicketExistFault" variable="isTicketExistFaultVariable"/>
+              <bpws:to variable="RASFault"/>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from><![CDATA[100011]]></bpws:from>
+              <bpws:to variable="errorCode"/>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from part="isTicketExistFault" variable="isTicketExistFaultVariable">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[error[1]/message]]></bpws:query>
+              </bpws:from>
+              <bpws:to variable="errorDetail"/>
+            </bpws:copy>
+          </bpws:assign>
+          <bpws:invoke name="InvokeNegativeEndorsementIsTicketExistFault" operation="saveNegativeEndorsementDraftErrorDetails" partnerLink="RASGCIntegrationServicePartner" portType="ns2:RASGCIntegrationService" wpc:continueOnError="inherit" wpc:displayName="Invoke Negative Endorsement Is Ticket Exist Fault" wpc:id="68">
+            <wpc:input>
+              <wpc:parameter name="errorCode" variable="errorCode"/>
+              <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+              <wpc:parameter name="errorDetail" variable="errorDetail"/>
+              <wpc:parameter name="instanceId" variable="draftTicketInstanceId"/>
+              <wpc:parameter name="gcError" variable="gcError"/>
+            </wpc:input>
+          </bpws:invoke>
+          <bpws:reply faultName="ns0:createRASNegativeEndorsementDraftTicketFault" name="Reply5" operation="createRASNegativeEndorsementDraftTicket" partnerLink="NegativeEndorsementDraftTicket" portType="ns0:NegativeEndorsementDraftTicket" wpc:displayName="Reply Negative Endorsement Is Ticket Exist Fault" wpc:id="69">
+            <wpc:input>
+              <wpc:parameter name="createRASNegativeEndorsementDraftTicketFault1_createRASNegativeEndorsementDraftTicketFault" variable="RASFault"/>
+            </wpc:input>
+          </bpws:reply>
+        </bpws:sequence>
+      </bpws:catch>
+      <bpws:catchAll wpc:id="63">
+        <bpws:sequence name="HiddenSequence7" wpc:id="1073741895">
+          <bpws:invoke name="Snippet3" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Extract Negative Endorsement Is Ticket Exist Error" wpc:id="70">
+            <wpc:script>
+              <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException bpelexception =getCurrentFaultAsException();
+// Stack Trace
+Throwable rootCause = bpelexception.getRootCause();
+// Error Name -- ex: runTime Exception
+String errorName = bpelexception.getFaultName();
+// Error code -- ex:CW0000BE
+String errorCode = bpelexception.getMessage().substring(0,bpelexception.getMessage().lastIndexOf(":"));
+String errorMessage = rootCause.getMessage();
+com.ibm.websphere.bo.BOFactory boFactory =  (com.ibm.websphere.bo.BOFactory)com.ibm.websphere.sca.ServiceManager.INSTANCE
+			                               .locateService("com/ibm/websphere/bo/BOFactory");
+commonj.sdo.DataObject  RASFault= boFactory.create("http://RACASBO","RASException");
+RASFault.setString("status","FAILED");
+RASFault.setString("error[0]/errorCode",errorCode);
+RASFault.setString("error[0]/message",errorMessage);
+RASFault.setString("error[0]/errorDetail",errorName);
+this.RASFault= RASFault;
+
+errorCode = "100011";
+errorDetail = RASFault.getString("error[0]/message");]]></wpc:javaCode>
+            </wpc:script>
+          </bpws:invoke>
+          <bpws:invoke name="Invoke2" operation="saveNegativeEndorsementDraftErrorDetails" partnerLink="RASGCIntegrationServicePartner" portType="ns2:RASGCIntegrationService" wpc:continueOnError="inherit" wpc:displayName="Invoke Negative Endorsement Is Ticket Exist Error" wpc:id="72">
+            <wpc:input>
+              <wpc:parameter name="errorCode" variable="errorCode"/>
+              <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+              <wpc:parameter name="errorDetail" variable="errorDetail"/>
+              <wpc:parameter name="instanceId" variable="draftTicketInstanceId"/>
+              <wpc:parameter name="gcError" variable="gcError"/>
+            </wpc:input>
+          </bpws:invoke>
+          <bpws:reply faultName="ns0:createRASNegativeEndorsementDraftTicketFault" name="Reply6" operation="createRASNegativeEndorsementDraftTicket" partnerLink="NegativeEndorsementDraftTicket" portType="ns0:NegativeEndorsementDraftTicket" wpc:displayName="Reply Negative Endorsement Is Ticket Exist Error" wpc:id="73">
+            <wpc:input>
+              <wpc:parameter name="createRASNegativeEndorsementDraftTicketFault1_createRASNegativeEndorsementDraftTicketFault" variable="RASFault"/>
+            </wpc:input>
+          </bpws:reply>
+        </bpws:sequence>
+      </bpws:catchAll>
+    </bpws:invoke>
+    <bpws:switch name="Choice" wpc:displayName="Negtive Endorsement Is Ticket Choice" wpc:id="30">
+      <bpws:case wpc:displayName="Negtive Endorsement Is Ticket Exist?" wpc:id="31">
+        <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[($isTicketExist !=true())]]></bpws:condition>
+        <bpws:sequence name="HiddenSequence1" wpc:id="1073741857">
+          <bpws:invoke name="Snippet" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Assign Default Negative Endorsement Refund Mode" wpc:id="32">
+            <wpc:script>
+              <wpc:javaCode><![CDATA[//Assign Default Negative Endorsement Refund Mode
+if(rasTicketDetails.getString("receiptDetail[0]/authCode")!=null && !"".equalsIgnoreCase(rasTicketDetails.getString("receiptDetail[0]/authCode")))
+rasTicketDetails.setString("refundMode","DEBIT AUTHORIZATION");
+else if(rasTicketDetails.getString("receiptDetail[0]/cdAcccountNumber")!=null && !"".equalsIgnoreCase(rasTicketDetails.getString("receiptDetail[0]/cdAcccountNumber")))
+rasTicketDetails.setString("refundMode","REFUND TO CD");
+else
+rasTicketDetails.setString("refundMode","NEFT");
+//Bank for refund mode DEBIT AUTHORIZATION/REFUND TO CD
+if(rasTicketDetails.getString("refundMode").equalsIgnoreCase("DEBIT AUTHORIZATION") || rasTicketDetails.getString("refundMode").equalsIgnoreCase("REFUND TO CD"))
+rasTicketDetails.setString("bank",rasTicketDetails.getString("receiptDetail[0]/houseBankName"));
+
+
+/*if(exists){
+   rasTicketDetails.setString("remarks","NEGATIVE ENDORSEMENT DRAFT EXISTS");
+} */
+]]></wpc:javaCode>
+            </wpc:script>
+          </bpws:invoke>
+          <bpws:invoke name="InvokeNegativeEndorsementDraftTicketCreation" operation="createExternalSourceRASTicket" partnerLink="ExternalSourceRASTicketCreationPortTypePartner" portType="ns4:ExternalSourceRASTicketCreationPortType" wpc:continueOnError="inherit" wpc:displayName="Invoke Negative Endorsement Draft Ticket Creation" wpc:id="34">
+            <wpc:input>
+              <wpc:parameter name="ticketBO" variable="rasTicketDetails"/>
+              <wpc:parameter name="reassign" variable="reassign"/>
+              <wpc:parameter name="documents" variable="documents"/>
+              <wpc:parameter name="status" variable="status"/>
+              <wpc:parameter name="accountDetails" variable="accountDetails"/>
+              <wpc:parameter name="approverLevel" variable="approverLevel"/>
+              <wpc:parameter name="ticketDetails" variable="ticketDetails"/>
+              <wpc:parameter name="stage" variable="stage"/>
+            </wpc:input>
+            <wpc:output>
+              <wpc:parameter name="rasFault" variable="RASFault"/>
+              <wpc:parameter name="outputTicketBO" variable="rasTicketDetails"/>
+              <wpc:parameter name="instanceId" variable="draftTicketInstanceId"/>
+            </wpc:output>
+            <bpws:catchAll wpc:id="74">
+              <bpws:sequence name="HiddenSequence8" wpc:id="1073741900">
+                <bpws:invoke name="Snippet4" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Extract Negative Endorsement Draft Ticket Creation Error" wpc:id="75">
+                  <wpc:script>
+                    <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException bpelexception =getCurrentFaultAsException();
+// Stack Trace
+Throwable rootCause = bpelexception.getRootCause();
+// Error Name -- ex: runTime Exception
+String errorName = bpelexception.getFaultName();
+// Error code -- ex:CW0000BE
+String errorCode = bpelexception.getMessage().substring(0,bpelexception.getMessage().lastIndexOf(":"));
+String errorMessage = rootCause.getMessage();
+com.ibm.websphere.bo.BOFactory boFactory =  (com.ibm.websphere.bo.BOFactory)com.ibm.websphere.sca.ServiceManager.INSTANCE
+			                               .locateService("com/ibm/websphere/bo/BOFactory");
+commonj.sdo.DataObject  RASFault= boFactory.create("http://RACASBO","RASException");
+RASFault.setString("status","FAILED");
+RASFault.setString("error[0]/errorCode",errorCode);
+RASFault.setString("error[0]/message",errorMessage);
+RASFault.setString("error[0]/errorDetail",errorName);
+this.RASFault= RASFault;
+
+errorCode = "100008";
+errorDetail = RASFault.getString("error[0]/message");]]></wpc:javaCode>
+                  </wpc:script>
+                </bpws:invoke>
+                <bpws:invoke name="InvokeSaveNegativeEndorsementDraftTicketCreationError" operation="saveNegativeEndorsementDraftErrorDetails" partnerLink="RASGCIntegrationServicePartner" portType="ns2:RASGCIntegrationService" wpc:continueOnError="inherit" wpc:displayName="Invoke Save Negative Endorsement Draft Ticket Creation Error" wpc:id="77">
+                  <wpc:input>
+                    <wpc:parameter name="errorCode" variable="errorCode"/>
+                    <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+                    <wpc:parameter name="errorDetail" variable="errorDetail"/>
+                    <wpc:parameter name="instanceId" variable="draftTicketInstanceId"/>
+                    <wpc:parameter name="gcError" variable="gcError"/>
+                  </wpc:input>
+                </bpws:invoke>
+                <bpws:reply faultName="ns0:createRASNegativeEndorsementDraftTicketFault" name="ReplyNegativeEndorsementDraftTicketCreationError" operation="createRASNegativeEndorsementDraftTicket" partnerLink="NegativeEndorsementDraftTicket" portType="ns0:NegativeEndorsementDraftTicket" wpc:displayName="Reply Negative Endorsement Draft Ticket Creation Error" wpc:id="78">
+                  <wpc:input>
+                    <wpc:parameter name="createRASNegativeEndorsementDraftTicketFault1_createRASNegativeEndorsementDraftTicketFault" variable="RASFault"/>
+                  </wpc:input>
+                </bpws:reply>
+              </bpws:sequence>
+            </bpws:catchAll>
+          </bpws:invoke>
+          <bpws:invoke name="InvokeSaveNegativeEndorsementDraftTicketInstanceId" operation="saveNegativeEndorsementDraftErrorDetails" partnerLink="RASGCIntegrationServicePartner" portType="ns2:RASGCIntegrationService" wpc:continueOnError="inherit" wpc:displayName="Invoke Save Negative Endorsement Draft Ticket Instance Id" wpc:id="37">
+            <wpc:input>
+              <wpc:parameter name="errorCode" variable="errorCode"/>
+              <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+              <wpc:parameter name="errorDetail" variable="errorDetail"/>
+              <wpc:parameter name="instanceId" variable="draftTicketInstanceId"/>
+              <wpc:parameter name="gcError" variable="gcError"/>
+            </wpc:input>
+          </bpws:invoke>
+        </bpws:sequence>
+      </bpws:case>
+    </bpws:switch>
+    <bpws:reply name="Reply" operation="createRASNegativeEndorsementDraftTicket" partnerLink="NegativeEndorsementDraftTicket" portType="ns0:NegativeEndorsementDraftTicket" wpc:displayName="Reply" wpc:id="9">
+      <wpc:input>
+        <wpc:parameter name="draftTicketInstanceId" variable="draftTicketInstanceId"/>
+      </wpc:input>
+    </bpws:reply>
+  </bpws:sequence>
+</bpws:process>

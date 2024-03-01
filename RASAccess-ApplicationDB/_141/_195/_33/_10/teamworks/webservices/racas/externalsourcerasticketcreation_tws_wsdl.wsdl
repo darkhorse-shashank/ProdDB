@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://RACAS/ExternalSourceRASTicketCreation.tws" xmlns:impl="http://RACAS/ExternalSourceRASTicketCreation.tws" xmlns:impl1="http://RACASBO" xmlns:intf="http://RACAS/ExternalSourceRASTicketCreation.tws" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://RACAS/ExternalSourceRASTicketCreation.tws">
+            <import namespace="http://RACASBO" schemaLocation="../../../../../../../RACASBO/TicketDetail.xsd"/>
+            <import namespace="http://RACASBO" schemaLocation="../../../../../../../RACASBO/RASException.xsd"/>
+            <import namespace="http://RACASBO" schemaLocation="../../../../../../../RACASBO/Approver.xsd"/>
+            <import namespace="http://RACASBO" schemaLocation="../../../../../../../RACASBO/DocumentList.xsd"/>
+            <import namespace="http://RACASBO" schemaLocation="../../../../../../../RACASBO/TicketBO.xsd"/>
+            <import namespace="http://RACASBO" schemaLocation="../../../../../../../RACASBO/AccountBO.xsd"/>
+            <import namespace="http://RACASBO"/>
+            <include schemaLocation="../../../../../../../RACAS/ExternalSourceRASTicketCreationtws/ArrayOf_string.xsd"/>
+            <element name="createExternalSourceRASTicket">
+    <complexType>
+      <sequence>
+        <element name="ticketBO" type="impl1:TicketBO"/>
+        <element name="stage" type="xsd:string"/>
+        <element name="status" type="xsd:string"/>
+        <element name="reassign" type="xsd:boolean"/>
+        <element name="approverLevel" type="impl1:Approver"/>
+        <element name="documents" type="impl1:DocumentList"/>
+        <element name="accountDetails" type="impl1:AccountBO"/>
+        <element name="ticketDetails" type="impl1:TicketDetail"/>
+      </sequence>
+    </complexType>
+  </element>
+  <element name="createExternalSourceRASTicketResponse">
+    <complexType>
+      <sequence>
+        <element name="instanceId" type="xsd:string"/>
+        <element name="outputTicketBO" type="impl1:TicketBO"/>
+        <element name="rasFault" type="impl1:RASException"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://RACASBO">
+            <import namespace="http://RACAS/ExternalSourceRASTicketCreation.tws">
+    <!--Add URI of the schema document for the imported namespace using 'schemaLocation' attribute.-->
+  </import>
+            <include schemaLocation="../../../../../../../RACASBO/Document.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/ArrayOf_Error.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/RASException.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/ArrayOf_boolean.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/ArrayOf_AccountBO.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/ArrayOf_dateTime.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/ArrayOf_ReceiptBO.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/ArrayOf_Document.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/ArrayOf_string_1.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/ResponseBO.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/DocumentList.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/ArrayOf_int.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/ReceiptBO.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/Error.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/TicketBO.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/ArrayOf_double.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/AccountBO.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/PolicyBO.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/ArrayOf_InsuredBO.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/TicketDetail.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/InsuredBO.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/Approver.xsd"/>
+            <include schemaLocation="../../../../../../../RACASBO/RefundBO.xsd"/>
+        </schema>
+  </wsdl:types>
+  <wsdl:message name="createExternalSourceRASTicketResponse">
+    <wsdl:part element="impl:createExternalSourceRASTicketResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createExternalSourceRASTicketRequest">
+    <wsdl:part element="impl:createExternalSourceRASTicket" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ExternalSourceRASTicketCreationPortType">
+    <wsdl:operation name="createExternalSourceRASTicket">
+      <wsdl:input message="impl:createExternalSourceRASTicketRequest" name="createExternalSourceRASTicketRequest">
+    </wsdl:input>
+      <wsdl:output message="impl:createExternalSourceRASTicketResponse" name="createExternalSourceRASTicketResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

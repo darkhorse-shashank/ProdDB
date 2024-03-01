@@ -1,0 +1,1333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.wbit.bpel.ui.uiextensionmodel="http:///com/ibm/wbit/bpel/ui/uiextensionmodel.ecore" xmlns:extensionmodel="http:///extensionmodel.ecore" xmlns:sb="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.bpel.ui/">
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#/"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ProcessExtension" modificationStamp="1691039406000" autoLayout="true" maxWpcId="244" minWpcId="0"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.7"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catch.0/@faultVariable"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension" portTypeNameHint="RASIntegrationService" portTypeNamespaceHint="http://RASAccess-ApplicationDB/RASIntegrationService"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catch.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CatchExtension" operation="findExcessRefundDraftTicketDetails"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catch.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catch.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catch.0/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.6"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.7"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.8"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@faultVariable"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension" portTypeNameHint="RetrieveTicketAccess" portTypeNamespaceHint="http://TicketDomain-v1.0.0/org/aig/access/RetrieveTicketAccess"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CatchExtension" operation="isTicketExist"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.9"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.10"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.11"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.12"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.13"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@faultVariable"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension" portTypeNameHint="RetrieveAccessGC" portTypeNamespaceHint="http://GCDomain-v1.0.0/org/tataaig/access/RetrieveAccessGC"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CatchExtension" operation="findMainReceiptDetails"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@faultVariable"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension" portTypeNameHint="RetrieveAccessGC" portTypeNamespaceHint="http://GCDomain-v1.0.0/org/tataaig/access/RetrieveAccessGC"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CatchExtension" operation="findSubReceiptDetails"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.2/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.2/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.2/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.2/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.14"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.15"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.2/@copy.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catch.0/@faultVariable"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension" portTypeNameHint="RASIntegrationService" portTypeNamespaceHint="http://RASAccess-ApplicationDB/RASIntegrationService"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catch.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CatchExtension" operation="findExcessRefundDraftDocumentDetails"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catch.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catch.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catch.0/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catch.0/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.16"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.17"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.18"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.19"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.20"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.21"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.22"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.9"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.10"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.11"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.15"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.8"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.8/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.12"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.13"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.14"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.4/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.23"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.24"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.25"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.8/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.8/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.26"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.27"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.28"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.29"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.0/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.0/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.0/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catch.0/@activity/@activities.0/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catch.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.30"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catch.0/@activity/@activities.0/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catch.0/@activity/@activities.0/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catch.0/@activity/@activities.0/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.3/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.0/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.0/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.0/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.0/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.0/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.0/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.31"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catch.0/@faultVariable"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension" portTypeNameHint="UpdateRASTicketNoForSource" portTypeNamespaceHint="http://RASAccess-ApplicationDB/UpdateDetailsForSource"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catch.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CatchExtension" operation="updateSourceForRASExcessRefundTicketNumber"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catch.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catch.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catch.0/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catch.0/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catch.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catch.0/@activity/@activities.0/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catch.0/@activity/@activities.0/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catch.0/@activity/@activities.0/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.9/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catch.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.1/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.32"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.33"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.34"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.35"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.4/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.3/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.3/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.3/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.4/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.8/@copy.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.8/@copy.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.8/@copy.6"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.8/@copy.7"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.3/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.3/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.2/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.2/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.3/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.3/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.3/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.2/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.3/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.2/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.2/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.3/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.3/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.4/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.4/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.2/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.2/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.3/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.3/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.3/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.3/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.3/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.3/@faultHandler/@catchAll/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.3/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.2/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.2/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.3/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.2/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.3/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.2/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.2/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.3/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.3/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension" condition="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;le:Condition xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:le=&quot;http://www.ibm.com/xmlns/prod/websphere/wbi/le/6.0.0&quot;>&#xD;&#xA;  &lt;conditionExpression xsi:type=&quot;le:BooleanExpression&quot; expString=&quot;isTicketExist !=true&quot;/>&#xD;&#xA;&lt;/le:Condition>&#xD;&#xA;"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.3/@copy.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.36"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.8/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.0/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.0/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.0/@copy.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.2/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.37"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.1/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.1/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.1/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catch.0/@activity/@activities.3/@copy.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.4/@faultHandler/@catchAll/@activity/@activities.2/@copy.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.3/@copy.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.3/@copy.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.2/@copy.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.2/@copy.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.3/@copy.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.6"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.2"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.38"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.39"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.7"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.8"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.40"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.41"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.42"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.3/@copy.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.43"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.44"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.1/@faultHandler"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:FaultHandlerExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.1/@faultHandler/@catchAll/@activity/@activities.0/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.1/@faultHandler/@catchAll/@activity/@activities.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.1/@faultHandler/@catchAll/@activity"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648" implicit="true"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.1/@faultHandler/@catchAll/@activity/@activities.1"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.45"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension" condition="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;le:Condition xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:le=&quot;http://www.ibm.com/xmlns/prod/websphere/wbi/le/6.0.0&quot;>&#xD;&#xA;  &lt;conditionExpression xsi:type=&quot;le:BooleanExpression&quot; expString=&quot;updatePACE ==true&quot;/>&#xD;&#xA;&lt;/le:Condition>&#xD;&#xA;"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@cases.0/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension" condition="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;le:Condition xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:le=&quot;http://www.ibm.com/xmlns/prod/websphere/wbi/le/6.0.0&quot;>&#xD;&#xA;  &lt;conditionExpression xsi:type=&quot;le:BooleanExpression&quot; expString=&quot;updatePACE ==true&quot;/>&#xD;&#xA;&lt;/le:Condition>&#xD;&#xA;"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.4"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catch.0/@activity/@activities.4/@cases.0/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension" condition="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;le:Condition xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:le=&quot;http://www.ibm.com/xmlns/prod/websphere/wbi/le/6.0.0&quot;>&#xD;&#xA;  &lt;conditionExpression xsi:type=&quot;le:BooleanExpression&quot; expString=&quot;updatePACE ==true&quot;/>&#xD;&#xA;&lt;/le:Condition>&#xD;&#xA;"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CaseExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.3"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.2/@otherwise/@activity/@faultHandler/@catchAll/@activity/@activities.3/@cases.0/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension" condition="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;le:Condition xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:le=&quot;http://www.ibm.com/xmlns/prod/websphere/wbi/le/6.0.0&quot;>&#xD;&#xA;  &lt;conditionExpression xsi:type=&quot;le:BooleanExpression&quot; expString=&quot;updatePACE ==true&quot;/>&#xD;&#xA;&lt;/le:Condition>&#xD;&#xA;"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.46"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@variables/@children.47"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:VariableExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@condition"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ExpressionExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.6/@cases.0/@activity/@activities.3/@copy.5"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:CopyExtension"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.7/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.5/@cases.0/@activity/@activities.7"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.6/@eExtensibilityElements.0"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#//@activity/@activities.6"/>
+      <extensionObject xsi:type="com.ibm.wbit.bpel.ui.uiextensionmodel:ActivityExtension" x="-2147483648"/>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+  <extensionmodel:ExtensionMap namespace="http://com.ibm.wbit.stickyboard.model/model/StickyBoard.xsd">
+    <extensions>
+      <extendedObject href="CreateRASEXcessRefundTicketFromDraft.bpel#/"/>
+      <extensionObject xsi:type="sb:StickyDocument">
+        <stickyBoard id="default"/>
+      </extensionObject>
+    </extensions>
+  </extensionmodel:ExtensionMap>
+</xmi:XMI>

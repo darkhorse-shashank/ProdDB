@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:mfcex="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlowExtension" xmlns:ns1="http://Access-ApplicationDB/DBInterface" xmlns:ns1_1="http://TicketDomain-v1.0.0/RetrieveRefund" name="RetrieveRefundMediationCpmt" targetNamespace="http://Access-ApplicationDB/RetrieveRefundMediationCpmt">
+  <import location="RetrieveRefund.wsdl" namespace="http://TicketDomain-v1.0.0/RetrieveRefund"/>
+  <import location="DBInterface.wsdl" namespace="http://Access-ApplicationDB/DBInterface"/>
+  <promotedProperty name="findRefundDetailsErrorLog.enabled" group="Access-ApplicationDB.RetrieveRefundMediationCpmt" value="true"/>
+  <promotedProperty name="findRefundDetailsErrorLog.file" group="Access-ApplicationDB.RetrieveRefundMediationCpmt" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+  <reference name="DBInterfacePartner" portType="ns1:DBInterface"/>
+  <interface portType="ns1_1:RetrieveRefund">
+    <operation name="findRefundDetails">
+      <requestFlow mfcex:showInputResponse="false" mfcex:showInputFault="false">
+        <node displayName="findRefundDetails : RetrieveRefund" name="RetrieveRefund_findRefundDetails_Input" type="Input">
+          <outputTerminal type="ns1_1:findRefundDetailsRequestMsg">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+        </node>
+        <node displayName="retrieveDboRas_RefundBG : DBInterfacePartner" name="DBInterfacePartner_retrieveDboRas_RefundBG_Callout" type="Callout">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveDboRas_RefundBG"/>
+          <inputTerminal type="ns1:retrieveDboRas_RefundBGRequestMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/findRefundDetails_InputMap.xsl"/>
+          <property name="XMXMap" value="xslt/findRefundDetails_InputMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1_1:findRefundDetailsRequestMsg"/>
+          <outputTerminal type="ns1:retrieveDboRas_RefundBGRequestMsg">
+            <wire targetNode="DBInterfacePartner_retrieveDboRas_RefundBG_Callout"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <responseFlow>
+        <node displayName="retrieveDboRas_RefundBG : DBInterfacePartner" name="DBInterfacePartner_retrieveDboRas_RefundBG_CalloutResponse" type="CalloutResponse">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveDboRas_RefundBG"/>
+          <outputTerminal type="ns1:retrieveDboRas_RefundBGResponseMsg">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+          <failTerminal type="ns1:retrieveDboRas_RefundBGRequestMsg"/>
+        </node>
+        <node displayName="retrieveDboRas_RefundBG : DBInterfacePartner" name="DBInterfacePartner_retrieveDboRas_RefundBG_CalloutFault" type="CalloutFault">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveDboRas_RefundBG"/>
+          <outputTerminal name="retrieveDboRas_RefundBGMultipleMatchingRecordsFaultMsg" type="ns1:retrieveDboRas_RefundBGMultipleMatchingRecordsFaultMsg"/>
+          <outputTerminal name="retrieveDboRas_RefundBGMissingDataFaultMsg" type="ns1:retrieveDboRas_RefundBGMissingDataFaultMsg"/>
+          <outputTerminal name="retrieveDboRas_RefundBGRecordNotFoundFaultMsg" type="ns1:retrieveDboRas_RefundBGRecordNotFoundFaultMsg"/>
+        </node>
+        <node displayName="findRefundDetails : RetrieveRefund" name="RetrieveRefund_findRefundDetails_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1_1:findRefundDetailsResponseMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/findRefundDetails_OutputMap.xsl"/>
+          <property name="XMXMap" value="xslt/findRefundDetails_OutputMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:retrieveDboRas_RefundBGResponseMsg"/>
+          <outputTerminal type="ns1_1:findRefundDetailsResponseMsg">
+            <wire targetNode="RetrieveRefund_findRefundDetails_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node displayName="findRefundDetails : RetrieveRefund" name="RetrieveRefund_findRefundDetails_InputFault" type="InputFault">
+          <inputTerminal name="findRefundDetails_RASExceptionMsg" type="ns1_1:findRefundDetails_RASExceptionMsg"/>
+        </node>
+      </responseFlow>
+      <errorFlow>
+        <node displayName="findRefundDetails : RetrieveRefund" name="RetrieveRefund_findRefundDetails_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+        </node>
+        <node displayName="findRefundDetails : RetrieveRefund" name="RetrieveRefund_findRefundDetails_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1_1:findRefundDetailsResponseMsg"/>
+        </node>
+        <node displayName="findRefundDetails : RetrieveRefund" name="RetrieveRefund_findRefundDetails_InputFault" type="InputFault">
+          <inputTerminal name="findRefundDetails_RASExceptionMsg" type="ns1_1:findRefundDetails_RASExceptionMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/findRefundDetail_ErrorMap.xsl"/>
+          <property name="XMXMap" value="xslt/findRefundDetail_ErrorMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1_1:findRefundDetails_RASExceptionMsg">
+            <wire targetNode="findRefundDetailsErrorLog"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="findRefundDetailsErrorLog" type="Trace">
+          <property name="enabled" promotedPropertyGroup="Access-ApplicationDB.RetrieveRefundMediationCpmt" promotedPropertyName="findRefundDetailsErrorLog.enabled"/>
+          <property name="destination" value="2"/>
+          <property name="file" promotedPropertyGroup="Access-ApplicationDB.RetrieveRefundMediationCpmt" promotedPropertyName="findRefundDetailsErrorLog.file" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+          <inputTerminal/>
+          <outputTerminal>
+            <wire targetNode="RetrieveRefund_findRefundDetails_InputFault" targetTerminal="findRefundDetails_RASExceptionMsg"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

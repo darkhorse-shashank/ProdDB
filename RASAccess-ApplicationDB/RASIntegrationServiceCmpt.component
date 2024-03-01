@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://www.ibm.com/xmlns/prod/websphere/scdl/java/6.0.0" xmlns:ns1="http://RASAccess-ApplicationDB/RASIntegrationService" xmlns:ns2="http://Access-ApplicationDB/DBInterface" xmlns:ns3="http://RASAccess-ApplicationDB/RASExcessRefundTicketDraft" xmlns:ns4="http://TicketDomain-v1.0.0/org/aig/access/RASExcessRefundTicketFromDraft" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="RASIntegrationServiceCmpt" name="RASIntegrationServiceCmpt">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:RASIntegrationService">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="DBInterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:DBInterface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="DBInterface"/>
+    </reference>
+    <reference name="RASExcessRefundTicketFromDraftPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns4:RASExcessRefundTicketFromDraft"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="CreateRASEXcessRefundTicketFromDraft"/>
+    </reference>
+  </references>
+  <implementation xsi:type="java:JavaImplementation" class="org.aig.ras.integration.service.RASIntegrationServiceCmptImpl">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+  </implementation>
+</scdl:component>

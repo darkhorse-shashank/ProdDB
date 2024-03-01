@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://RACAS/ExternalSourceRASTicketCreation.tws" xmlns:impl="http://RACAS/ExternalSourceRASTicketCreation.tws" xmlns:wsdlsoap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+    <wsdl:import location="externalsourcerasticketcreation_tws_wsdl.wsdl" namespace="http://RACAS/ExternalSourceRASTicketCreation.tws"/>
+  <wsdl:binding name="soap12ExternalSourceRASTicketCreationSoapSoapBinding" type="impl:ExternalSourceRASTicketCreationPortType">
+    <wsdlsoap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createExternalSourceRASTicket">
+      <wsdlsoap12:operation soapAction="http://RACAS/ExternalSourceRASTicketCreation.tws/createExternalSourceRASTicket"/>
+      <wsdl:input name="createExternalSourceRASTicketRequest">
+        <wsdlsoap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createExternalSourceRASTicketResponse">
+        <wsdlsoap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ExternalSourceRASTicketCreation">
+    <wsdl:port binding="impl:soap12ExternalSourceRASTicketCreationSoapSoapBinding" name="soap12ExternalSourceRASTicketCreationSoap">
+      <wsdlsoap12:address location="https://OTTLR7TAUBPM04:9444/teamworks/webservices/RACAS/ExternalSourceRASTicketCreation.tws"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

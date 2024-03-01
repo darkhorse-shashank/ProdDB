@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://TicketDomain-v1.0.0/org/aig/access/NegativeEndorsementDraftTicket" xmlns:ns2="http://TicketDomain-v1.0.0/org/aig/access/RetrieveTicketAccess" xmlns:ns3="http://Access-ApplicationDB/DBInterface" xmlns:ns4="http://RACAS/ExternalSourceRASTicketCreation.tws" xmlns:ns5="http://RASAccess-ApplicationDB/RASGCIntegrationService" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="createRASNegativeEndorsementDraftTicket" name="createRASNegativeEndorsementDraftTicket">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:NegativeEndorsementDraftTicket">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="RetrieveTicketAccessPartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:RetrieveTicketAccess"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <wire target="RetrieveTicketJavaCmpt"/>
+    </reference>
+    <reference name="DBInterfacePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:DBInterface"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <wire target="DBInterface"/>
+    </reference>
+    <reference name="ExternalSourceRASTicketCreationPortTypePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns4:ExternalSourceRASTicketCreationPortType"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <wire target="NegativeEndorsementRASDraftTicketCreationImport"/>
+    </reference>
+    <reference name="RASGCIntegrationServicePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns5:RASGCIntegrationService"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <wire target="RASGCIntegrationJavaCmpt"/>
+    </reference>
+  </references>
+  <implementation xsi:type="process:ProcessImplementation">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+    <process bpel="/createRASNegativeEndorsementDraftTicket.bpel"/>
+  </implementation>
+</scdl:component>

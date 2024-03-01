@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:import xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0" xmlns:ns1="http://Access-HealthNbLibrary/PaceRefundIntegrationServices" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="PaceRefundIntegrationServicesImport" name="PaceRefundIntegrationServicesImport">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:PaceRefundIntegrationServices">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="false"/>
+    </interface>
+  </interfaces>
+  <esbBinding xsi:type="jaxws:JaxWsImportBinding" endpoint="https://10.35.78.8:9444/Access-HealthNbWeb/sca/PaceRefundIntegrationServices" port="ns1:PaceRefundIntegrationServices_PaceRefundIntegrationServicesHttpPort" service="ns1:PaceRefundIntegrationServicesExport1_PaceRefundIntegrationServicesHttpService"/>
+</scdl:import>

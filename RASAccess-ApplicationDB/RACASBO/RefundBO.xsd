@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://RACASBO" xmlns:impl1="http://RACASBO"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<include schemaLocation="Error.xsd" />
+	<complexType name="RefundBO">
+		<sequence>
+			<element maxOccurs="1" minOccurs="0" name="refundId"
+				nillable="false" type="xsd:int" />
+			<element maxOccurs="1" minOccurs="0" name="policyNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="ticketId"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="refundType"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="beneName"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="refundAmount"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="txnDate"
+				nillable="false" type="xsd:dateTime" />
+			<element maxOccurs="1" minOccurs="0" name="txnNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="premiumAmount"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="ifscCode"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="chequeNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="bankName"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="branchName"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="address1"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="address2"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="address3"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="city"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="emailId"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="status"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="remarks"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="actionBy"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="jobId"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="error"
+				nillable="false" type="impl1:Error" />
+			<element maxOccurs="1" minOccurs="0" name="accountNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="product"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="counterPartyName"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="orderPartyName"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="voucherNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="proposalNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="txnDateString"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="sapDocumentNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="utrReturnReason"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="gcDocumentId"
+				nillable="false" type="xsd:string" />
+		</sequence>
+	</complexType>
+</schema>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:moduleAndLibraryAttributes xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" versionValue="" versionProvider="" asyncRetryCount="0">
+  <boImplementation>
+    <xci/>
+  </boImplementation>
+  <scdl:libraryDependency name="TicketDomain-v1.0.0" version=""/>
+  <scdl:libraryDependency name="RefundAndCancellationAutomationSystemBO_Library" version=""/>
+  <scdl:libraryDependency name="RASDBAPPLibrary" version=""/>
+  <scdl:libraryDependency name="GCLibrary" version=""/>
+  <scdl:libraryDependency name="CCMLibrary" version=""/>
+</scdl:moduleAndLibraryAttributes>

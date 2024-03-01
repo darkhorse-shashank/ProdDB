@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://RASAccess-ApplicationDB/RASHealthIntegrationData" xmlns:bons0="http://RASAccess-ApplicationDB/RASHealthIntegrationData">
+    <xsd:include schemaLocation="ExcessRefundDraftInputTicketDetails.xsd"/>
+	<xsd:include schemaLocation="ExcessRefundDraftDocumentDetails.xsd">
+	</xsd:include>
+	<xsd:complexType name="ExcessRefundDraftTicketInput">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="source" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="sourceUniqueId" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="sourceUserName" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="bopsChannel" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="emailId" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="contactNo" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="lob" type="xsd:string"/>
+			<xsd:element minOccurs="0" name="productCode" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ticketRemarks" type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="documentDetails" type="bons0:ExcessRefundDraftDocumentDetails">
+			</xsd:element>
+			<xsd:element maxOccurs="unbounded" minOccurs="0" name="ticketDetails" type="bons0:ExcessRefundDraftInputTicketDetails">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

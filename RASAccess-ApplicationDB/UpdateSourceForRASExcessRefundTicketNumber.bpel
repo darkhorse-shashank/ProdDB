@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?><bpws:process xmlns:bpws="http://schemas.xmlsoap.org/ws/2004/03/business-process/" xmlns:ns="http://RASAccess-ApplicationDB/UpdateSourceForRASExcessRefundTicketNumberArtifacts" xmlns:ns0="http://RASAccess-ApplicationDB/UpdateDetailsForSource" xmlns:ns1="http://RASAccess-ApplicationDB/RASIntegrationService" xmlns:ns2="http://RACASBO" xmlns:ns3="http://Access-HealthNbLibrary/PaceRefundIntegrationServices" xmlns:ns4="http://NBHD" xmlns:wpc="http://www.ibm.com/xmlns/prod/websphere/business-process/6.0.0/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.ibm.com/xmlns/prod/websphere/business-process/expression-lang/java/6.0.0/" name="UpdateSourceForRASExcessRefundTicketNumber" suppressJoinFailure="yes" targetNamespace="http://RASAccess-ApplicationDB" wpc:continueOnError="no" wpc:displayName="UpdateSourceForRASExcessRefundTicketNumber" wpc:executionMode="microflow" wpc:id="1" wpc:validFrom="2020-05-29T06:41:28" wpc:version="8.6.0">
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="org/aig/access/UpdateRASTicketNoForSource.wsdl" namespace="http://RASAccess-ApplicationDB/UpdateDetailsForSource"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="UpdateSourceForRASExcessRefundTicketNumberArtifacts.wsdl" namespace="http://RASAccess-ApplicationDB/UpdateSourceForRASExcessRefundTicketNumberArtifacts"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="RASIntegrationService.wsdl" namespace="http://RASAccess-ApplicationDB/RASIntegrationService"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="xsd-includes/http.RACASBO.xsd" namespace="http://RACASBO"/>
+  <bpws:import importType="http://schemas.xmlsoap.org/wsdl/" location="_141/_195/_33/_10/access_healthnbweb/sca/pacerefundintegrationservices/web_inf/wsdl/PaceRefundIntegrationServices.wsdl" namespace="http://Access-HealthNbLibrary/PaceRefundIntegrationServices"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="xsd-includes/http.NBHD.xsd" namespace="http://NBHD"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="NBHD/RefundDetails.xsd" namespace="http://NBHD"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="RACASBO/RASException.xsd" namespace="http://RACASBO"/>
+  <bpws:import importType="http://www.w3.org/2001/XMLSchema" location="NBHD/Response.xsd" namespace="http://NBHD"/>
+  <bpws:partnerLinks>
+    <bpws:partnerLink myRole="Interface" name="UpdateRASTicketNoForSource" partnerLinkType="ns:UpdateRASTicketNoForSourcePLT" wpc:id="2"/>
+    <bpws:partnerLink name="RASIntegrationServicePartner" partnerLinkType="ns:RASIntegrationServicePartnerPLT" partnerRole="Reference" wpc:id="8"/>
+    <bpws:partnerLink name="PaceRefundIntegrationServicePartner" partnerLinkType="ns:PaceRefundIntegrationServicePartnerPLT" partnerRole="Reference" wpc:id="24"/>
+  </bpws:partnerLinks>
+  <bpws:variables>
+    <bpws:variable name="reverseFeedId" type="xsd:int" wpc:id="6"/>
+    <bpws:variable name="updateStatus" type="xsd:string" wpc:id="7"/>
+    <bpws:variable name="RASFault" type="ns2:RASException" wpc:id="15"/>
+    <bpws:variable name="source" type="xsd:string" wpc:id="22"/>
+    <bpws:variable name="refundDetails" type="ns4:RefundDetails" wpc:id="25"/>
+    <bpws:variable name="response" type="ns4:Response" wpc:id="26"/>
+    <bpws:variable name="sourceUniqueId" type="xsd:string" wpc:id="28"/>
+    <bpws:variable name="receiptNumber" type="xsd:string" wpc:id="29"/>
+    <bpws:variable name="rasTicketNo" type="xsd:string" wpc:id="30"/>
+    <bpws:variable name="rasTicketstatus" type="xsd:string" wpc:id="31"/>
+    <bpws:variable name="errorDetails" type="xsd:string" wpc:id="27"/>
+    <bpws:variable name="remarks" type="xsd:string" wpc:id="38"/>
+    <bpws:variable name="reverseFeedInput" type="ns4:RefundDetails" wpc:id="39"/>
+    <bpws:variable name="reverseFeedOutput" type="ns4:Response" wpc:id="40"/>
+    <bpws:variable name="draftTicketNo" type="xsd:string" wpc:id="43"/>
+    <bpws:variable name="requestType" type="xsd:string" wpc:id="44"/>
+    <bpws:variable name="sourceUserName" type="xsd:string" wpc:id="54"/>
+  </bpws:variables>
+  <bpws:sequence name="HiddenSequence" wpc:id="1073741827">
+    <bpws:receive createInstance="yes" name="Receive" operation="updateSourceForRASExcessRefundTicketNumber" partnerLink="UpdateRASTicketNoForSource" portType="ns0:UpdateRASTicketNoForSource" wpc:displayName="Receive" wpc:id="4" wpc:transactionalBehavior="commitAfter">
+      <wpc:output>
+        <wpc:parameter name="sourceUniqueId" variable="sourceUniqueId"/>
+        <wpc:parameter name="rasTicketNo" variable="rasTicketNo"/>
+        <wpc:parameter name="rasTicketstatus" variable="rasTicketstatus"/>
+        <wpc:parameter name="receiptNumber" variable="receiptNumber"/>
+        <wpc:parameter name="remarks" variable="remarks"/>
+        <wpc:parameter name="source" variable="source"/>
+        <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+        <wpc:parameter name="sourceUserName" variable="sourceUserName"/>
+        <wpc:parameter name="requestType" variable="requestType"/>
+      </wpc:output>
+    </bpws:receive>
+    <bpws:invoke name="InvokeSaveRASExcessRefundReverseFeedDetails" operation="saveExcessRefundReverseFeedDetails" partnerLink="RASIntegrationServicePartner" portType="ns1:RASIntegrationService" wpc:continueOnError="inherit" wpc:displayName="Invoke Save RAS Excess Refund Reverse Feed Details" wpc:id="42">
+      <wpc:input>
+        <wpc:parameter name="draftTicketNo" variable="draftTicketNo"/>
+        <wpc:parameter name="source" variable="source"/>
+        <wpc:parameter name="requestType" variable="requestType"/>
+        <wpc:parameter name="rasTicketNo" variable="rasTicketNo"/>
+      </wpc:input>
+      <wpc:output>
+        <wpc:parameter name="excessRefundReverseFeedId" variable="reverseFeedId"/>
+      </wpc:output>
+      <bpws:catch faultMessageType="ns1:saveExcessRefundReverseFeedDetails_saveExcessRefundReverseFeedDetailsFaultMsg" faultName="ns1:saveExcessRefundReverseFeedDetailsFault" faultVariable="saveExcessRefundReverseFeedDetailsFaultVariable" wpc:displayName="saveExcessRefundReverseFeedDetailsFault" wpc:id="45" wpc:variableId="46">
+        <bpws:sequence name="HiddenSequence5" wpc:id="1073741871">
+          <bpws:assign name="AssignSaveExcessRefundReverseFeedDetailsFault" wpc:displayName="Assign Save ExcessRefund Reverse Feed Details Fault" wpc:id="48">
+            <bpws:copy>
+              <bpws:from part="saveExcessRefundReverseFeedDetailsFault" variable="saveExcessRefundReverseFeedDetailsFaultVariable"/>
+              <bpws:to variable="RASFault"/>
+            </bpws:copy>
+          </bpws:assign>
+          <bpws:reply faultName="ns0:updateSourceForRASExcessRefundTicketNumberFault" name="ReplySaveExcessRefundReverseFeedDetailsFault" operation="updateSourceForRASExcessRefundTicketNumber" partnerLink="UpdateRASTicketNoForSource" portType="ns0:UpdateRASTicketNoForSource" wpc:displayName="Reply Save ExcessRefund Reverse Feed Details Fault" wpc:id="49">
+            <wpc:input>
+              <wpc:parameter name="updateSourceForRASExcessRefundTicketNumberFault1_updateSourceForRASExcessRefundTicketNumberFault" variable="RASFault"/>
+            </wpc:input>
+          </bpws:reply>
+        </bpws:sequence>
+      </bpws:catch>
+      <bpws:catchAll wpc:id="50">
+        <bpws:sequence name="HiddenSequence6" wpc:id="1073741875">
+          <bpws:invoke name="ExtractSaveExcessRefundReverseFeedDetailsError" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Extract Save ExcessRefund Reverse Feed Details Error" wpc:id="52">
+            <wpc:script>
+              <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException bpelexception =getCurrentFaultAsException();
+// Stack Trace
+Throwable rootCause = bpelexception.getRootCause();
+// Error Name -- ex: runTime Exception
+String errorName = bpelexception.getFaultName();
+// Error code -- ex:CW0000BE
+String errorCode = bpelexception.getMessage().substring(0,bpelexception.getMessage().lastIndexOf(":"));
+String errorMessage = rootCause.getMessage();
+com.ibm.websphere.bo.BOFactory boFactory =  (com.ibm.websphere.bo.BOFactory)com.ibm.websphere.sca.ServiceManager.INSTANCE
+			                               .locateService("com/ibm/websphere/bo/BOFactory");
+commonj.sdo.DataObject  RASFault= boFactory.create("http://RACASBO","RASException");
+RASFault.setString("status","FAILED");
+RASFault.setString("error[0]/errorCode",errorCode);
+RASFault.setString("error[0]/message",errorMessage);
+RASFault.setString("error[0]/errorDetail",errorName);
+this.RASFault= RASFault;]]></wpc:javaCode>
+            </wpc:script>
+          </bpws:invoke>
+          <bpws:reply faultName="ns0:updateSourceForRASExcessRefundTicketNumberFault" name="ReplySaveExcessRefundReverseFeedDetailsError" operation="updateSourceForRASExcessRefundTicketNumber" partnerLink="UpdateRASTicketNoForSource" portType="ns0:UpdateRASTicketNoForSource" wpc:displayName="Reply Save ExcessRefund Reverse Feed Details Error" wpc:id="53">
+            <wpc:input>
+              <wpc:parameter name="updateSourceForRASExcessRefundTicketNumberFault1_updateSourceForRASExcessRefundTicketNumberFault" variable="RASFault"/>
+            </wpc:input>
+          </bpws:reply>
+        </bpws:sequence>
+      </bpws:catchAll>
+    </bpws:invoke>
+    <bpws:switch name="SourceChoice" wpc:displayName="Source Choice" wpc:id="20">
+      <bpws:case wpc:displayName="PACE Source" wpc:id="21">
+        <bpws:condition expressionLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[$source = 'PACE']]></bpws:condition>
+        <bpws:sequence name="HiddenSequence3" wpc:id="1073741856">
+          <bpws:assign name="AssignPaceRefundIntegrationServiceInput" wpc:displayName="Assign Pace Refund Integration Service Input" wpc:id="33">
+            <bpws:copy>
+              <bpws:from variable="sourceUniqueId"/>
+              <bpws:to variable="refundDetails">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[sourceSystemProposaNumber]]></bpws:query>
+              </bpws:to>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from variable="receiptNumber"/>
+              <bpws:to variable="refundDetails">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[receiptNumber]]></bpws:query>
+              </bpws:to>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from variable="rasTicketstatus"/>
+              <bpws:to variable="refundDetails">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[receiptStatus]]></bpws:query>
+              </bpws:to>
+            </bpws:copy>
+            <bpws:copy>
+              <bpws:from variable="remarks"/>
+              <bpws:to variable="refundDetails">
+                <bpws:query queryLanguage="http://www.w3.org/TR/1999/REC-xpath-19991116"><![CDATA[remarks]]></bpws:query>
+              </bpws:to>
+            </bpws:copy>
+          </bpws:assign>
+          <bpws:invoke name="AssignRASUniqueReferenceIdforPACEIntegrationService" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Assign RAS Unique Reference Id for PACE Integration Service" wpc:id="55">
+            <wpc:script>
+              <wpc:javaCode><![CDATA[if(rasTicketNo!=null && !"".equalsIgnoreCase(rasTicketNo))
+refundDetails.setString("rasUniqueReferenceId",rasTicketNo);
+else
+refundDetails.setString("rasUniqueReferenceId",draftTicketNo);
+System.out.println("Before Calling PACE Service");]]></wpc:javaCode>
+            </wpc:script>
+          </bpws:invoke>
+          <bpws:invoke name="InvokePaceRefundIntegrationService" operation="UpdateReceiptDetails" partnerLink="PaceRefundIntegrationServicePartner" portType="ns3:PaceRefundIntegrationServices" wpc:continueOnError="inherit" wpc:displayName="Invoke Pace Refund Integration Service" wpc:id="23">
+            <wpc:input>
+              <wpc:parameter name="refundDetails" variable="refundDetails"/>
+            </wpc:input>
+            <wpc:output>
+              <wpc:parameter name="response" variable="response"/>
+            </wpc:output>
+            <bpws:catchAll wpc:id="34">
+              <bpws:sequence name="HiddenSequence4" wpc:id="1073741860">
+                <bpws:invoke name="ExtractPaceRefundIntegrationServiceError" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Extract Pace Refund Integration Service Error" wpc:id="35">
+                  <wpc:script>
+                    <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException bpelexception =getCurrentFaultAsException();
+// Stack Trace
+Throwable rootCause = bpelexception.getRootCause();
+// Error Name -- ex: runTime Exception
+String errorName = bpelexception.getFaultName();
+// Error code -- ex:CW0000BE
+String errorCode = bpelexception.getMessage().substring(0,bpelexception.getMessage().lastIndexOf(":"));
+String errorMessage = rootCause.getMessage();
+com.ibm.websphere.bo.BOFactory boFactory =  (com.ibm.websphere.bo.BOFactory)com.ibm.websphere.sca.ServiceManager.INSTANCE
+			                               .locateService("com/ibm/websphere/bo/BOFactory");
+commonj.sdo.DataObject  RASFault= boFactory.create("http://RACASBO","RASException");
+RASFault.setString("status","FAILED");
+RASFault.setString("error[0]/errorCode",errorCode);
+RASFault.setString("error[0]/message",errorMessage);
+RASFault.setString("error[0]/errorDetail",errorName);
+this.RASFault= RASFault;
+
+
+
+]]></wpc:javaCode>
+                  </wpc:script>
+                </bpws:invoke>
+                <bpws:reply faultName="ns0:updateSourceForRASExcessRefundTicketNumberFault" name="ReplyExtractPaceRefundIntegrationServiceError" operation="updateSourceForRASExcessRefundTicketNumber" partnerLink="UpdateRASTicketNoForSource" portType="ns0:UpdateRASTicketNoForSource" wpc:displayName="Reply Extract Pace Refund Integration Service Error" wpc:id="37">
+                  <wpc:input>
+                    <wpc:parameter name="updateSourceForRASExcessRefundTicketNumberFault1_updateSourceForRASExcessRefundTicketNumberFault" variable="RASFault"/>
+                  </wpc:input>
+                </bpws:reply>
+              </bpws:sequence>
+            </bpws:catchAll>
+          </bpws:invoke>
+          <bpws:invoke name="InvokeUpdateExcessRefundReverseFeedDeatils" operation="updateExcessRefundReverseFeedDetails" partnerLink="RASIntegrationServicePartner" portType="ns1:RASIntegrationService" wpc:continueOnError="inherit" wpc:displayName="Invoke Update ExcessRefund Reverse Feed Deatils" wpc:id="9">
+            <wpc:input>
+              <wpc:parameter name="reverseFeedId" variable="reverseFeedId"/>
+              <wpc:parameter name="reverseFeedOutput" variable="response"/>
+              <wpc:parameter name="reverseFeedInput" variable="refundDetails"/>
+            </wpc:input>
+            <wpc:output>
+              <wpc:parameter name="updateStatus" variable="updateStatus"/>
+            </wpc:output>
+            <bpws:catch faultMessageType="ns1:updateExcessRefundReverseFeedDetails_updateExcessRefundReverseFeedDetailsFaultMsg" faultName="ns1:updateExcessRefundReverseFeedDetailsFault" faultVariable="updateExcessRefundReverseFeedDetailsFaultVariable" wpc:displayName="updateExcessRefundReverseFeedDetailsFault" wpc:id="10" wpc:variableId="11">
+              <bpws:sequence name="HiddenSequence1" wpc:id="1073741836">
+                <bpws:assign name="AssignUpdateExcessRefundReverseFeedDetailsFault" wpc:displayName="Assign Update ExcessRefund Reverse Feed Details Fault" wpc:id="13">
+                  <bpws:copy>
+                    <bpws:from part="updateExcessRefundReverseFeedDetailsFault" variable="updateExcessRefundReverseFeedDetailsFaultVariable"/>
+                    <bpws:to variable="RASFault"/>
+                  </bpws:copy>
+                </bpws:assign>
+                <bpws:reply faultName="ns0:updateSourceForRASExcessRefundTicketNumberFault" name="ReplyUpdateExcessRefundReverseFeedDetailsFault" operation="updateSourceForRASExcessRefundTicketNumber" partnerLink="UpdateRASTicketNoForSource" portType="ns0:UpdateRASTicketNoForSource" wpc:displayName="Reply Update ExcessRefund Reverse Feed Details Fault" wpc:id="14">
+                  <wpc:input>
+                    <wpc:parameter name="updateSourceForRASExcessRefundTicketNumberFault1_updateSourceForRASExcessRefundTicketNumberFault" variable="RASFault"/>
+                  </wpc:input>
+                </bpws:reply>
+              </bpws:sequence>
+            </bpws:catch>
+            <bpws:catchAll wpc:id="16">
+              <bpws:sequence name="HiddenSequence2" wpc:id="1073741841">
+                <bpws:invoke name="ExtractUpdateExcessRefundReverseFeedDetailsError" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Extract Update ExcessRefund Reverse Feed Details Error" wpc:id="18">
+                  <wpc:script>
+                    <wpc:javaCode><![CDATA[com.ibm.bpe.api.BpelException bpelexception =getCurrentFaultAsException();
+// Stack Trace
+Throwable rootCause = bpelexception.getRootCause();
+// Error Name -- ex: runTime Exception
+String errorName = bpelexception.getFaultName();
+// Error code -- ex:CW0000BE
+String errorCode = bpelexception.getMessage().substring(0,bpelexception.getMessage().lastIndexOf(":"));
+String errorMessage = rootCause.getMessage();
+com.ibm.websphere.bo.BOFactory boFactory =  (com.ibm.websphere.bo.BOFactory)com.ibm.websphere.sca.ServiceManager.INSTANCE
+			                               .locateService("com/ibm/websphere/bo/BOFactory");
+commonj.sdo.DataObject  RASFault= boFactory.create("http://RACASBO","RASException");
+RASFault.setString("status","FAILED");
+RASFault.setString("error[0]/errorCode",errorCode);
+RASFault.setString("error[0]/message",errorMessage);
+RASFault.setString("error[0]/errorDetail",errorName);
+this.RASFault= RASFault;]]></wpc:javaCode>
+                  </wpc:script>
+                </bpws:invoke>
+                <bpws:reply faultName="ns0:updateSourceForRASExcessRefundTicketNumberFault" name="ReplyUpdateExcessRefundReverseFeedDetailsError" operation="updateSourceForRASExcessRefundTicketNumber" partnerLink="UpdateRASTicketNoForSource" portType="ns0:UpdateRASTicketNoForSource" wpc:displayName="Reply Update ExcessRefund Reverse Feed Details Error" wpc:id="19">
+                  <wpc:input>
+                    <wpc:parameter name="updateSourceForRASExcessRefundTicketNumberFault1_updateSourceForRASExcessRefundTicketNumberFault" variable="RASFault"/>
+                  </wpc:input>
+                </bpws:reply>
+              </bpws:sequence>
+            </bpws:catchAll>
+          </bpws:invoke>
+        </bpws:sequence>
+      </bpws:case>
+    </bpws:switch>
+    <bpws:invoke name="Snippet" operation="null" partnerLink="null" portType="wpc:null" wpc:continueOnError="inherit" wpc:displayName="Snippet" wpc:id="57">
+      <wpc:script>
+        <wpc:javaCode><![CDATA[System.out.println("After Calling PACE , before reply in Update Source");]]></wpc:javaCode>
+      </wpc:script>
+    </bpws:invoke>
+    <bpws:reply name="Reply" operation="updateSourceForRASExcessRefundTicketNumber" partnerLink="UpdateRASTicketNoForSource" portType="ns0:UpdateRASTicketNoForSource" wpc:displayName="Reply" wpc:id="5">
+      <wpc:input>
+        <wpc:parameter name="updateStatus" variable="updateStatus"/>
+      </wpc:input>
+    </bpws:reply>
+  </bpws:sequence>
+</bpws:process>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://NBHD" xmlns:tns="http://NBHD">
+	<xs:complexType name="Response">
+		<xs:annotation>
+			<xs:documentation>
+				created for response of exposed services
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1" name="caseNumber"
+				nillable="false" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						added on 05-04-20 for returning the NBH case
+						number
+					</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element maxOccurs="1" minOccurs="0" name="responseCode"
+				nillable="false" type="xs:string" />
+			<xs:element maxOccurs="1" minOccurs="0"
+				name="responseDescription" nillable="false" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:mfcex="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlowExtension" xmlns:ns1="http://CCMLibrary/UpdateCCMTransactionLog" xmlns:ns2="http://Access-ApplicationDB/DBInterface" name="CCMTransactionLogging" targetNamespace="http://RASAccess-ApplicationDB/CCMTransactionLogging">
+  <import location="UpdateCCMTransactionLog.wsdl" namespace="http://CCMLibrary/UpdateCCMTransactionLog"/>
+  <import location="DBInterface.wsdl" namespace="http://Access-ApplicationDB/DBInterface"/>
+  <promotedProperty name="ServiceInvoke1.retryOn" group="RASAccess-ApplicationDB.CCMTransactionLogging" value="0"/>
+  <promotedProperty name="ServiceInvoke1.retryCount" group="RASAccess-ApplicationDB.CCMTransactionLogging" value="0"/>
+  <promotedProperty name="ServiceInvoke1.retryDelay" group="RASAccess-ApplicationDB.CCMTransactionLogging" value="0"/>
+  <reference name="DBInterfacePartner" portType="ns2:DBInterface"/>
+  <interface portType="ns1:UpdateCCMTransactionLog">
+    <operation name="updateCCMTransactionLog">
+      <requestFlow mfcex:autoLayout="false">
+        <node displayName="updateCCMTransactionLog : UpdateCCMTransactionLog" name="UpdateCCMTransactionLog_updateCCMTransactionLog_Input" type="Input" mfcex:x="10" mfcex:y="126">
+          <outputTerminal type="ns1:updateCCMTransactionLogRequestMsg">
+            <wire targetNode="CCMTransactionRequestMap"/>
+          </outputTerminal>
+        </node>
+        <node displayName="updateCCMTransactionLog : UpdateCCMTransactionLog" name="UpdateCCMTransactionLog_updateCCMTransactionLog_InputResponse" type="InputResponse" mfcex:x="855" mfcex:y="20">
+          <inputTerminal type="ns1:updateCCMTransactionLogResponseMsg"/>
+        </node>
+        <node name="CCMTransactionLogServiceInvoke" type="ServiceInvoke" mfcex:x="395" mfcex:y="80">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="executeUpdateCCMTransactionDeatilsBG"/>
+          <property name="invocationStyle" value="6"/>
+          <property name="retryOn" promotedPropertyGroup="RASAccess-ApplicationDB.CCMTransactionLogging" promotedPropertyName="ServiceInvoke1.retryOn"/>
+          <property name="retryCount" promotedPropertyGroup="RASAccess-ApplicationDB.CCMTransactionLogging" promotedPropertyName="ServiceInvoke1.retryCount"/>
+          <property name="retryDelay" promotedPropertyGroup="RASAccess-ApplicationDB.CCMTransactionLogging" promotedPropertyName="ServiceInvoke1.retryDelay"/>
+          <inputTerminal type="ns2:executeUpdateCCMTransactionDeatilsBGRequestMsg"/>
+          <outputTerminal type="ns2:executeUpdateCCMTransactionDeatilsBGResponseMsg">
+            <wire targetNode="CCMTransactionResponseMap"/>
+          </outputTerminal>
+          <outputTerminal name="timeout" type="ns2:executeUpdateCCMTransactionDeatilsBGRequestMsg">
+            <wire targetNode="CCMTransactionLogFail"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeUpdateCCMTransactionDeatilsBGUniqueConstraintFaultMsg" type="ns2:executeUpdateCCMTransactionDeatilsBGUniqueConstraintFaultMsg">
+            <wire targetNode="CCMTransactionLogFail"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeUpdateCCMTransactionDeatilsBGIntegrityConstraintFaultMsg" type="ns2:executeUpdateCCMTransactionDeatilsBGIntegrityConstraintFaultMsg">
+            <wire targetNode="CCMTransactionLogFail"/>
+          </outputTerminal>
+          <outputTerminal description="Propagates the modeled fault message, received from the service invocation. There is no failInfo data associated with a modeled fault." name="executeUpdateCCMTransactionDeatilsBGRecordNotFoundFaultMsg" type="ns2:executeUpdateCCMTransactionDeatilsBGRecordNotFoundFaultMsg">
+            <wire targetNode="CCMTransactionLogFail"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="CCMTransactionLogFail"/>
+          </failTerminal>
+        </node>
+        <node name="CCMTransactionRequestMap" type="XSLTransformation" mfcex:x="250" mfcex:y="126">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/CCMTransactionRequestMap_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/CCMTransactionRequestMap_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:updateCCMTransactionLogRequestMsg"/>
+          <outputTerminal type="ns2:executeUpdateCCMTransactionDeatilsBGRequestMsg">
+            <wire targetNode="CCMTransactionLogServiceInvoke"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="CCMTransactionLogFail"/>
+          </failTerminal>
+        </node>
+        <node name="CCMTransactionResponseMap" type="XSLTransformation" mfcex:x="540" mfcex:y="20">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/CCMTransactionResponseMap_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/CCMTransactionResponseMap_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:executeUpdateCCMTransactionDeatilsBGResponseMsg"/>
+          <outputTerminal type="ns1:updateCCMTransactionLogResponseMsg">
+            <wire targetNode="UpdateCCMTransactionLog_updateCCMTransactionLog_InputResponse"/>
+          </outputTerminal>
+          <failTerminal>
+            <wire targetNode="CCMTransactionLogFail"/>
+          </failTerminal>
+        </node>
+        <node name="CCMTransactionLogFail" type="Fail" mfcex:x="715" mfcex:y="116">
+          <inputTerminal type="XMLSchema:anyType"/>
+        </node>
+      </requestFlow>
+      <errorFlow>
+        <node displayName="updateCCMTransactionLog : UpdateCCMTransactionLog" name="UpdateCCMTransactionLog_updateCCMTransactionLog_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType"/>
+        </node>
+        <node displayName="updateCCMTransactionLog : UpdateCCMTransactionLog" name="UpdateCCMTransactionLog_updateCCMTransactionLog_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:updateCCMTransactionLogResponseMsg"/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

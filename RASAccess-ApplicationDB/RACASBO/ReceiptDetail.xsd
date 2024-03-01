@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://RACASBO" xmlns:tns="http://RACASBO">
+  <xs:include schemaLocation="ResponseBO.xsd"/>
+  <xs:include schemaLocation="ReceiptBO.xsd"/>
+  <xs:complexType name="ReceiptDetail">
+    <xs:sequence>
+      <xs:element maxOccurs="1" minOccurs="0" name="payload" nillable="false" type="tns:ReceiptBO"/>
+      <xs:element maxOccurs="1" minOccurs="0" name="error" nillable="false" type="tns:ResponseBO"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

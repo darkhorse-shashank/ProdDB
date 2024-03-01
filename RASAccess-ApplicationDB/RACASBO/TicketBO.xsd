@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://RACASBO" xmlns:impl1="http://RACASBO"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<include schemaLocation="AccountBO.xsd" />
+	<include schemaLocation="RefundBO.xsd" />
+	<include schemaLocation="ArrayOf_ReceiptBO.xsd" />
+	<include schemaLocation="Error.xsd" />
+	<include schemaLocation="ReceiptBO.xsd" />
+	<include schemaLocation="PolicyBO.xsd" />
+	<complexType name="TicketBO">
+		<sequence>
+			<element maxOccurs="1" minOccurs="0" name="ticketNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="lob"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="policyNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="receiptNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="product"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="source"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="requestedDate"
+				nillable="false" type="xsd:dateTime" />
+			<element maxOccurs="1" minOccurs="0" name="effectiveDate"
+				nillable="false" type="xsd:dateTime" />
+			<element maxOccurs="1" minOccurs="0" name="refundType"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="cancellationOption" nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="cancellationReason" nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="otherReason"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="refundAmount"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="refundMode"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="voucherNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="status"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="ticketRemarks"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="agreedPremiumAmount" nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="policyDetail"
+				nillable="false" type="impl1:PolicyBO" />
+			<element maxOccurs="unbounded" minOccurs="0"
+				name="receiptDetail" nillable="false" type="impl1:ReceiptBO" />
+			<element maxOccurs="1" minOccurs="0" name="accountDetail"
+				nillable="false" type="impl1:AccountBO" />
+			<element maxOccurs="1" minOccurs="0" name="refundDetail"
+				nillable="false" type="impl1:RefundBO" />
+			<element maxOccurs="1" minOccurs="0" name="raisedBy"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="stage"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="gst"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="stampDuty"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="netPremium"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="totalPremium"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="error"
+				nillable="false" type="impl1:Error" />
+			<element maxOccurs="1" minOccurs="0" name="actionBy"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="processId"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="uploadedTo"
+				nillable="false" type="xsd:boolean" />
+			<element maxOccurs="1" minOccurs="0" name="jk_gst"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="comments"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="remarks"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="payeeType"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="ticketID"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="applicationNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="nameOfInsureedCompany" nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="coverType"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="officeCodeAddress" nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="ncbReservingEffectiveDate" nillable="false"
+				type="xsd:dateTime" />
+			<element maxOccurs="1" minOccurs="0" name="renewedPolicyNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="voucherGeneratedDate" nillable="false" type="xsd:dateTime" />
+			<element maxOccurs="1" minOccurs="0" name="periodFromDate"
+				nillable="false" type="xsd:dateTime" />
+			<element maxOccurs="1" minOccurs="0" name="periodToDate"
+				nillable="false" type="xsd:dateTime" />
+			<element maxOccurs="1" minOccurs="0" name="draftId"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="productName"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="bank"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="payeeName"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="cancellationEffectiveTime" nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="priority"
+				nillable="false" type="xsd:boolean" />
+			<element maxOccurs="1" minOccurs="0" name="priorityStatus"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="requestType"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="PPCAmount"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0"
+				name="receiptRefundAmount" nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="exchangeRate"
+				nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="copsTaskId"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="minPremiumRetainAmount" nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0"
+				name="endorsementAmount" nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0"
+				name="endorsementERFAmount" nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="receiptDetails"
+				nillable="false" type="impl1:ArrayOf_ReceiptBO" />
+			<element maxOccurs="1" minOccurs="0"
+				name="aigAgreedPremiumAmount" nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="icrmTicketNumber"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="commercialRefundAmount" nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0" name="icrmCustomerId"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="icrmUsername"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="balanceDays"
+				nillable="false" type="xsd:int" />
+			<element maxOccurs="1" minOccurs="0" name="subReceipt"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="rasDraftTicketNo"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="bopsChannel"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="sourceUniqueId"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="sourceUserName"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="omniDocumentsURL"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="channelMode"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="premiumCalculationAmount" nillable="false" type="xsd:double" />
+			<element maxOccurs="1" minOccurs="0"
+				name="gcTransactionCount" nillable="false" type="xsd:int" />
+			<element maxOccurs="1" minOccurs="0" name="ticketType"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="discrepancyType"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="ftrDescription"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="requestedDateString" nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="effectiveDateString" nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0" name="lanNumber"
+				nillable="false" type="xsd:string" />
+			<element maxOccurs="1" minOccurs="0"
+				name="ocrOmniDocumentsURL" nillable="false" type="xsd:string" />
+			<element minOccurs="0" name="cdAccountNo" type="string"></element>
+			<element minOccurs="0" name="refundRequestDate"
+				type="dateTime">
+			</element>
+			<element minOccurs="0" name="customerPriorityType"
+				type="string">
+			</element>
+			<element minOccurs="0" name="customerPriorityValue"
+				type="string">
+			</element>
+			<element minOccurs="0" name="dateOfSale" type="dateTime"></element>
+			<element minOccurs="0" name="descOfSale" type="string"></element>
+			<element minOccurs="0" name="searchParameter"
+				type="string">
+			</element>
+			<element minOccurs="0" name="cdRefundAmount"
+				type="double">
+			</element>
+			<element minOccurs="0" name="emiPolicy" type="boolean"></element>
+			<element minOccurs="0" name="emiFinancierName"
+				type="string">
+			</element>
+			<element minOccurs="0" name="emiLan" type="string"></element>
+			<element minOccurs="0" name="premFinaPartnerName"
+				type="string">
+			</element>
+			<element minOccurs="0" name="refundInFavorOf"
+				type="string">
+			</element>
+			<element minOccurs="0" name="isJVRefund" type="string"></element>
+			<element minOccurs="0" name="beneficiaryName"
+				type="string">
+			</element>
+			<element minOccurs="0" name="rasOmniFlag" type="string"></element>
+		</sequence>
+	</complexType>
+</schema>

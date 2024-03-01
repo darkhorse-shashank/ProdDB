@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="RASGCIntegrationService" targetNamespace="http://RASAccess-ApplicationDB/RASGCIntegrationService" xmlns:bons1="http://RASAccess-ApplicationDB/RASGCIntegrationData" xmlns:bons2="http://RACASBO" xmlns:tns="http://RASAccess-ApplicationDB/RASGCIntegrationService" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+    <xsd:schema targetNamespace="http://RASAccess-ApplicationDB/RASGCIntegrationService">
+            <xsd:import namespace="http://RACASBO" schemaLocation="RACASBO/DocumentList.xsd"/>
+            <xsd:import namespace="http://RACASBO" schemaLocation="RACASBO/RASException.xsd"/>
+            <xsd:import namespace="http://RACASBO" schemaLocation="RACASBO/TicketBO.xsd"/>
+            <xsd:import namespace="http://RASAccess-ApplicationDB/RASGCIntegrationData" schemaLocation="RASGCIntegrationData/NegativeEndorsementDraftTicketOutput.xsd"/>
+      <xsd:import namespace="http://RASAccess-ApplicationDB/RASGCIntegrationData" schemaLocation="RASGCIntegrationData/NegativeEndorsementDraftTicketInput.xsd"/>
+      <xsd:element name="createNegativeEndorsementDraftTicket">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="draftTicketRequest" nillable="true" type="bons1:NegativeEndorsementDraftTicketInput"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="createNegativeEndorsementDraftTicketResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="draftTicketResponse" nillable="true" type="bons1:NegativeEndorsementDraftTicketOutput"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findNegativeEndorsementDraftTicketDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="draftTicketNo" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findNegativeEndorsementDraftTicketDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="rasTicketDetails" nillable="true" type="bons2:TicketBO"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findNegativeEndorsementDraftTicketDetailsFault1_findNegativeEndorsementDraftTicketDetailsFault" nillable="true" type="bons2:RASException"/>
+            <xsd:element name="findNegativeEndorsementDraftDocumentDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="lob" nillable="true" type="xsd:string"/>
+            <xsd:element name="refundType" nillable="true" type="xsd:string"/>
+            <xsd:element name="draftTicketNo" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findNegativeEndorsementDraftDocumentDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="documents" nillable="true" type="bons2:DocumentList"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+            <xsd:element name="findNegativeEndorsementDraftDocumentDetailsFault1_findNegativeEndorsementDraftDocumentDetailsFault" nillable="true" type="bons2:RASException"/>
+            <xsd:element name="saveNegativeEndorsementDraftErrorDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="errorCode" nillable="true" type="xsd:string"/>
+            <xsd:element name="errorDetail" nillable="true" type="xsd:string"/>
+            <xsd:element name="gcError" nillable="true" type="xsd:string"/>
+            <xsd:element name="draftTicketNo" nillable="true" type="xsd:string"/>
+            <xsd:element name="instanceId" nillable="true" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+        </xsd:schema>
+  </wsdl:types>
+    <wsdl:message name="createNegativeEndorsementDraftTicketRequestMsg">
+    <wsdl:part element="tns:createNegativeEndorsementDraftTicket" name="createNegativeEndorsementDraftTicketParameters"/>
+  </wsdl:message>
+    <wsdl:message name="createNegativeEndorsementDraftTicketResponseMsg">
+    <wsdl:part element="tns:createNegativeEndorsementDraftTicketResponse" name="createNegativeEndorsementDraftTicketResult"/>
+  </wsdl:message>
+    <wsdl:message name="findNegativeEndorsementDraftTicketDetailsRequestMsg">
+    <wsdl:part element="tns:findNegativeEndorsementDraftTicketDetails" name="findNegativeEndorsementDraftTicketDetailsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="findNegativeEndorsementDraftTicketDetailsResponseMsg">
+    <wsdl:part element="tns:findNegativeEndorsementDraftTicketDetailsResponse" name="findNegativeEndorsementDraftTicketDetailsResult"/>
+  </wsdl:message>
+    <wsdl:message name="findNegativeEndorsementDraftTicketDetails_findNegativeEndorsementDraftTicketDetailsFaultMsg">
+    <wsdl:part element="tns:findNegativeEndorsementDraftTicketDetailsFault1_findNegativeEndorsementDraftTicketDetailsFault" name="findNegativeEndorsementDraftTicketDetailsFault"/>
+  </wsdl:message>
+    <wsdl:message name="findNegativeEndorsementDraftDocumentDetailsRequestMsg">
+    <wsdl:part element="tns:findNegativeEndorsementDraftDocumentDetails" name="findNegativeEndorsementDraftDocumentDetailsParameters"/>
+  </wsdl:message>
+    <wsdl:message name="findNegativeEndorsementDraftDocumentDetailsResponseMsg">
+    <wsdl:part element="tns:findNegativeEndorsementDraftDocumentDetailsResponse" name="findNegativeEndorsementDraftDocumentDetailsResult"/>
+  </wsdl:message>
+    <wsdl:message name="findNegativeEndorsementDraftDocumentDetails_findNegativeEndorsementDraftDocumentDetailsFaultMsg">
+    <wsdl:part element="tns:findNegativeEndorsementDraftDocumentDetailsFault1_findNegativeEndorsementDraftDocumentDetailsFault" name="findNegativeEndorsementDraftDocumentDetailsFault"/>
+  </wsdl:message>
+    <wsdl:message name="saveNegativeEndorsementDraftErrorDetailsRequestMsg">
+    <wsdl:part element="tns:saveNegativeEndorsementDraftErrorDetails" name="saveNegativeEndorsementDraftErrorDetailsParameters"/>
+  </wsdl:message>
+    <wsdl:portType name="RASGCIntegrationService">
+    <wsdl:operation name="createNegativeEndorsementDraftTicket">
+      <wsdl:input message="tns:createNegativeEndorsementDraftTicketRequestMsg" name="createNegativeEndorsementDraftTicketRequest"/>
+      <wsdl:output message="tns:createNegativeEndorsementDraftTicketResponseMsg" name="createNegativeEndorsementDraftTicketResponse"/>
+    </wsdl:operation>
+        <wsdl:operation name="findNegativeEndorsementDraftTicketDetails">
+      <wsdl:input message="tns:findNegativeEndorsementDraftTicketDetailsRequestMsg" name="findNegativeEndorsementDraftTicketDetailsRequest"/>
+      <wsdl:output message="tns:findNegativeEndorsementDraftTicketDetailsResponseMsg" name="findNegativeEndorsementDraftTicketDetailsResponse"/>
+      <wsdl:fault message="tns:findNegativeEndorsementDraftTicketDetails_findNegativeEndorsementDraftTicketDetailsFaultMsg" name="findNegativeEndorsementDraftTicketDetailsFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="findNegativeEndorsementDraftDocumentDetails">
+      <wsdl:input message="tns:findNegativeEndorsementDraftDocumentDetailsRequestMsg" name="findNegativeEndorsementDraftDocumentDetailsRequest"/>
+      <wsdl:output message="tns:findNegativeEndorsementDraftDocumentDetailsResponseMsg" name="findNegativeEndorsementDraftDocumentDetailsResponse"/>
+      <wsdl:fault message="tns:findNegativeEndorsementDraftDocumentDetails_findNegativeEndorsementDraftDocumentDetailsFaultMsg" name="findNegativeEndorsementDraftDocumentDetailsFault"/>
+    </wsdl:operation>
+        <wsdl:operation name="saveNegativeEndorsementDraftErrorDetails">
+      <wsdl:input message="tns:saveNegativeEndorsementDraftErrorDetailsRequestMsg" name="saveNegativeEndorsementDraftErrorDetailsRequest"/>
+    </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

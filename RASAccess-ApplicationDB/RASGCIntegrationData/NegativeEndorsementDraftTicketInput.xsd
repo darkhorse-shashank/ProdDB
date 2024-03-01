@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://RASAccess-ApplicationDB/RASGCIntegrationData">
+	<xsd:complexType name="NegativeEndorsementDraftTicketInput">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="userId"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="lob" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="policyNumber"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="productCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="productName"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="endorsementProposalNumber"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="requestDate"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="refundAmount"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="proposerName"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="customerName"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="policyStatus"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="policyPremium"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="applicationDate"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="policyStartDate"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="policyEndDate"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="conversionDate"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="policyCoverType"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="customerCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="aadhaarNumber"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="lanNumber"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="certificateNumber"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="engineNumber"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="chasisNumber"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="registrationNumber"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="producerName"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="producerCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="dealerName"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="dealerCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="financierName"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="financierCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="crsNumber"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://RASAccess-ApplicationDB/RASHealthIntegrationData"
+	xmlns:bons0="http://RASAccess-ApplicationDB/RASHealthIntegrationData">
+	<xsd:include schemaLocation="ExcessRefundDraftAccountBO.xsd" />
+	<xsd:complexType name="ExcessRefundDraftInputTicketDetails">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="receiptNumber"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="isMainReceipt"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="receiptRefundAmount"
+				type="xsd:double">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="ppcAmount"
+				type="xsd:double">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="payeeType"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="refundMode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="authCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="accountDetails"
+				type="bons0:ExcessRefundDraftAccountBO">
+			</xsd:element>
+
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

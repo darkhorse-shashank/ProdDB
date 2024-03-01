@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://RACASBO" xmlns:impl1="http://RACASBO"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<include schemaLocation="ReceiptBO.xsd" />
+	<complexType name="ArrayOf_ReceiptBO">
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="0" name="item"
+				nillable="true" type="impl1:ReceiptBO" />
+		</sequence>
+	</complexType>
+</schema>

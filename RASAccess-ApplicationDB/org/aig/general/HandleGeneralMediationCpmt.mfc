@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:mfcex="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlowExtension" xmlns:ns1="http://TicketDomain-v1.0.0/HandleGeneral" xmlns:ns3="http://Access-ApplicationDB/DBInterface" name="HandleGeneralMediationCpmt" targetNamespace="http://Access-ApplicationDB/org/aig/general/HandleGeneralMediationCpmt">
+  <import location="HandleGeneral.wsdl" namespace="http://TicketDomain-v1.0.0/HandleGeneral"/>
+  <import location="DBInterface.wsdl" namespace="http://Access-ApplicationDB/DBInterface"/>
+  <promotedProperty name="SaveJobsErrorLog.enabled" group="Access-ApplicationDB.HandleGeneralMediationCpmt" value="true"/>
+  <promotedProperty name="SaveJobsErrorLog.file1" group="Access-ApplicationDB.HandleGeneralMediationCpmt" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+  <reference name="DBInterfacePartner" portType="ns3:DBInterface"/>
+  <interface portType="ns1:HandleGeneral">
+    <operation name="saveJobs">
+      <requestFlow mfcex:showInputResponse="false" mfcex:showInputFault="false">
+        <node displayName="saveJobs : HandleGeneral" name="HandleGeneral_saveJobs_Input" type="Input">
+          <outputTerminal type="ns1:saveJobsRequestMsg">
+            <wire targetNode="input_map"/>
+          </outputTerminal>
+        </node>
+        <node displayName="createDboRas_JobsBG : DBInterfacePartner" name="DBInterfacePartner_createDboRas_JobsBG_Callout" type="Callout">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="createDboRas_JobsBG"/>
+          <inputTerminal type="ns3:createDboRas_JobsBGRequestMsg"/>
+        </node>
+        <node name="input_map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/saveJob_input_map_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/saveJob_input_map_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:saveJobsRequestMsg"/>
+          <outputTerminal type="ns3:createDboRas_JobsBGRequestMsg">
+            <wire targetNode="DBInterfacePartner_createDboRas_JobsBG_Callout"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <responseFlow>
+        <node displayName="createDboRas_JobsBG : DBInterfacePartner" name="DBInterfacePartner_createDboRas_JobsBG_CalloutResponse" type="CalloutResponse">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="createDboRas_JobsBG"/>
+          <outputTerminal type="ns3:createDboRas_JobsBGResponseMsg">
+            <wire targetNode="output_map"/>
+          </outputTerminal>
+          <failTerminal type="ns3:createDboRas_JobsBGRequestMsg"/>
+        </node>
+        <node displayName="createDboRas_JobsBG : DBInterfacePartner" name="DBInterfacePartner_createDboRas_JobsBG_CalloutFault" type="CalloutFault">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="createDboRas_JobsBG"/>
+          <outputTerminal name="createDboRas_JobsBGObjectNotFoundFaultMsg" type="ns3:createDboRas_JobsBGObjectNotFoundFaultMsg"/>
+          <outputTerminal name="createDboRas_JobsBGUniqueConstraintFaultMsg" type="ns3:createDboRas_JobsBGUniqueConstraintFaultMsg"/>
+          <outputTerminal name="createDboRas_JobsBGIntegrityConstraintFaultMsg" type="ns3:createDboRas_JobsBGIntegrityConstraintFaultMsg"/>
+          <outputTerminal name="createDboRas_JobsBGMissingDataFaultMsg" type="ns3:createDboRas_JobsBGMissingDataFaultMsg"/>
+        </node>
+        <node displayName="saveJobs : HandleGeneral" name="HandleGeneral_saveJobs_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:saveJobsResponseMsg"/>
+        </node>
+        <node name="output_map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/saveJob_output_map_res_1.xsl"/>
+          <property name="XMXMap" value="xslt/saveJob_output_map_res_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns3:createDboRas_JobsBGResponseMsg"/>
+          <outputTerminal type="ns1:saveJobsResponseMsg">
+            <wire targetNode="HandleGeneral_saveJobs_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node displayName="saveJobs : HandleGeneral" name="HandleGeneral_saveJobs_InputFault" type="InputFault">
+          <inputTerminal name="saveJobs_RASExceptionMsg" type="ns1:saveJobs_RASExceptionMsg"/>
+        </node>
+      </responseFlow>
+      <errorFlow>
+        <node displayName="saveJobs : HandleGeneral" name="HandleGeneral_saveJobs_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+        </node>
+        <node displayName="saveJobs : HandleGeneral" name="HandleGeneral_saveJobs_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:saveJobsResponseMsg"/>
+        </node>
+        <node displayName="saveJobs : HandleGeneral" name="HandleGeneral_saveJobs_InputFault" type="InputFault">
+          <inputTerminal name="saveJobs_RASExceptionMsg" type="ns1:saveJobs_RASExceptionMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/saveJobs_ErrorMap.xsl"/>
+          <property name="XMXMap" value="xslt/saveJobs_ErrorMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:saveJobs_RASExceptionMsg">
+            <wire targetNode="SaveJobsErrorLog"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="SaveJobsErrorLog" type="Trace">
+          <property name="enabled" promotedPropertyGroup="Access-ApplicationDB.HandleGeneralMediationCpmt" promotedPropertyName="SaveJobsErrorLog.enabled"/>
+          <property name="destination" value="2"/>
+          <property name="file" promotedPropertyGroup="Access-ApplicationDB.HandleGeneralMediationCpmt" promotedPropertyName="SaveJobsErrorLog.file1" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+          <inputTerminal/>
+          <outputTerminal>
+            <wire targetNode="HandleGeneral_saveJobs_InputFault" targetTerminal="saveJobs_RASExceptionMsg"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </errorFlow>
+    </operation>
+    <operation name="saveException">
+      <requestFlow>
+        <node displayName="saveException : HandleGeneral" name="HandleGeneral_saveException_Input" type="Input">
+          <outputTerminal type="ns1:saveExceptionRequestMsg">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+        </node>
+        <node displayName="saveException : HandleGeneral" name="HandleGeneral_saveException_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:saveExceptionResponseMsg"/>
+        </node>
+        <node displayName="saveException : HandleGeneral" name="HandleGeneral_saveException_InputFault" type="InputFault">
+          <inputTerminal name="saveException_RASExceptionMsg" type="ns1:saveException_RASExceptionMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/Mapping_req_2.xsl"/>
+          <property name="XMXMap" value="xslt/Mapping_req_2.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:saveExceptionRequestMsg"/>
+          <outputTerminal type="ns1:saveExceptionResponseMsg">
+            <wire targetNode="HandleGeneral_saveException_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <errorFlow>
+        <node displayName="saveException : HandleGeneral" name="HandleGeneral_saveException_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+        </node>
+        <node displayName="saveException : HandleGeneral" name="HandleGeneral_saveException_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:saveExceptionResponseMsg"/>
+        </node>
+        <node displayName="saveException : HandleGeneral" name="HandleGeneral_saveException_InputFault" type="InputFault">
+          <inputTerminal name="saveException_RASExceptionMsg" type="ns1:saveException_RASExceptionMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/SaveExceptionErrorMap.xsl"/>
+          <property name="XMXMap" value="xslt/SaveExceptionErrorMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:saveException_RASExceptionMsg">
+            <wire targetNode="HandleGeneral_saveException_InputFault" targetTerminal="saveException_RASExceptionMsg"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

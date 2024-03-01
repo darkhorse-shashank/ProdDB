@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:RetrieveMasters="http://TicketDomain-v1.0.0/RetrieveMasters" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:mfcex="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlowExtension" xmlns:ns2="http://Access-ApplicationDB/DBInterface" name="RetrieveMasters" targetNamespace="http://Access-ApplicationDB/RetrieveMasters">
+  <import location="org/aig/access/RetrieveMastersAccess.wsdl" namespace="http://TicketDomain-v1.0.0/RetrieveMasters"/>
+  <import location="DBInterface.wsdl" namespace="http://Access-ApplicationDB/DBInterface"/>
+  <promotedProperty name="Callout1.retryOn" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="Callout1.retryCount" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="Callout1.retryDelay" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="GetLOBErrorLog.enabled" group="Access-ApplicationDB.RetrieveMasters" value="true"/>
+  <promotedProperty name="GetLOBErrorLog.file" group="Access-ApplicationDB.RetrieveMasters" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+  <promotedProperty name="Callout1.retryOn1" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="Callout1.retryCount1" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="Callout1.retryDelay1" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="GetCancOptionErrorLog.enabled" group="Access-ApplicationDB.RetrieveMasters" value="true"/>
+  <promotedProperty name="GetCancOptionErrorLog.file" group="Access-ApplicationDB.RetrieveMasters" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+  <promotedProperty name="Callout1.retryOn3" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="Callout1.retryCount3" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="Callout1.retryDelay3" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="GetCancReasonErrorLog.enabled" group="Access-ApplicationDB.RetrieveMasters" value="true"/>
+  <promotedProperty name="GetCancReasonErrorLog.file" group="Access-ApplicationDB.RetrieveMasters" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+  <promotedProperty name="Callout1.retryOn2" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="Callout1.retryCount2" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="Callout1.retryDelay2" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="GetAppConfigErrorLog.enabled" group="Access-ApplicationDB.RetrieveMasters" value="true"/>
+  <promotedProperty name="GetAppConfigErrorLog.file" group="Access-ApplicationDB.RetrieveMasters" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+  <promotedProperty name="Callout1.retryOn4" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="Callout1.retryCount4" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <promotedProperty name="Callout1.retryDelay4" group="RASAccess-ApplicationDB.RetrieveMasters" value="0"/>
+  <reference name="DBInterfacePartner" portType="ns2:DBInterface"/>
+  <interface portType="RetrieveMasters:RetrieveMastersAccess">
+    <operation name="getLOB">
+      <requestFlow>
+        <node displayName="getLOB : RetrieveMastersAccess" name="RetrieveMastersAccess_getLOB_Input" type="Input">
+          <outputTerminal type="RetrieveMasters:getLOBRequestMsg">
+            <wire targetNode="getLob_Input_Map"/>
+          </outputTerminal>
+        </node>
+        <node displayName="getLOB : RetrieveMastersAccess" name="RetrieveMastersAccess_getLOB_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:getLOBResponseMsg"/>
+        </node>
+        <node displayName="getLOB : RetrieveMastersAccess" name="RetrieveMastersAccess_getLOB_InputFault" type="InputFault">
+          <inputTerminal name="getLOB_RASExceptionMsg" type="RetrieveMasters:getLOB_RASExceptionMsg"/>
+        </node>
+        <node displayName="retrieveallLobBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallLobBG_Callout" type="Callout">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallLobBG"/>
+          <property name="invocationStyle" value="6"/>
+          <property name="retryOn" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryOn"/>
+          <property name="retryCount" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryCount"/>
+          <property name="retryDelay" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryDelay"/>
+          <inputTerminal type="ns2:retrieveallLobBGRequestMsg"/>
+        </node>
+        <node name="getLob_Input_Map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/getLob_Input_Map_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/getLob_Input_Map_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="RetrieveMasters:getLOBRequestMsg"/>
+          <outputTerminal type="ns2:retrieveallLobBGRequestMsg">
+            <wire targetNode="DBInterfacePartner_retrieveallLobBG_Callout"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <responseFlow>
+        <node displayName="getLOB : RetrieveMastersAccess" name="RetrieveMastersAccess_getLOB_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:getLOBResponseMsg"/>
+        </node>
+        <node displayName="getLOB : RetrieveMastersAccess" name="RetrieveMastersAccess_getLOB_InputFault" type="InputFault">
+          <inputTerminal name="getLOB_RASExceptionMsg" type="RetrieveMasters:getLOB_RASExceptionMsg"/>
+        </node>
+        <node displayName="retrieveallLobBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallLobBG_CalloutResponse" type="CalloutResponse">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallLobBG"/>
+          <outputTerminal type="ns2:retrieveallLobBGResponseMsg">
+            <wire targetNode="getLob_Output_Map"/>
+          </outputTerminal>
+          <failTerminal type="ns2:retrieveallLobBGRequestMsg"/>
+        </node>
+        <node displayName="retrieveallLobBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallLobBG_CalloutFault" type="CalloutFault">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallLobBG"/>
+          <outputTerminal name="retrieveallLobBGMatchesExceededLimitFaultMsg" type="ns2:retrieveallLobBGMatchesExceededLimitFaultMsg"/>
+          <outputTerminal name="retrieveallLobBGRecordNotFoundFaultMsg" type="ns2:retrieveallLobBGRecordNotFoundFaultMsg"/>
+        </node>
+        <node name="getLob_Output_Map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/getLob_Output_Map_res_1.xsl"/>
+          <property name="XMXMap" value="xslt/getLob_Output_Map_res_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:retrieveallLobBGResponseMsg"/>
+          <outputTerminal type="RetrieveMasters:getLOBResponseMsg">
+            <wire targetNode="RetrieveMastersAccess_getLOB_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </responseFlow>
+      <errorFlow>
+        <node displayName="getLOB : RetrieveMastersAccess" name="RetrieveMastersAccess_getLOB_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+        </node>
+        <node displayName="getLOB : RetrieveMastersAccess" name="RetrieveMastersAccess_getLOB_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:getLOBResponseMsg"/>
+        </node>
+        <node displayName="getLOB : RetrieveMastersAccess" name="RetrieveMastersAccess_getLOB_InputFault" type="InputFault">
+          <inputTerminal name="getLOB_RASExceptionMsg" type="RetrieveMasters:getLOB_RASExceptionMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/getLOB_ErrorMap.xsl"/>
+          <property name="XMXMap" value="xslt/getLOB_ErrorMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="RetrieveMasters:getLOB_RASExceptionMsg">
+            <wire targetNode="GetLOBErrorLog"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="GetLOBErrorLog" type="Trace">
+          <property name="enabled" promotedPropertyGroup="Access-ApplicationDB.RetrieveMasters" promotedPropertyName="GetLOBErrorLog.enabled"/>
+          <property name="destination" value="2"/>
+          <property name="file" promotedPropertyGroup="Access-ApplicationDB.RetrieveMasters" promotedPropertyName="GetLOBErrorLog.file" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+          <inputTerminal/>
+          <outputTerminal>
+            <wire targetNode="RetrieveMastersAccess_getLOB_InputFault" targetTerminal="getLOB_RASExceptionMsg"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </errorFlow>
+    </operation>
+    <operation name="getCancOption">
+      <requestFlow>
+        <node displayName="getCancOption : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancOption_Input" type="Input">
+          <outputTerminal type="RetrieveMasters:getCancOptionRequestMsg">
+            <wire targetNode="getCancellationOption_Input_Map"/>
+          </outputTerminal>
+        </node>
+        <node displayName="getCancOption : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancOption_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:getCancOptionResponseMsg"/>
+        </node>
+        <node displayName="getCancOption : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancOption_InputFault" type="InputFault">
+          <inputTerminal name="getCancOption_RASExceptionMsg" type="RetrieveMasters:getCancOption_RASExceptionMsg"/>
+        </node>
+        <node displayName="retrieveallCancellationOptionBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallCancellationOptionBG_Callout" type="Callout">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallCancellationOptionBG"/>
+          <property name="invocationStyle" value="6"/>
+          <property name="retryOn" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryOn1"/>
+          <property name="retryCount" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryCount1"/>
+          <property name="retryDelay" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryDelay1"/>
+          <inputTerminal type="ns2:retrieveallCancellationOptionBGRequestMsg"/>
+        </node>
+        <node name="getCancellationOption_Input_Map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/getCancellationOption_Input_Map_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/getCancellationOption_Input_Map_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="RetrieveMasters:getCancOptionRequestMsg"/>
+          <outputTerminal type="ns2:retrieveallCancellationOptionBGRequestMsg">
+            <wire targetNode="DBInterfacePartner_retrieveallCancellationOptionBG_Callout"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <responseFlow>
+        <node displayName="getCancOption : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancOption_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:getCancOptionResponseMsg"/>
+        </node>
+        <node displayName="getCancOption : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancOption_InputFault" type="InputFault">
+          <inputTerminal name="getCancOption_RASExceptionMsg" type="RetrieveMasters:getCancOption_RASExceptionMsg"/>
+        </node>
+        <node displayName="retrieveallCancellationOptionBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallCancellationOptionBG_CalloutResponse" type="CalloutResponse">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallCancellationOptionBG"/>
+          <outputTerminal type="ns2:retrieveallCancellationOptionBGResponseMsg">
+            <wire targetNode="getCancellationOption_Output_Map"/>
+          </outputTerminal>
+          <failTerminal type="ns2:retrieveallCancellationOptionBGRequestMsg"/>
+        </node>
+        <node displayName="retrieveallCancellationOptionBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallCancellationOptionBG_CalloutFault" type="CalloutFault">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallCancellationOptionBG"/>
+          <outputTerminal name="retrieveallCancellationOptionBGMatchesExceededLimitFaultMsg" type="ns2:retrieveallCancellationOptionBGMatchesExceededLimitFaultMsg"/>
+          <outputTerminal name="retrieveallCancellationOptionBGRecordNotFoundFaultMsg" type="ns2:retrieveallCancellationOptionBGRecordNotFoundFaultMsg"/>
+        </node>
+        <node name="getCancellationOption_Output_Map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/getCancellationOption_Output_Map_res_1.xsl"/>
+          <property name="XMXMap" value="xslt/getCancellationOption_Output_Map_res_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:retrieveallCancellationOptionBGResponseMsg"/>
+          <outputTerminal type="RetrieveMasters:getCancOptionResponseMsg">
+            <wire targetNode="RetrieveMastersAccess_getCancOption_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </responseFlow>
+      <errorFlow>
+        <node displayName="getCancOption : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancOption_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+        </node>
+        <node displayName="getCancOption : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancOption_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:getCancOptionResponseMsg"/>
+        </node>
+        <node displayName="getCancOption : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancOption_InputFault" type="InputFault">
+          <inputTerminal name="getCancOption_RASExceptionMsg" type="RetrieveMasters:getCancOption_RASExceptionMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/getCancOption_ErrorMap.xsl"/>
+          <property name="XMXMap" value="xslt/getCancOption_ErrorMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="RetrieveMasters:getCancOption_RASExceptionMsg">
+            <wire targetNode="GetCancOptionErrorLog"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="GetCancOptionErrorLog" type="Trace">
+          <property name="enabled" promotedPropertyGroup="Access-ApplicationDB.RetrieveMasters" promotedPropertyName="GetCancOptionErrorLog.enabled"/>
+          <property name="destination" value="2"/>
+          <property name="file" promotedPropertyGroup="Access-ApplicationDB.RetrieveMasters" promotedPropertyName="GetCancOptionErrorLog.file" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+          <inputTerminal/>
+          <outputTerminal>
+            <wire targetNode="RetrieveMastersAccess_getCancOption_InputFault" targetTerminal="getCancOption_RASExceptionMsg"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </errorFlow>
+    </operation>
+    <operation name="getCancReason">
+      <requestFlow>
+        <node displayName="getCancReason : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancReason_Input" type="Input">
+          <outputTerminal type="RetrieveMasters:getCancReasonRequestMsg">
+            <wire targetNode="getCancellationReason_Input_Map"/>
+          </outputTerminal>
+        </node>
+        <node displayName="getCancReason : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancReason_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:getCancReasonResponseMsg"/>
+        </node>
+        <node displayName="getCancReason : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancReason_InputFault" type="InputFault">
+          <inputTerminal name="getCancReason_RASExceptionMsg" type="RetrieveMasters:getCancReason_RASExceptionMsg"/>
+        </node>
+        <node displayName="retrieveallCancellationReasonBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallCancellationReasonBG_Callout" type="Callout">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallCancellationReasonBG"/>
+          <property name="invocationStyle" value="6"/>
+          <property name="retryOn" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryOn3"/>
+          <property name="retryCount" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryCount3"/>
+          <property name="retryDelay" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryDelay3"/>
+          <inputTerminal type="ns2:retrieveallCancellationReasonBGRequestMsg"/>
+        </node>
+        <node name="getCancellationReason_Input_Map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/getCancellationReason_Input_Map_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/getCancellationReason_Input_Map_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="RetrieveMasters:getCancReasonRequestMsg"/>
+          <outputTerminal type="ns2:retrieveallCancellationReasonBGRequestMsg">
+            <wire targetNode="DBInterfacePartner_retrieveallCancellationReasonBG_Callout"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <responseFlow>
+        <node displayName="getCancReason : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancReason_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:getCancReasonResponseMsg"/>
+        </node>
+        <node displayName="getCancReason : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancReason_InputFault" type="InputFault">
+          <inputTerminal name="getCancReason_RASExceptionMsg" type="RetrieveMasters:getCancReason_RASExceptionMsg"/>
+        </node>
+        <node displayName="retrieveallCancellationReasonBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallCancellationReasonBG_CalloutResponse" type="CalloutResponse">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallCancellationReasonBG"/>
+          <outputTerminal type="ns2:retrieveallCancellationReasonBGResponseMsg">
+            <wire targetNode="getCancellationReason_Output_Map"/>
+          </outputTerminal>
+          <failTerminal type="ns2:retrieveallCancellationReasonBGRequestMsg"/>
+        </node>
+        <node displayName="retrieveallCancellationReasonBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallCancellationReasonBG_CalloutFault" type="CalloutFault">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallCancellationReasonBG"/>
+          <outputTerminal name="retrieveallCancellationReasonBGMatchesExceededLimitFaultMsg" type="ns2:retrieveallCancellationReasonBGMatchesExceededLimitFaultMsg"/>
+          <outputTerminal name="retrieveallCancellationReasonBGRecordNotFoundFaultMsg" type="ns2:retrieveallCancellationReasonBGRecordNotFoundFaultMsg"/>
+        </node>
+        <node name="getCancellationReason_Output_Map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/getCancellationReason_Output_Map_res_1.xsl"/>
+          <property name="XMXMap" value="xslt/getCancellationReason_Output_Map_res_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:retrieveallCancellationReasonBGResponseMsg"/>
+          <outputTerminal type="RetrieveMasters:getCancReasonResponseMsg">
+            <wire targetNode="RetrieveMastersAccess_getCancReason_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </responseFlow>
+      <errorFlow>
+        <node displayName="getCancReason : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancReason_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+        </node>
+        <node displayName="getCancReason : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancReason_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:getCancReasonResponseMsg"/>
+        </node>
+        <node displayName="getCancReason : RetrieveMastersAccess" name="RetrieveMastersAccess_getCancReason_InputFault" type="InputFault">
+          <inputTerminal name="getCancReason_RASExceptionMsg" type="RetrieveMasters:getCancReason_RASExceptionMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/getCancReason_ErrorMap.xsl"/>
+          <property name="XMXMap" value="xslt/getCancReason_ErrorMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="RetrieveMasters:getCancReason_RASExceptionMsg">
+            <wire targetNode="GetCancReasonErrorLog"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="GetCancReasonErrorLog" type="Trace">
+          <property name="enabled" promotedPropertyGroup="Access-ApplicationDB.RetrieveMasters" promotedPropertyName="GetCancReasonErrorLog.enabled"/>
+          <property name="destination" value="2"/>
+          <property name="file" promotedPropertyGroup="Access-ApplicationDB.RetrieveMasters" promotedPropertyName="GetCancReasonErrorLog.file" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+          <inputTerminal/>
+          <outputTerminal>
+            <wire targetNode="RetrieveMastersAccess_getCancReason_InputFault" targetTerminal="getCancReason_RASExceptionMsg"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </errorFlow>
+    </operation>
+    <operation name="getAppconfig">
+      <requestFlow>
+        <node displayName="getAppconfig : RetrieveMastersAccess" name="RetrieveMastersAccess_getAppconfig_Input" type="Input">
+          <outputTerminal type="RetrieveMasters:getAppconfigRequestMsg">
+            <wire targetNode="getAppConfig_Input_Map"/>
+          </outputTerminal>
+        </node>
+        <node displayName="getAppconfig : RetrieveMastersAccess" name="RetrieveMastersAccess_getAppconfig_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:getAppconfigResponseMsg"/>
+        </node>
+        <node displayName="getAppconfig : RetrieveMastersAccess" name="RetrieveMastersAccess_getAppconfig_InputFault" type="InputFault">
+          <inputTerminal name="getAppconfig_RASExceptionMsg" type="RetrieveMasters:getAppconfig_RASExceptionMsg"/>
+        </node>
+        <node name="getAppConfig_Input_Map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/getAppConfig_Input_Map_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/getAppConfig_Input_Map_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="RetrieveMasters:getAppconfigRequestMsg"/>
+          <outputTerminal type="ns2:retrieveallAppConfigBGRequestMsg">
+            <wire targetNode="DBInterfacePartner_retrieveallAppConfigBG_Callout"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node displayName="retrieveallAppConfigBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallAppConfigBG_Callout" type="Callout">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallAppConfigBG"/>
+          <property name="invocationStyle" value="6"/>
+          <property name="retryOn" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryOn2"/>
+          <property name="retryCount" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryCount2"/>
+          <property name="retryDelay" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryDelay2"/>
+          <inputTerminal type="ns2:retrieveallAppConfigBGRequestMsg"/>
+        </node>
+      </requestFlow>
+      <responseFlow>
+        <node displayName="getAppconfig : RetrieveMastersAccess" name="RetrieveMastersAccess_getAppconfig_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:getAppconfigResponseMsg"/>
+        </node>
+        <node displayName="getAppconfig : RetrieveMastersAccess" name="RetrieveMastersAccess_getAppconfig_InputFault" type="InputFault">
+          <inputTerminal name="getAppconfig_RASExceptionMsg" type="RetrieveMasters:getAppconfig_RASExceptionMsg"/>
+        </node>
+        <node displayName="retrieveallAppConfigBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallAppConfigBG_CalloutResponse" type="CalloutResponse">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallAppConfigBG"/>
+          <outputTerminal type="ns2:retrieveallAppConfigBGResponseMsg">
+            <wire targetNode="getAppConfig_Output_Map"/>
+          </outputTerminal>
+          <failTerminal type="ns2:retrieveallAppConfigBGRequestMsg"/>
+        </node>
+        <node displayName="retrieveallAppConfigBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallAppConfigBG_CalloutFault" type="CalloutFault">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallAppConfigBG"/>
+          <outputTerminal name="retrieveallAppConfigBGMatchesExceededLimitFaultMsg" type="ns2:retrieveallAppConfigBGMatchesExceededLimitFaultMsg"/>
+          <outputTerminal name="retrieveallAppConfigBGRecordNotFoundFaultMsg" type="ns2:retrieveallAppConfigBGRecordNotFoundFaultMsg"/>
+        </node>
+        <node name="getAppConfig_Output_Map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/getAppConfig_Output_Map_res_1.xsl"/>
+          <property name="XMXMap" value="xslt/getAppConfig_Output_Map_res_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:retrieveallAppConfigBGResponseMsg"/>
+          <outputTerminal type="RetrieveMasters:getAppconfigResponseMsg">
+            <wire targetNode="RetrieveMastersAccess_getAppconfig_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </responseFlow>
+      <errorFlow>
+        <node displayName="getAppconfig : RetrieveMastersAccess" name="RetrieveMastersAccess_getAppconfig_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+        </node>
+        <node displayName="getAppconfig : RetrieveMastersAccess" name="RetrieveMastersAccess_getAppconfig_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:getAppconfigResponseMsg"/>
+        </node>
+        <node displayName="getAppconfig : RetrieveMastersAccess" name="RetrieveMastersAccess_getAppconfig_InputFault" type="InputFault">
+          <inputTerminal name="getAppconfig_RASExceptionMsg" type="RetrieveMasters:getAppconfig_RASExceptionMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/getAppConfig_ErrorMap.xsl"/>
+          <property name="XMXMap" value="xslt/getAppConfig_ErrorMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="RetrieveMasters:getAppconfig_RASExceptionMsg">
+            <wire targetNode="GetAppConfigErrorLog"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="GetAppConfigErrorLog" type="Trace">
+          <property name="enabled" promotedPropertyGroup="Access-ApplicationDB.RetrieveMasters" promotedPropertyName="GetAppConfigErrorLog.enabled"/>
+          <property name="destination" value="2"/>
+          <property name="file" promotedPropertyGroup="Access-ApplicationDB.RetrieveMasters" promotedPropertyName="GetAppConfigErrorLog.file" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+          <inputTerminal/>
+          <outputTerminal>
+            <wire targetNode="RetrieveMastersAccess_getAppconfig_InputFault" targetTerminal="getAppconfig_RASExceptionMsg"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </errorFlow>
+    </operation>
+    <operation name="updateMasters">
+      <requestFlow mfcex:showInputResponse="false" mfcex:showInputFault="false">
+        <node displayName="updateMasters : RetrieveMastersAccess" name="RetrieveMastersAccess_updateMasters_Input" type="Input">
+          <outputTerminal type="RetrieveMasters:updateMastersRequestMsg">
+            <wire targetNode="updateMasters_Input_Map"/>
+          </outputTerminal>
+        </node>
+        <node displayName="executeUpdateAppCongfigSlnoBG : DBInterfacePartner" name="DBInterfacePartner_executeUpdateAppCongfigSlnoBG_Callout" type="Callout">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="executeUpdateAppCongfigSlnoBG"/>
+          <property name="invocationStyle" value="6"/>
+          <property name="retryOn" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryOn4"/>
+          <property name="retryCount" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryCount4"/>
+          <property name="retryDelay" promotedPropertyGroup="RASAccess-ApplicationDB.RetrieveMasters" promotedPropertyName="Callout1.retryDelay4"/>
+          <inputTerminal type="ns2:executeUpdateAppCongfigSlnoBGRequestMsg"/>
+        </node>
+        <node name="updateMasters_Input_Map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/updateMasters_Input_Map_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/updateMasters_Input_Map_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="RetrieveMasters:updateMastersRequestMsg"/>
+          <outputTerminal type="ns2:executeUpdateAppCongfigSlnoBGRequestMsg">
+            <wire targetNode="DBInterfacePartner_executeUpdateAppCongfigSlnoBG_Callout"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <responseFlow>
+        <node displayName="updateMasters : RetrieveMastersAccess" name="RetrieveMastersAccess_updateMasters_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:updateMastersResponseMsg"/>
+        </node>
+        <node displayName="executeUpdateAppCongfigSlnoBG : DBInterfacePartner" name="DBInterfacePartner_executeUpdateAppCongfigSlnoBG_CalloutResponse" type="CalloutResponse">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="executeUpdateAppCongfigSlnoBG"/>
+          <outputTerminal type="ns2:executeUpdateAppCongfigSlnoBGResponseMsg">
+            <wire targetNode="updateMasters_Output_Map"/>
+          </outputTerminal>
+          <failTerminal type="ns2:executeUpdateAppCongfigSlnoBGRequestMsg"/>
+        </node>
+        <node displayName="executeUpdateAppCongfigSlnoBG : DBInterfacePartner" name="DBInterfacePartner_executeUpdateAppCongfigSlnoBG_CalloutFault" type="CalloutFault">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="executeUpdateAppCongfigSlnoBG"/>
+          <outputTerminal name="executeUpdateAppCongfigSlnoBGUniqueConstraintFaultMsg" type="ns2:executeUpdateAppCongfigSlnoBGUniqueConstraintFaultMsg"/>
+          <outputTerminal name="executeUpdateAppCongfigSlnoBGIntegrityConstraintFaultMsg" type="ns2:executeUpdateAppCongfigSlnoBGIntegrityConstraintFaultMsg"/>
+          <outputTerminal name="executeUpdateAppCongfigSlnoBGRecordNotFoundFaultMsg" type="ns2:executeUpdateAppCongfigSlnoBGRecordNotFoundFaultMsg"/>
+        </node>
+        <node name="updateMasters_Output_Map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/updateMasters_Output_Map_res_1.xsl"/>
+          <property name="XMXMap" value="xslt/updateMasters_Output_Map_res_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns2:executeUpdateAppCongfigSlnoBGResponseMsg"/>
+          <outputTerminal type="RetrieveMasters:updateMastersResponseMsg">
+            <wire targetNode="RetrieveMastersAccess_updateMasters_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </responseFlow>
+      <errorFlow>
+        <node displayName="updateMasters : RetrieveMastersAccess" name="RetrieveMastersAccess_updateMasters_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType"/>
+        </node>
+        <node displayName="updateMasters : RetrieveMastersAccess" name="RetrieveMastersAccess_updateMasters_InputResponse" type="InputResponse">
+          <inputTerminal type="RetrieveMasters:updateMastersResponseMsg"/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

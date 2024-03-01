@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://RACASBO" xmlns:impl1="http://RACASBO"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<include schemaLocation="Document.xsd" />
+	<include schemaLocation="Error.xsd" />
+	<complexType name="DocumentList">
+		<sequence>
+			<element maxOccurs="unbounded" minOccurs="0" name="document"
+				nillable="false" type="impl1:Document" />
+			<element maxOccurs="1" minOccurs="0" name="error"
+				nillable="false" type="impl1:Error" />
+		</sequence>
+	</complexType>
+</schema>

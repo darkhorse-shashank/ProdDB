@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" targetNamespace="http://RASAccess-ApplicationDB/xslt/Mapping_req_2" version="8.0.5.0" xmlns:map="http://RASAccess-ApplicationDB/xslt/Mapping_req_2">
+    <input correlationContext="" message="{http://TicketDomain-v1.0.0/HandleGeneral}saveExceptionRequestMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <output correlationContext="" message="{http://TicketDomain-v1.0.0/HandleGeneral}saveExceptionResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io7" uri="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0"/>
+        <namespace kind="supplement" prefix="io6" uri="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0"/>
+        <namespace kind="supplement" prefix="io9" uri="wsdl.http://TicketDomain-v1.0.0/HandleGeneral"/>
+        <namespace kind="supplement" prefix="io8" uri="http://RACASBO"/>
+        <namespace kind="supplement" prefix="io" uri="http://www.w3.org/2005/08/addressing"/>
+        <namespace kind="supplement" prefix="io3" uri="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+        <namespace kind="supplement" prefix="io2" uri="http://www.w3.org/2003/05/soap-envelope"/>
+        <namespace kind="supplement" prefix="io5" uri="http://TicketDomain-v1.0.0/HandleGeneral"/>
+        <namespace kind="supplement" prefix="io4" uri="http://www.ibm.com/websphere/sibx/smo/v6.0.1"/>
+    </namespaces>
+    <mappingDeclaration name="Mapping_req_2">
+        <input path="body"/>
+        <output path="body"/>
+        <move automap="true">
+            <input path="saveException/exception/ticket_id"/>
+            <output path="saveExceptionResponse/output/ticket_id"/>
+        </move>
+        <move automap="true">
+            <input path="saveException/exception/step"/>
+            <output path="saveExceptionResponse/output/step"/>
+        </move>
+        <move automap="true">
+            <input path="saveException/exception/service"/>
+            <output path="saveExceptionResponse/output/service"/>
+        </move>
+        <move automap="true">
+            <input path="saveException/exception/error_code"/>
+            <output path="saveExceptionResponse/output/error_code"/>
+        </move>
+        <move automap="true">
+            <input path="saveException/exception/error_data"/>
+            <output path="saveExceptionResponse/output/error_data"/>
+        </move>
+        <move automap="true">
+            <input path="saveException/exception/completed_by"/>
+            <output path="saveExceptionResponse/output/completed_by"/>
+        </move>
+        <move automap="true">
+            <input path="saveException/exception/completed_on"/>
+            <output path="saveExceptionResponse/output/completed_on"/>
+        </move>
+        <move automap="true">
+            <input path="saveException/exception/id"/>
+            <output path="saveExceptionResponse/output/id"/>
+        </move>
+        <move automap="true">
+            <input path="saveException/exception/request"/>
+            <output path="saveExceptionResponse/output/request"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CreateRASEXcessRefundTicketFromDraft" targetNamespace="http://RASAccess-ApplicationDB/CreateRASEXcessRefundTicketFromDraftArtifacts" xmlns:ns="http://RASAccess-ApplicationDB/RASIntegrationService" xmlns:ns0="http://TicketDomain-v1.0.0/org/aig/access/RetrieveTicketAccess" xmlns:ns1="http://GCDomain-v1.0.0/org/tataaig/access/RetrieveAccessGC" xmlns:ns2="http://RACAS/ExternalSourceRASTicketCreation.tws" xmlns:ns3="http://RASAccess-ApplicationDB/UpdateDetailsForSource" xmlns:ns4="http://TicketDomain-v1.0.0/org/aig/access/RASExcessRefundTicketFromDraft" xmlns:plnk="http://schemas.xmlsoap.org/ws/2004/03/partner-link/" xmlns:wsdl0="http://RASAccess-ApplicationDB/RASExcessRefundTicketDraft">
+  <plnk:partnerLinkType name="RASExcessRefundTicketFromDraftPLT">
+    <plnk:role name="Interface">
+      <plnk:portType name="wsdl0:RASExcessRefundTicketFromDraft"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="RASIntegrationServicePartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns:RASIntegrationService"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="RetrieveTicketAccessPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns0:RetrieveTicketAccess"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="RetrieveAccessGCPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns1:RetrieveAccessGC"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="ExternalSourceRASTicketCreationPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns2:ExternalSourceRASTicketCreationPortType"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="ExternalSourceRASTicketCreationPartnerPLT1">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns2:ExternalSourceRASTicketCreationPortType"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="UpdateRASTicketNoPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns3:UpdateRASTicketNoForSource"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="ExternalRASTicketCreationPartnerPLT">
+    <plnk:role name="Reference">
+      <plnk:portType name="ns2:ExternalSourceRASTicketCreationPortType"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="RASExcessRefundTicketFromDraftPLT1">
+    <plnk:role name="Interface">
+      <plnk:portType name="ns4:RASExcessRefundTicketFromDraft"/>
+    </plnk:role>
+  </plnk:partnerLinkType>
+    <wsdl:import location="RASIntegrationService.wsdl" namespace="http://RASAccess-ApplicationDB/RASIntegrationService"/>
+    <wsdl:import location="org/aig/access/RetrieveTicketAccess.wsdl" namespace="http://TicketDomain-v1.0.0/org/aig/access/RetrieveTicketAccess"/>
+    <wsdl:import location="org/aig/access/RetrieveAccessGC.wsdl" namespace="http://GCDomain-v1.0.0/org/tataaig/access/RetrieveAccessGC"/>
+    <wsdl:import location="_141/_195/_33/_10/teamworks/webservices/racas/externalsourcerasticketcreation_tws_wsdl.wsdl" namespace="http://RACAS/ExternalSourceRASTicketCreation.tws"/>
+    <wsdl:import location="org/aig/access/UpdateRASTicketNoForSource.wsdl" namespace="http://RASAccess-ApplicationDB/UpdateDetailsForSource"/>
+    <wsdl:import location="org/aig/access/RASExcessRefundTicketFromDraft.wsdl" namespace="http://TicketDomain-v1.0.0/org/aig/access/RASExcessRefundTicketFromDraft"/>
+</wsdl:definitions>

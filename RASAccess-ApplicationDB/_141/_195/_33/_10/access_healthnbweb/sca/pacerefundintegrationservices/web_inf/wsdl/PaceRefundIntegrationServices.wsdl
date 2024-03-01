@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="PaceRefundIntegrationServices" targetNamespace="http://Access-HealthNbLibrary/PaceRefundIntegrationServices" xmlns:bons1="http://NBHD" xmlns:tns="http://Access-HealthNbLibrary/PaceRefundIntegrationServices" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://Access-HealthNbLibrary/PaceRefundIntegrationServices">
+      <xsd:import namespace="http://NBHD" schemaLocation="Response.xsd"/>
+      <xsd:import namespace="http://NBHD" schemaLocation="RefundDetails.xsd"/>
+      <xsd:element name="UpdateReceiptDetails">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="refundDetails" nillable="true" type="bons1:RefundDetails"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateReceiptDetailsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="response" nillable="true" type="bons1:Response"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateReceiptDetailsRequestMsg">
+    <wsdl:part element="tns:UpdateReceiptDetails" name="UpdateReceiptDetailsParameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="UpdateReceiptDetailsResponseMsg">
+    <wsdl:part element="tns:UpdateReceiptDetailsResponse" name="UpdateReceiptDetailsResult">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PaceRefundIntegrationServices">
+    <wsdl:operation name="UpdateReceiptDetails">
+      <wsdl:input message="tns:UpdateReceiptDetailsRequestMsg" name="UpdateReceiptDetailsRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:UpdateReceiptDetailsResponseMsg" name="UpdateReceiptDetailsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

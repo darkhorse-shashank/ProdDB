@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" targetNamespace="http://Access-ApplicationDB/xslt/getLevels_Mapping_err_1" version="8.0.4.0" xmlns:map="http://Access-ApplicationDB/xslt/getLevels_Mapping_err_1">
+    <input correlationContext="" message="" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <output correlationContext="" message="{http://TicketDomain-v1.0.0/MaintainApprovalLevel}getLevelsResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="io5" uri="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0"/>
+        <namespace kind="supplement" prefix="io4" uri="http://www.w3.org/2003/05/soap-envelope"/>
+        <namespace kind="supplement" prefix="io3" uri="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0"/>
+        <namespace kind="supplement" prefix="io2" uri="http://www.ibm.com/websphere/sibx/smo/v6.0.1"/>
+        <namespace kind="supplement" prefix="io6" uri="http://www.w3.org/2005/08/addressing"/>
+        <namespace kind="supplement" prefix="io" uri="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+        <namespace kind="supplement" prefix="out3" uri="wsdl.http://TicketDomain-v1.0.0/MaintainApprovalLevel"/>
+        <namespace kind="supplement" prefix="out2" uri="http://RACASBO"/>
+        <namespace kind="supplement" prefix="out" uri="http://TicketDomain-v1.0.0/MaintainApprovalLevel"/>
+    </namespaces>
+    <mappingDeclaration name="getLevels_Mapping_err_1">
+        <input namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <output namespace="http://www.ibm.com/websphere/sibx/smo/v6.0.1" path="smo"/>
+        <create nil="true">
+            <output path="body/getLevelsResponse/levels"/>
+        </create>
+    </mappingDeclaration>
+</mappingRoot>

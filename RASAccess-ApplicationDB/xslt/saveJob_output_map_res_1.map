@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?><mappingRoot xmlns="http://www.ibm.com/2008/ccl/Mapping" domainID="com.ibm.msl.mapping.xml" targetNamespace="http://Access-ApplicationDB/xslt/saveJob_output_map_res_1" version="8.0.4.0" xmlns:map="http://Access-ApplicationDB/xslt/saveJob_output_map_res_1">
+    <input correlationContext="" message="{http://Access-ApplicationDB/DBInterface}createDboRas_JobsBGResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <output correlationContext="" message="{http://TicketDomain-v1.0.0/HandleGeneral}saveJobsResponseMsg" sharedContext="" smoName="wsdl-primary" transientContext="" type="smo" types="" xpath="/body"/>
+    <namespaces>
+        <namespace kind="supplement" prefix="in154" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_documentsbatchresult"/>
+        <namespace kind="supplement" prefix="in153" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detail_histlistbg"/>
+        <namespace kind="supplement" prefix="in152" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_approverlist"/>
+        <namespace kind="supplement" prefix="in151" uri="wsdl.http://Access-ApplicationDB/DBInterface"/>
+        <namespace kind="supplement" prefix="in155" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_statuslist"/>
+        <namespace kind="supplement" prefix="in150" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_statusupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in49" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_policy_detailcontainer"/>
+        <namespace kind="supplement" prefix="in48" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detail_histlist"/>
+        <namespace kind="supplement" prefix="in47" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_lob"/>
+        <namespace kind="supplement" prefix="in42" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/documentmatrix"/>
+        <namespace kind="supplement" prefix="in41" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_reason"/>
+        <namespace kind="supplement" prefix="in40" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_document_masterlist"/>
+        <namespace kind="supplement" prefix="in46" uri="http://com/ibm/j2ca/fault/afcfault"/>
+        <namespace kind="supplement" prefix="in45" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detail_histbg"/>
+        <namespace kind="supplement" prefix="in44" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_exception_hist"/>
+        <namespace kind="supplement" prefix="in43" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_document_master"/>
+        <namespace kind="supplement" prefix="in37" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_approverupdateallinput"/>
+        <namespace kind="supplement" prefix="in36" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detailbatchresult"/>
+        <namespace kind="supplement" prefix="in39" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_reasonbg"/>
+        <namespace kind="supplement" prefix="in38" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_reasonlist"/>
+        <namespace kind="supplement" prefix="in31" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_statuslistbg"/>
+        <namespace kind="supplement" prefix="in30" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticketbatchresult"/>
+        <namespace kind="supplement" prefix="in33" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_reasonupdateallinput"/>
+        <namespace kind="supplement" prefix="in32" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_insured"/>
+        <namespace kind="supplement" prefix="in35" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_jobsbatchresult"/>
+        <namespace kind="supplement" prefix="in34" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_app_configlistbg"/>
+        <namespace kind="supplement" prefix="in136" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_exception_histcontainer"/>
+        <namespace kind="supplement" prefix="in135" uri="http://Access-ApplicationDB/DBInterface"/>
+        <namespace kind="supplement" prefix="in134" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_insuredcontainer"/>
+        <namespace kind="supplement" prefix="in133" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticketupdateallinput"/>
+        <namespace kind="supplement" prefix="in132" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_receipt_detailbg"/>
+        <namespace kind="supplement" prefix="in131" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detaillistbg"/>
+        <namespace kind="supplement" prefix="in130" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_policy_detail"/>
+        <namespace kind="supplement" prefix="in29" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_approver"/>
+        <namespace kind="supplement" prefix="in28" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_receipt_detaillist"/>
+        <namespace kind="supplement" prefix="in27" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_lobcontainer"/>
+        <namespace kind="supplement" prefix="in26" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_insuredupdateallinput"/>
+        <namespace kind="supplement" prefix="in25" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_document_masterupdateallinput"/>
+        <namespace kind="supplement" prefix="in24" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_exception_histbg"/>
+        <namespace kind="supplement" prefix="in23" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_insuredupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in22" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_histbatchresult"/>
+        <namespace kind="supplement" prefix="in21" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_exception_histupdateallinput"/>
+        <namespace kind="supplement" prefix="in139" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticketupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in20" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_jobs"/>
+        <namespace kind="supplement" prefix="in137" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_insuredbatchresult"/>
+        <namespace kind="supplement" prefix="in138" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_refundlistbg"/>
+        <namespace kind="supplement" prefix="in145" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detailcontainer"/>
+        <namespace kind="supplement" prefix="in144" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_document_masterupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in147" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_loblist"/>
+        <namespace kind="supplement" prefix="in146" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticketcontainer"/>
+        <namespace kind="supplement" prefix="in141" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_receipt_detailcontainer"/>
+        <namespace kind="supplement" prefix="in140" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_app_configlist"/>
+        <namespace kind="supplement" prefix="in143" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detail_histupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in142" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_refundlist"/>
+        <namespace kind="supplement" prefix="in99" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_document_mastercontainer"/>
+        <namespace kind="supplement" prefix="in98" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_receipt_detailupdateallinput"/>
+        <namespace kind="supplement" prefix="in97" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_refundbatchresult"/>
+        <namespace kind="supplement" prefix="in96" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_document_masterlistbg"/>
+        <namespace kind="supplement" prefix="in95" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_receipt_detaillistbg"/>
+        <namespace kind="supplement" prefix="in94" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_app_config"/>
+        <namespace kind="supplement" prefix="in19" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_reasonlistbg"/>
+        <namespace kind="supplement" prefix="in18" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_option"/>
+        <namespace kind="supplement" prefix="in15" uri="http://com/ibm/j2ca/fault"/>
+        <namespace kind="supplement" prefix="in14" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_documentslistbg"/>
+        <namespace kind="supplement" prefix="in17" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_histupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in16" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_optionbg"/>
+        <namespace kind="supplement" prefix="in11" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/bulkoperationresult/deleteallresult"/>
+        <namespace kind="supplement" prefix="in10" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_reasonbatchresult"/>
+        <namespace kind="supplement" prefix="in13" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/documentmatrixbg"/>
+        <namespace kind="supplement" prefix="in12" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_receipt_detail"/>
+        <namespace kind="supplement" prefix="in148" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_insuredlistbg"/>
+        <namespace kind="supplement" prefix="in149" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_jobsbg"/>
+        <namespace kind="supplement" prefix="in116" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detail_histbatchresult"/>
+        <namespace kind="supplement" prefix="in115" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_insuredbg"/>
+        <namespace kind="supplement" prefix="in118" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket"/>
+        <namespace kind="supplement" prefix="in117" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_refund"/>
+        <namespace kind="supplement" prefix="io5" uri="http://www.ibm.com/xmlns/prod/websphere/http/sca/6.1.0"/>
+        <namespace kind="supplement" prefix="in119" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_histcontainer"/>
+        <namespace kind="supplement" prefix="io4" uri="http://www.w3.org/2003/05/soap-envelope"/>
+        <namespace kind="supplement" prefix="io3" uri="http://www.ibm.com/xmlns/prod/websphere/mq/sca/6.0.0"/>
+        <namespace kind="supplement" prefix="io2" uri="http://www.ibm.com/websphere/sibx/smo/v6.0.1"/>
+        <namespace kind="supplement" prefix="in93" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_receipt_detailupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in92" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_lobupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in91" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_optionbatchresult"/>
+        <namespace kind="supplement" prefix="in90" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_app_configupdateallinput"/>
+        <namespace kind="supplement" prefix="in85" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_reasoncontainer"/>
+        <namespace kind="supplement" prefix="in86" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_refundcontainer"/>
+        <namespace kind="supplement" prefix="in83" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_approverbg"/>
+        <namespace kind="supplement" prefix="in84" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_approvercontainer"/>
+        <namespace kind="supplement" prefix="in89" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_documentsbg"/>
+        <namespace kind="supplement" prefix="in87" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_refundbg"/>
+        <namespace kind="supplement" prefix="in88" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_statusbg"/>
+        <namespace kind="supplement" prefix="io6" uri="http://www.w3.org/2005/08/addressing"/>
+        <namespace kind="supplement" prefix="in110" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_documentsupdateallinput"/>
+        <namespace kind="supplement" prefix="in111" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_refundupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in112" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_app_configbatchresult"/>
+        <namespace kind="supplement" prefix="in113" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_app_configbg"/>
+        <namespace kind="supplement" prefix="in114" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticketlist"/>
+        <namespace kind="supplement" prefix="in129" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_lobupdateallinput"/>
+        <namespace kind="supplement" prefix="in128" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_policy_detailupdateallinput"/>
+        <namespace kind="supplement" prefix="in127" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_exception_histlistbg"/>
+        <namespace kind="supplement" prefix="in126" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detaillist"/>
+        <namespace kind="supplement" prefix="in80" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_receipt_detailbatchresult"/>
+        <namespace kind="supplement" prefix="in82" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detail_histcontainer"/>
+        <namespace kind="supplement" prefix="in81" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_optionlist"/>
+        <namespace kind="supplement" prefix="in72" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_jobsupdateallinput"/>
+        <namespace kind="supplement" prefix="in73" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_optionlistbg"/>
+        <namespace kind="supplement" prefix="in74" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_histbg"/>
+        <namespace kind="supplement" prefix="in75" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_optionupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in76" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_histupdateallinput"/>
+        <namespace kind="supplement" prefix="in77" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_documentscontainer"/>
+        <namespace kind="supplement" prefix="in78" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_approverlistbg"/>
+        <namespace kind="supplement" prefix="in79" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticketbg"/>
+        <namespace kind="supplement" prefix="in120" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_jobscontainer"/>
+        <namespace kind="supplement" prefix="in121" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detailupdateallinput"/>
+        <namespace kind="supplement" prefix="in124" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_exception_histlist"/>
+        <namespace kind="supplement" prefix="in125" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticketlistbg"/>
+        <namespace kind="supplement" prefix="in122" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/existsresult/existsresult"/>
+        <namespace kind="supplement" prefix="in123" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_jobslistbg"/>
+        <namespace kind="supplement" prefix="in71" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_statusbatchresult"/>
+        <namespace kind="supplement" prefix="in70" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_lobbatchresult"/>
+        <namespace kind="supplement" prefix="in67" uri="http://www.ibm.com/xmlns/prod/websphere/bo/6.0.0"/>
+        <namespace kind="supplement" prefix="in68" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_histlist"/>
+        <namespace kind="supplement" prefix="in65" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_reasonupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in66" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/documentmatrixcontainer"/>
+        <namespace kind="supplement" prefix="in63" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_document_masterbg"/>
+        <namespace kind="supplement" prefix="in64" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detailupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in61" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detail_hist"/>
+        <namespace kind="supplement" prefix="in62" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_status"/>
+        <namespace kind="supplement" prefix="in69" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_policy_detailupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in2" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detail"/>
+        <namespace kind="supplement" prefix="in109" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_policy_detailbg"/>
+        <namespace kind="supplement" prefix="in4" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_refundupdateallinput"/>
+        <namespace kind="supplement" prefix="in108" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_lobbg"/>
+        <namespace kind="supplement" prefix="in3" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_app_configcontainer"/>
+        <namespace kind="supplement" prefix="in107" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detail_histupdateallinput"/>
+        <namespace kind="supplement" prefix="in106" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_statusupdateallinput"/>
+        <namespace kind="supplement" prefix="in105" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_documentsupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in104" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/bulkoperationresult/updateallresult"/>
+        <namespace kind="supplement" prefix="in60" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_approverbatchresult"/>
+        <namespace kind="supplement" prefix="in" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_exception_histbatchresult"/>
+        <namespace kind="supplement" prefix="io" uri="http://schemas.xmlsoap.org/ws/2004/08/addressing"/>
+        <namespace kind="supplement" prefix="in54" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_approverupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in55" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_policy_detaillist"/>
+        <namespace kind="supplement" prefix="in56" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_optionupdateallinput"/>
+        <namespace kind="supplement" prefix="in57" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_cancellation_optioncontainer"/>
+        <namespace kind="supplement" prefix="in50" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_hist"/>
+        <namespace kind="supplement" prefix="in51" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_jobsupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in52" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_documents"/>
+        <namespace kind="supplement" prefix="in53" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_jobslist"/>
+        <namespace kind="supplement" prefix="in102" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_policy_detailbatchresult"/>
+        <namespace kind="supplement" prefix="in9" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_exception_histupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in103" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_insuredlist"/>
+        <namespace kind="supplement" prefix="in100" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_policy_detaillistbg"/>
+        <namespace kind="supplement" prefix="in101" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_app_configupdateallinputbg"/>
+        <namespace kind="supplement" prefix="in5" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_documentslist"/>
+        <namespace kind="supplement" prefix="in58" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_document_masterbatchresult"/>
+        <namespace kind="supplement" prefix="in6" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_statuscontainer"/>
+        <namespace kind="supplement" prefix="in59" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_account_detailbg"/>
+        <namespace kind="supplement" prefix="in7" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_loblistbg"/>
+        <namespace kind="supplement" prefix="in8" uri="http://www.ibm.com/xmlns/prod/websphere/j2ca/jdbc/dboras_ticket_histlistbg"/>
+        <namespace kind="supplement" prefix="out3" uri="http://RACASBO"/>
+        <namespace kind="supplement" prefix="out2" uri="wsdl.http://TicketDomain-v1.0.0/HandleGeneral"/>
+        <namespace kind="supplement" prefix="out" uri="http://TicketDomain-v1.0.0/HandleGeneral"/>
+    </namespaces>
+    <mappingDeclaration name="saveJob_output_map_res_1">
+        <input path="body"/>
+        <output path="body"/>
+        <move>
+            <input path="createDboRas_JobsBGResponse/createDboRas_JobsBGOutput/DboRas_Jobs/slno"/>
+            <output path="saveJobsResponse/output/slno"/>
+        </move>
+        <move>
+            <input path="createDboRas_JobsBGResponse/createDboRas_JobsBGOutput/DboRas_Jobs/job_type"/>
+            <output path="saveJobsResponse/output/jobType"/>
+        </move>
+        <move>
+            <input path="createDboRas_JobsBGResponse/createDboRas_JobsBGOutput/DboRas_Jobs/file_name"/>
+            <output path="saveJobsResponse/output/fileName"/>
+        </move>
+        <move>
+            <input path="createDboRas_JobsBGResponse/createDboRas_JobsBGOutput/DboRas_Jobs/file_path"/>
+            <output path="saveJobsResponse/output/filePath"/>
+        </move>
+        <move>
+            <input path="createDboRas_JobsBGResponse/createDboRas_JobsBGOutput/DboRas_Jobs/process_name"/>
+            <output path="saveJobsResponse/output/processName"/>
+        </move>
+        <move>
+            <input path="createDboRas_JobsBGResponse/createDboRas_JobsBGOutput/DboRas_Jobs/created_on"/>
+            <output path="saveJobsResponse/output/createdOn"/>
+        </move>
+        <move>
+            <input path="createDboRas_JobsBGResponse/createDboRas_JobsBGOutput/DboRas_Jobs/created_by"/>
+            <output path="saveJobsResponse/output/createdBy"/>
+        </move>
+    </mappingDeclaration>
+</mappingRoot>

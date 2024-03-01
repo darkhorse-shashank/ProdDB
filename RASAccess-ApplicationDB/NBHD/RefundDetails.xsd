@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	attributeFormDefault="unqualified" elementFormDefault="qualified"
+	targetNamespace="http://NBHD" xmlns:tns="http://NBHD">
+	<xs:complexType name="RefundDetails">
+		<xs:annotation>
+			<xs:documentation>
+				Author: Chanda Khandelwal&lt;div&gt;Created on:
+				27-May&lt;/div&gt;&lt;div&gt;&lt;br
+				/&gt;&lt;/div&gt;&lt;div&gt;This is used for service
+				exposed to RAS for reverse feed&lt;/div&gt;
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element maxOccurs="1" minOccurs="1"
+				name="sourceSystemProposaNumber" nillable="false" type="xs:string" />
+			<xs:element maxOccurs="1" minOccurs="1" name="receiptNumber"
+				nillable="false" type="xs:string" />
+			<xs:element maxOccurs="1" minOccurs="1"
+				name="rasUniqueReferenceId" nillable="false" type="xs:string" />
+			<xs:element maxOccurs="1" minOccurs="1" name="receiptStatus"
+				nillable="false" type="xs:string" />
+			<xs:element maxOccurs="1" minOccurs="0" name="remarks"
+				nillable="false" type="xs:string" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://RASAccess-ApplicationDB/RASHealthIntegrationData">
+	<xsd:complexType name="ExcessRefundDraftAccountBO">
+		<xsd:sequence>
+			<xsd:element minOccurs="0" name="beneficiaryBank"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="beneficiaryIFSCCode"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="beneficiaryAccountNumber"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="addressLine1"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="addressLine2"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="addressLine3"
+				type="xsd:string">
+			</xsd:element>
+			<xsd:element minOccurs="0" name="area" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="city" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="state" type="xsd:string"></xsd:element>
+			<xsd:element minOccurs="0" name="pincode"
+				type="xsd:string">
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

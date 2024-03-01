@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="RASGCIntegrationServiceExport1_RASGCIntegrationServiceHttp_Service" targetNamespace="http://RASAccess-ApplicationDB/RASGCIntegrationService" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:this="http://RASAccess-ApplicationDB/RASGCIntegrationService">
+  <wsdl:import location="RASGCIntegrationService.wsdl" namespace="http://RASAccess-ApplicationDB/RASGCIntegrationService"/>
+  <wsdl:binding name="RASGCIntegrationServiceExport1_RASGCIntegrationServiceHttpBinding" type="this:RASGCIntegrationService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="createNegativeEndorsementDraftTicket">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createNegativeEndorsementDraftTicketRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createNegativeEndorsementDraftTicketResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findNegativeEndorsementDraftTicketDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findNegativeEndorsementDraftTicketDetailsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findNegativeEndorsementDraftTicketDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="findNegativeEndorsementDraftTicketDetailsFault">
+        <soap:fault name="findNegativeEndorsementDraftTicketDetailsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="findNegativeEndorsementDraftDocumentDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findNegativeEndorsementDraftDocumentDetailsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findNegativeEndorsementDraftDocumentDetailsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="findNegativeEndorsementDraftDocumentDetailsFault">
+        <soap:fault name="findNegativeEndorsementDraftDocumentDetailsFault" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="saveNegativeEndorsementDraftErrorDetails">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="saveNegativeEndorsementDraftErrorDetailsRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RASGCIntegrationServiceExport1_RASGCIntegrationServiceHttpService">
+    <wsdl:port binding="this:RASGCIntegrationServiceExport1_RASGCIntegrationServiceHttpBinding" name="RASGCIntegrationServiceExport1_RASGCIntegrationServiceHttpPort">
+      <soap:address location="http://localhost:9080/RASAccess-ApplicationDBWeb/sca/RASGCIntegrationServiceExport1"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

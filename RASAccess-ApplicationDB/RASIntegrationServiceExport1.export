@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:export xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://www.ibm.com/xmlns/prod/websphere/scdl/jaxws/6.0.0" xmlns:ns1="http://RASAccess-ApplicationDB/RASIntegrationService" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="RASIntegrationServiceExport1" name="RASIntegrationServiceExport1" target="RASIntegrationServiceCmpt">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:RASIntegrationService"/>
+  </interfaces>
+  <esbBinding xsi:type="jaxws:JaxWsExportBinding" port="ns1:RASIntegrationServiceExport1_RASIntegrationServiceHttpPort" service="ns1:RASIntegrationServiceExport1_RASIntegrationServiceHttpService"/>
+</scdl:export>

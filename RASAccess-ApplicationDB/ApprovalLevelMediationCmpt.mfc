@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mediationFlow xmlns="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlow" xmlns:XMLSchema="http://www.w3.org/2001/XMLSchema" xmlns:mfcex="http://www.ibm.com/xmlns/prod/websphere/2010/MediationFlowExtension" xmlns:ns1="http://TicketDomain-v1.0.0/MaintainApprovalLevel" xmlns:ns3="http://Access-ApplicationDB/DBInterface" name="ApprovalLevelMediationCmpt" targetNamespace="http://Access-ApplicationDB/ApprovalLevelMediationCmpt">
+  <import location="MaintainApprovalLevel.wsdl" namespace="http://TicketDomain-v1.0.0/MaintainApprovalLevel"/>
+  <import location="DBInterface.wsdl" namespace="http://Access-ApplicationDB/DBInterface"/>
+  <promotedProperty name="SaveLevelErrorLog.enabled" group="Access-ApplicationDB.ApprovalLevelMediationCmpt" value="true"/>
+  <promotedProperty name="SaveLevelErrorLog.file1" group="RASAccess-ApplicationDB.ApprovalLevelMediationCmpt" value="F:\Sasidhar\IID Logs\logs.txt"/>
+  <promotedProperty name="GetLevelsErrorLog.enabled" group="Access-ApplicationDB.ApprovalLevelMediationCmpt" value="true"/>
+  <promotedProperty name="GetLevelsErrorLog.file" group="Access-ApplicationDB.ApprovalLevelMediationCmpt" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+  <reference name="DBInterfacePartner" portType="ns3:DBInterface"/>
+  <interface portType="ns1:MaintainApprovalLevel">
+    <operation name="saveLevel">
+      <requestFlow mfcex:showInputResponse="false" mfcex:showInputFault="false">
+        <node displayName="saveLevel : MaintainApprovalLevel" name="MaintainApprovalLevel_saveLevel_Input" type="Input">
+          <outputTerminal type="ns1:saveLevelRequestMsg">
+            <wire targetNode="input_map"/>
+          </outputTerminal>
+        </node>
+        <node displayName="batchcreateDboRas_ApproverBG : DBInterfacePartner" name="DBInterfacePartner_batchcreateDboRas_ApproverBG_Callout" type="Callout">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="batchcreateDboRas_ApproverBG"/>
+          <inputTerminal type="ns3:batchcreateDboRas_ApproverBGRequestMsg"/>
+        </node>
+        <node name="input_map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/saveLevel_InputMap.xsl"/>
+          <property name="XMXMap" value="xslt/saveLevel_InputMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:saveLevelRequestMsg"/>
+          <outputTerminal type="ns3:batchcreateDboRas_ApproverBGRequestMsg">
+            <wire targetNode="DBInterfacePartner_batchcreateDboRas_ApproverBG_Callout"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <responseFlow>
+        <node displayName="batchcreateDboRas_ApproverBG : DBInterfacePartner" name="DBInterfacePartner_batchcreateDboRas_ApproverBG_CalloutResponse" type="CalloutResponse">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="batchcreateDboRas_ApproverBG"/>
+          <outputTerminal type="ns3:batchcreateDboRas_ApproverBGResponseMsg">
+            <wire targetNode="output_map"/>
+          </outputTerminal>
+          <failTerminal type="ns3:batchcreateDboRas_ApproverBGRequestMsg"/>
+        </node>
+        <node displayName="saveLevel : MaintainApprovalLevel" name="MaintainApprovalLevel_saveLevel_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:saveLevelResponseMsg"/>
+        </node>
+        <node displayName="saveLevel : MaintainApprovalLevel" name="MaintainApprovalLevel_saveLevel_InputFault" type="InputFault">
+          <inputTerminal name="saveLevel_RASExceptionMsg" type="ns1:saveLevel_RASExceptionMsg"/>
+        </node>
+        <node name="output_map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/saveLevel_OutputMap.xsl"/>
+          <property name="XMXMap" value="xslt/saveLevel_OutputMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns3:batchcreateDboRas_ApproverBGResponseMsg"/>
+          <outputTerminal type="ns1:saveLevelResponseMsg">
+            <wire targetNode="MaintainApprovalLevel_saveLevel_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </responseFlow>
+      <errorFlow>
+        <node displayName="saveLevel : MaintainApprovalLevel" name="MaintainApprovalLevel_saveLevel_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+        </node>
+        <node displayName="saveLevel : MaintainApprovalLevel" name="MaintainApprovalLevel_saveLevel_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:saveLevelResponseMsg"/>
+        </node>
+        <node displayName="saveLevel : MaintainApprovalLevel" name="MaintainApprovalLevel_saveLevel_InputFault" type="InputFault">
+          <inputTerminal name="saveLevel_RASExceptionMsg" type="ns1:saveLevel_RASExceptionMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/saveLevel_ErrorMap.xsl"/>
+          <property name="XMXMap" value="xslt/saveLevel_ErrorMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:saveLevel_RASExceptionMsg">
+            <wire targetNode="SaveLevelErrorLog"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="SaveLevelErrorLog" type="Trace">
+          <property name="enabled" promotedPropertyGroup="Access-ApplicationDB.ApprovalLevelMediationCmpt" promotedPropertyName="SaveLevelErrorLog.enabled"/>
+          <property name="destination" value="2"/>
+          <property name="file" promotedPropertyGroup="RASAccess-ApplicationDB.ApprovalLevelMediationCmpt" promotedPropertyName="SaveLevelErrorLog.file1" value="F:\Sasidhar\IID Logs\logs.txt"/>
+          <inputTerminal/>
+          <outputTerminal>
+            <wire targetNode="MaintainApprovalLevel_saveLevel_InputFault" targetTerminal="saveLevel_RASExceptionMsg"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </errorFlow>
+    </operation>
+    <operation name="updateLevel">
+      <requestFlow mfcex:showInputResponse="false" mfcex:showInputFault="false">
+        <node displayName="updateLevel : MaintainApprovalLevel" name="MaintainApprovalLevel_updateLevel_Input" type="Input">
+          <outputTerminal type="ns1:updateLevelRequestMsg">
+            <wire targetNode="input_map"/>
+          </outputTerminal>
+        </node>
+        <node displayName="updateallDboRas_ApproverBG : DBInterfacePartner" name="DBInterfacePartner_updateallDboRas_ApproverBG_Callout" type="Callout">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="updateallDboRas_ApproverBG"/>
+          <inputTerminal type="ns3:updateallDboRas_ApproverBGRequestMsg"/>
+        </node>
+        <node name="input_map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/updateLevel_InputMap.xsl"/>
+          <property name="XMXMap" value="xslt/updateLevel_InputMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:updateLevelRequestMsg"/>
+          <outputTerminal type="ns3:updateallDboRas_ApproverBGRequestMsg">
+            <wire targetNode="DBInterfacePartner_updateallDboRas_ApproverBG_Callout"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <responseFlow>
+        <node displayName="updateallDboRas_ApproverBG : DBInterfacePartner" name="DBInterfacePartner_updateallDboRas_ApproverBG_CalloutResponse" type="CalloutResponse">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="updateallDboRas_ApproverBG"/>
+          <outputTerminal type="ns3:updateallDboRas_ApproverBGResponseMsg">
+            <wire targetNode="output_map"/>
+          </outputTerminal>
+          <failTerminal type="ns3:updateallDboRas_ApproverBGRequestMsg"/>
+        </node>
+        <node displayName="updateallDboRas_ApproverBG : DBInterfacePartner" name="DBInterfacePartner_updateallDboRas_ApproverBG_CalloutFault" type="CalloutFault">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="updateallDboRas_ApproverBG"/>
+          <outputTerminal name="updateallDboRas_ApproverBGUniqueConstraintFaultMsg" type="ns3:updateallDboRas_ApproverBGUniqueConstraintFaultMsg"/>
+          <outputTerminal name="updateallDboRas_ApproverBGIntegrityConstraintFaultMsg" type="ns3:updateallDboRas_ApproverBGIntegrityConstraintFaultMsg"/>
+          <outputTerminal name="updateallDboRas_ApproverBGMissingDataFaultMsg" type="ns3:updateallDboRas_ApproverBGMissingDataFaultMsg"/>
+          <outputTerminal name="updateallDboRas_ApproverBGRecordNotFoundFaultMsg" type="ns3:updateallDboRas_ApproverBGRecordNotFoundFaultMsg"/>
+        </node>
+        <node displayName="updateLevel : MaintainApprovalLevel" name="MaintainApprovalLevel_updateLevel_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:updateLevelResponseMsg"/>
+        </node>
+        <node displayName="updateLevel : MaintainApprovalLevel" name="MaintainApprovalLevel_updateLevel_InputFault" type="InputFault">
+          <inputTerminal name="updateLevel_RASExceptionMsg" type="ns1:updateLevel_RASExceptionMsg"/>
+        </node>
+        <node name="output_map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/updateLevel_OutputMap.xsl"/>
+          <property name="XMXMap" value="xslt/updateLevel_OutputMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns3:updateallDboRas_ApproverBGResponseMsg"/>
+          <outputTerminal type="ns1:updateLevelResponseMsg">
+            <wire targetNode="MaintainApprovalLevel_updateLevel_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </responseFlow>
+      <errorFlow>
+        <node displayName="updateLevel : MaintainApprovalLevel" name="MaintainApprovalLevel_updateLevel_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+        </node>
+        <node displayName="updateLevel : MaintainApprovalLevel" name="MaintainApprovalLevel_updateLevel_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:updateLevelResponseMsg"/>
+        </node>
+        <node displayName="updateLevel : MaintainApprovalLevel" name="MaintainApprovalLevel_updateLevel_InputFault" type="InputFault">
+          <inputTerminal name="updateLevel_RASExceptionMsg" type="ns1:updateLevel_RASExceptionMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/updateLevel_ErrorMap.xsl"/>
+          <property name="XMXMap" value="xslt/updateLevel_ErrorMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:updateLevel_RASExceptionMsg">
+            <wire targetNode="MaintainApprovalLevel_updateLevel_InputFault" targetTerminal="updateLevel_RASExceptionMsg"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </errorFlow>
+    </operation>
+    <operation name="getLevels">
+      <requestFlow mfcex:showInputResponse="false" mfcex:showInputFault="false">
+        <node displayName="getLevels : MaintainApprovalLevel" name="MaintainApprovalLevel_getLevels_Input" type="Input">
+          <outputTerminal type="ns1:getLevelsRequestMsg">
+            <wire targetNode="input_map"/>
+          </outputTerminal>
+        </node>
+        <node displayName="retrieveallDboRas_ApproverBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallDboRas_ApproverBG_Callout" type="Callout">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallDboRas_ApproverBG"/>
+          <inputTerminal type="ns3:retrieveallDboRas_ApproverBGRequestMsg"/>
+        </node>
+        <node name="input_map" type="XSLTransformation">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/getLevels_input_map_req_1.xsl"/>
+          <property name="XMXMap" value="xslt/getLevels_input_map_req_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns1:getLevelsRequestMsg"/>
+          <outputTerminal type="ns3:retrieveallDboRas_ApproverBGRequestMsg">
+            <wire targetNode="DBInterfacePartner_retrieveallDboRas_ApproverBG_Callout"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </requestFlow>
+      <responseFlow mfcex:autoLayout="false">
+        <node displayName="retrieveallDboRas_ApproverBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallDboRas_ApproverBG_CalloutResponse" type="CalloutResponse" mfcex:x="10" mfcex:y="54">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallDboRas_ApproverBG"/>
+          <outputTerminal type="ns3:retrieveallDboRas_ApproverBGResponseMsg">
+            <wire targetNode="output_map"/>
+          </outputTerminal>
+          <failTerminal type="ns3:retrieveallDboRas_ApproverBGRequestMsg"/>
+        </node>
+        <node displayName="retrieveallDboRas_ApproverBG : DBInterfacePartner" name="DBInterfacePartner_retrieveallDboRas_ApproverBG_CalloutFault" type="CalloutFault" mfcex:x="10" mfcex:y="141">
+          <property name="referenceName" value="DBInterfacePartner"/>
+          <property name="operationName" value="retrieveallDboRas_ApproverBG"/>
+          <outputTerminal name="retrieveallDboRas_ApproverBGMatchesExceededLimitFaultMsg" type="ns3:retrieveallDboRas_ApproverBGMatchesExceededLimitFaultMsg"/>
+          <outputTerminal name="retrieveallDboRas_ApproverBGRecordNotFoundFaultMsg" type="ns3:retrieveallDboRas_ApproverBGRecordNotFoundFaultMsg"/>
+        </node>
+        <node displayName="getLevels : MaintainApprovalLevel" name="MaintainApprovalLevel_getLevels_InputResponse" type="InputResponse" mfcex:x="400" mfcex:y="54">
+          <inputTerminal type="ns1:getLevelsResponseMsg"/>
+        </node>
+        <node name="output_map" type="XSLTransformation" mfcex:x="290" mfcex:y="20">
+          <property name="root" value="/body"/>
+          <property name="XSLTransform" value="xslt/getLevels_output_map_res_1.xsl"/>
+          <property name="XMXMap" value="xslt/getLevels_output_map_res_1.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="ns3:retrieveallDboRas_ApproverBGResponseMsg"/>
+          <outputTerminal type="ns1:getLevelsResponseMsg">
+            <wire targetNode="MaintainApprovalLevel_getLevels_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node displayName="getLevels : MaintainApprovalLevel" name="MaintainApprovalLevel_getLevels_InputFault" type="InputFault" mfcex:x="400" mfcex:y="141">
+          <inputTerminal name="getLevels_RASExceptionMsg" type="ns1:getLevels_RASExceptionMsg"/>
+        </node>
+      </responseFlow>
+      <errorFlow>
+        <node displayName="getLevels : MaintainApprovalLevel" name="MaintainApprovalLevel_getLevels_ErrorInput" type="ErrorInput">
+          <outputTerminal name="catchAll" type="XMLSchema:anyType">
+            <wire targetNode="Mapping"/>
+          </outputTerminal>
+        </node>
+        <node displayName="getLevels : MaintainApprovalLevel" name="MaintainApprovalLevel_getLevels_InputResponse" type="InputResponse">
+          <inputTerminal type="ns1:getLevelsResponseMsg"/>
+        </node>
+        <node displayName="getLevels : MaintainApprovalLevel" name="MaintainApprovalLevel_getLevels_InputFault" type="InputFault">
+          <inputTerminal name="getLevels_RASExceptionMsg" type="ns1:getLevels_RASExceptionMsg"/>
+        </node>
+        <node name="Mapping" type="XSLTransformation">
+          <property name="root" value="/"/>
+          <property name="XSLTransform" value="xslt/getLevels_ErrorMap.xsl"/>
+          <property name="XMXMap" value="xslt/getLevels_ErrorMap.map"/>
+          <property name="SMOVersion" value="SMO61"/>
+          <inputTerminal type="XMLSchema:anyType"/>
+          <outputTerminal type="ns1:getLevelsResponseMsg">
+            <wire targetNode="GetLevelsErrorLog"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+        <node name="GetLevelsErrorLog" type="Trace">
+          <property name="enabled" promotedPropertyGroup="Access-ApplicationDB.ApprovalLevelMediationCmpt" promotedPropertyName="GetLevelsErrorLog.enabled"/>
+          <property name="destination" value="2"/>
+          <property name="file" promotedPropertyGroup="Access-ApplicationDB.ApprovalLevelMediationCmpt" promotedPropertyName="GetLevelsErrorLog.file" value="C:\Users\sareddy1\Desktop\RACAS\Logger\log.txt"/>
+          <inputTerminal/>
+          <outputTerminal>
+            <wire targetNode="MaintainApprovalLevel_getLevels_InputResponse"/>
+          </outputTerminal>
+          <failTerminal/>
+        </node>
+      </errorFlow>
+    </operation>
+  </interface>
+</mediationFlow>

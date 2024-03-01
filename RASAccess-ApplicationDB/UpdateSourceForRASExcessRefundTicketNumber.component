@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scdl:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns1="http://RASAccess-ApplicationDB/UpdateDetailsForSource" xmlns:ns2="http://RASAccess-ApplicationDB/RASIntegrationService" xmlns:ns3="http://Access-HealthNbLibrary/PaceRefundIntegrationServices" xmlns:process="http://www.ibm.com/xmlns/prod/websphere/scdl/business-process/6.0.0" xmlns:scdl="http://www.ibm.com/xmlns/prod/websphere/scdl/6.0.0" xmlns:wsdl="http://www.ibm.com/xmlns/prod/websphere/scdl/wsdl/6.0.0" displayName="UpdateSourceForRASExcessRefundTicketNumber" name="UpdateSourceForRASExcessRefundTicketNumber">
+  <interfaces>
+    <interface xsi:type="wsdl:WSDLPortType" preferredInteractionStyle="sync" portType="ns1:UpdateRASTicketNoForSource">
+      <scdl:interfaceQualifier xsi:type="scdl:JoinTransaction" value="true"/>
+    </interface>
+  </interfaces>
+  <references>
+    <reference name="RASIntegrationServicePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns2:RASIntegrationService"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="RASIntegrationServiceCmpt"/>
+    </reference>
+    <reference name="PaceRefundIntegrationServicePartner">
+      <interface xsi:type="wsdl:WSDLPortType" portType="ns3:PaceRefundIntegrationServices"/>
+      <scdl:referenceQualifier xsi:type="scdl:SuspendTransaction" value="false"/>
+      <scdl:referenceQualifier xsi:type="scdl:Reliability"/>
+      <scdl:referenceQualifier xsi:type="scdl:DeliverAsyncAt" value="commit"/>
+      <wire target="PaceRefundIntegrationServicesImport"/>
+    </reference>
+  </references>
+  <implementation xsi:type="process:ProcessImplementation">
+    <scdl:implementationQualifier xsi:type="scdl:Transaction" value="global"/>
+    <process bpel="/UpdateSourceForRASExcessRefundTicketNumber.bpel"/>
+  </implementation>
+</scdl:component>
